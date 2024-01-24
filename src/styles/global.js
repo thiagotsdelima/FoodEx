@@ -20,7 +20,27 @@ font: inherit;
 }
 
 body {
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_100};
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
+  color: ${({ theme }) => theme.COLORS.GRAY_100};
+}
+
+body, button, input, textarea, html {
+  font-family: var(--ff-primary);
+  font-size: 1.6rem;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button, a {
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+button:hover, a:hover {
+  filter: brightness(0.9);
 }
 
 .Poppins-100-medium {

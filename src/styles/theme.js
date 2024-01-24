@@ -1,4 +1,11 @@
 export default {
+
+  fonts: {
+    primary: "'Poppins', sans-serif",
+    secondary: "'Roboto', sans-serif",
+  },
+
+  colors: {
   BACKGROUND_100: "#000405",
   BACKGROUND_200: "#00070A",
   BACKGROUND_300: "#000204",
@@ -29,5 +36,5 @@ export default {
   MINT_100: "#04D361",
   CAKE_200: "#82F3FF",
   CAKE_100: "#065E7C",
-
+  },
 }

@@ -19,8 +19,12 @@ font: inherit;
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_100};
+}
+
 .Poppins-100-medium {
-  font-family: var(--ff--primary);
+  font-family: var(--ff-primary);
   letter-spacing: 0%;
   font-weight: 500; 
   text-decoration: none; 
@@ -31,7 +35,7 @@ font: inherit;
 }
 
 .Poppins-200-medium {
-  font-family: var(--ff--primary);
+  font-family: var(--ff-primary);
   letter-spacing: 0%;
   font-weight: 500;
   text-decoration: none;
@@ -42,7 +46,7 @@ font: inherit;
 }
 
 .Poppins-300-bold {
-  font-family: var(--ff--primary);
+  font-family: var(--ff-primary);
   letter-spacing: 0%;
   font-weight: 700;
   text-decoration: none;
@@ -53,7 +57,7 @@ font: inherit;
 } 
 
 .Poppins-300-regular {
-  font-family: var(--ff--primary);
+  font-family: var(--ff-primary);
   letter-spacing: 0%;
   font-weight: 400;
   text-decoration: none;
@@ -64,7 +68,7 @@ font: inherit;
 }
 
 .Poppins-400-medium {
-  font-family: var(--ff--primary);
+  font-family: var(--ff-primary);
   letter-spacing: 0%;
   font-weight: 500; 
   text-decoration: none; 
@@ -75,7 +79,7 @@ font: inherit;
 }
 
 .Poppins-500-medium {
-  font-family: var(--ff--primary);
+  font-family: var(--ff-primary);
   letter-spacing: 0%;
   font-weight: 500; 
   text-decoration: none; 
@@ -86,7 +90,7 @@ font: inherit;
 }
 
 .Roboto-Smallest-100-regular {
-  font-family: var(--ff--secondary);
+  font-family: var(--ff-secondary);
   letter-spacing: 0%;
   font-weight: 400; 
   text-decoration: none; 
@@ -98,7 +102,7 @@ font: inherit;
 }
 
 .Roboto-Smallest-200-regular {
-  font-family: var(--ff--secondary);
+  font-family: var(--ff-secondary);
   letter-spacing: 0%;
   font-weight: 400; 
   text-decoration: none; 
@@ -109,7 +113,7 @@ font: inherit;
 }
 
 .Roboto-Smaller-bold {
-  font-family: var(--ff--secondary);
+  font-family: var(--ff-secondary);
   letter-spacing: 0%;
   font-weight: 700; 
   text-decoration: none; 
@@ -120,7 +124,7 @@ font: inherit;
 }
 
 .Roboto-Small-spaced {
-  font-family: var(--ff--secondary);
+  font-family: var(--ff-secondary);
   letter-spacing: 0%;
   font-weight: 400; 
   text-decoration: none; 
@@ -132,7 +136,7 @@ font: inherit;
 }
 
 .Roboto-Small-regular {
-  font-family: var(--ff--secondary);
+  font-family: var(--ff-secondary);
   letter-spacing: 0%;
   font-weight: 400; 
   text-decoration: none; 
@@ -143,7 +147,7 @@ font: inherit;
 }
 
 .Roboto-Big-bold {
-  font-family: var(--ff--secondary);
+  font-family: var(--ff-secondary);
   letter-spacing: 0%;
   font-weight: 700; 
   text-decoration: none; 
@@ -154,7 +158,7 @@ font: inherit;
 }
 
 .Roboto-Bigger-bold {
-  font-family: var(--ff--secondary);
+  font-family: var(--ff-secondary);
   letter-spacing: 0%;
   font-weight: 700; 
   text-decoration: none; 
@@ -165,7 +169,7 @@ font: inherit;
 }
 
 .Roboto-Biggest-regular {
-  font-family: var(--ff--secondary);
+  font-family: var(--ff-secondary);
   letter-spacing: 0%;
   font-weight: 400; 
   text-decoration: none; 
@@ -177,7 +181,7 @@ font: inherit;
 }
 
 .Roboto-Giant-bold {
-  font-family: var(--ff--secondary);
+  font-family: var(--ff-secondary);
   letter-spacing: 0%;
   font-weight: 700; 
   text-decoration: none; 

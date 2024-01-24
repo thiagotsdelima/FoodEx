@@ -1,11 +1,11 @@
 export default {
 
-  fonts: {
+  FONTS: {
     primary: "'Poppins', sans-serif",
     secondary: "'Roboto', sans-serif",
   },
 
-  colors: {
+  COLORS: {
   BACKGROUND_100: "#000405",
   BACKGROUND_200: "#00070A",
   BACKGROUND_300: "#000204",

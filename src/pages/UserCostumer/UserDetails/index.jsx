@@ -1,9 +1,9 @@
 import { Container } from './styles';
-import { Button } from '../../components/Button';
-export function Details() {
+import { Button } from '../../../components/Button';
+export function UserDetails() {
 return (
   <Container>
-  <h1>helor word</h1>
+  
   <Button title="Entra"/>
   </Container>
 )

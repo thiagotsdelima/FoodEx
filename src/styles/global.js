@@ -17,7 +17,6 @@ font: inherit;
   --ff-secondary: 'Roboto', sans-serif;
   font-size: 62.5%; /* 10px */
   scroll-behavior: smooth;
-  max-width: 1200px;
 }
 
 body {

@@ -27,149 +27,146 @@ export default {
     },
     
     Poppins300Bold: {
-      font-family: var(--ff-primary);
-      letter-spacing: 0%;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 24px;
-      margin-bottom: 0px;
-      line-height: 140%;
-      text-transform: none;
+      fontFamily: 'var(--ff-primary)',
+      letterSpacing: '0%',
+      fontWeight: 700,
+      textDecoration: 'none',
+      fontSize: '2.4rem',
+      marginBottom: '0rem',
+      lineHeight: '140%',
+      textTransform: 'none',
     },
     
     Poppins300Regular: {
-      font-family: var(--ff-primary);
-      letter-spacing: 0%;
-      font-weight: 400;
-      text-decoration: none;
-      font-size: 24px;
-      margin-bottom: 0px;
-      line-height: 140%;
-      text-transform: none;
+      fontFamily: 'var(--ff-primary)',
+      letterSpacing: '0%',
+      fontWeight: 400,
+      textDecoration: 'none',
+      fontSize: '2.4rem',
+      marginBottom: '0rem',
+      lineHeight: '140%',
+      textTransform: 'none',
     },
     
     Poppins400Medium: {
-      font-family: var(--ff-primary);
-      letter-spacing: 0%;
-      font-weight: 500; 
-      text-decoration: none; 
-      font-size: 32px;
-      margin-bottom: 0px; 
-      line-height: 140%;
-      text-transform: none;
+      fontFamily: 'var(--ff-primary)',
+      letterSpacing: '0%',
+      fontWeight: 500, 
+      textDecoration: 'none',
+      fontSize: '3.2rem',
+      marginBottom: '0rem',
+      lineHeight: '140%',
+      textTransform: 'none',
     },
     
-    .Poppins-500-medium {
-      font-family: var(--ff-primary);
-      letter-spacing: 0%;
-      font-weight: 500; 
-      text-decoration: none; 
-      font-size: 40px;
-      margin-bottom: 0px; 
-      line-height: 140%;
-      text-transform: none;
+    Poppins500Medium: {
+      fontFamily: 'var(--ff-primary)',
+      letterSpacing: '0%',
+      fontWeight: 500, 
+      textDecoration: 'none', 
+      fontSize: '4rem',
+      marginBottom: '0rem', 
+      lineHeight: '140%',
+      textTransform: 'none',
     },
     
-    .Roboto-Smallest-100-regular {
-      font-family: var(--ff-secondary);
-      letter-spacing: 0%;
-      font-weight: 400; 
-      text-decoration: none; 
-      font-size: 12px;
-      margin-bottom: 0px; 
-      line-height: 160%;
-      text-transform: none;
-    
+    RobotoSmallest100Regular: {
+      fontFamily: 'var(--ff-secondary)',
+      letterSpacing: '0%',
+      fontWeight: 400, 
+      textDecoration: 'none',
+      fontSize: '1.2rem',
+      marginBottom: '0rem', 
+      lineHeight: '160%',
+      textTransform: 'none',
     },
     
-    .Roboto-Smallest-200-regular {
-      font-family: var(--ff-secondary);
-      letter-spacing: 0%;
-      font-weight: 400; 
-      text-decoration: none; 
-      font-size: 14px;
-      margin-bottom: 0px; 
-      line-height: 160%;
-      text-transform: none;
+    RobotoSmallest200Regular: {
+      fontFamily: 'var(--ff-secondary)',
+      letterSpacing: '0%',
+      fontWeight: 400, 
+      textDecoration: 'none',
+      fontSize: '1.4rem',
+      marginBottom: '0rem', 
+      lineHeight: '160%',
+      textTransform: 'none',
     },
     
-    .Roboto-Smaller-bold {
-      font-family: var(--ff-secondary);
-      letter-spacing: 0%;
-      font-weight: 700; 
-      text-decoration: none; 
-      font-size: 14px;
-      margin-bottom: 0px; 
-      line-height: 160%;
-      text-transform: none;
+    RobotoSmallerBold: {
+      fontFamily: 'var(--ff-secondary)',
+      letterSpacing: '0%',
+      fontWeight: 700, 
+      textDecoration: 'none', 
+      fontSize: '1.4rem',
+      marginBottom: '0rem', 
+      lineHeight: '160%',
+      textTransform: 'none',
     },
     
-    .Roboto-Small-spaced {
-      font-family: var(--ff-secondary);
-      letter-spacing: 0%;
-      font-weight: 400; 
-      text-decoration: none; 
-      font-size: 16px;
-      margin-bottom: 0px; 
-      line-height: 160%;
-      text-transform: none;
-    
+    RobotoSmallSpaced: {
+      fontFamily: 'var(--ff-secondary)',
+      letterSpacing: '0%',
+      fontWeight: 400, 
+      textDecoration: 'none',
+      fontSize: '1.6rem',
+      marginBottom: '0rem', 
+      lineHeight: '160%',
+      textTransform: 'none',
     },
     
-    .Roboto-Small-regular {
-      font-family: var(--ff-secondary);
-      letter-spacing: 0%;
-      font-weight: 400; 
-      text-decoration: none; 
-      font-size: 16px;
-      margin-bottom: 0px; 
-      line-height: 100%;
-      text-transform: none;
+    RobotoSmallRegular: {
+      fontFamily: 'var(--ff-secondary)',
+      letterSpacing: '0%',
+      fontWeight: 400, 
+      textDecoration: 'none',
+      fontSize: '1.6rem',
+      marginBottom: '0rem', 
+      lineHeight: '100%',
+      textTransform: 'none',
     },
     
-    .Roboto-Big-bold {
-      font-family: var(--ff-secondary);
-      letter-spacing: 0%;
-      font-weight: 700; 
-      text-decoration: none; 
-      font-size: 20px;
-      margin-bottom: 0px; 
-      line-height: 160%;
-      text-transform: none;
+    RobotoBigBold: {
+      fontFamily: 'var(--ff-secondary)',
+      letterSpacing: '0%',
+      fontWeight: 700, 
+      textDecoration: 'none', 
+      fontSize: '2rem',
+      marginBottom: '0rem', 
+      lineHeight: '160%',
+      textTransform: 'none',
     },
     
-    .Roboto-Bigger-bold {
-      font-family: var(--ff-secondary);
-      letter-spacing: 0%;
-      font-weight: 700; 
-      text-decoration: none; 
-      font-size: 24px;
-      margin-bottom: 0px; 
-      line-height: Automatic;
-      text-transform: none;
+    RobotoBiggerBold: {
+      fontFamily: 'var(--ff-secondary)',
+      letterSpacing: '0%',
+      fontWeight: 700, 
+      textDecoration: 'none', 
+      fontSize: '2.4rem',
+      marginBottom: '0rem',
+      lineHeight: 'Automatic',
+      textTransform: 'none',
     },
     
-    .Roboto-Biggest-regular {
-      font-family: var(--ff-secondary);
-      letter-spacing: 0%;
-      font-weight: 400; 
-      text-decoration: none; 
-      font-size: 32px;
-      margin-bottom: 0px; 
-      line-height: 160%;
-      text-transform: none;
-    
+    RobotoBiggestRegular: {
+      fontFamily: 'var(--ff-secondary)',
+      letterSpacing: '0%',
+      fontWeight: 400, 
+      textDecoration: 'none',
+      fontSize: '3.2rem',
+      marginBottom: '0rem',
+      lineHeight: '160%',
+      textTransform: 'none',
     },
     
-    .Roboto-Giant-bold {
-      font-family: var(--ff-secondary);
-      letter-spacing: 0%;
-      font-weight: 700; 
-      text-decoration: none; 
-      font-size: 42px;
-      margin-bottom: 0px; 
-      line-height: Automatic;
-      text-transform: none;
+    RobotoGiantBold: {
+      fontFamily: 'var(--ff-secondary)',
+      letterSpacing: '0%',
+      fontWeight: 700, 
+      textDecoration: 'none', 
+      fontSize: '4.2rem',
+      marginBottom: '0rem', 
+      lineHeight: 'Automatic',
+      textTransform: 'none',
     }
   },
 

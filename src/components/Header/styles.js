@@ -9,24 +9,6 @@ display:flex;
 justify-content: space-between;
 padding: 0 11.3rem;
 
-.searchContainer {
-  display: flex;
-  align-items: center;
-}
-
-@media (min-width: 768px) { 
-  .MobileIcon, .MobileStar {
-    display: none;
-  }
-}
-
-
-@media (max-width: 767px) {
-  .MobileIcon, .MobileStar {
-    display: block; 
-  }
-}
-
 @media (min-width: 768px) {
     padding: 0 2rem; 
     height: auto; 
@@ -47,22 +29,43 @@ Input {
 export const Profile = styled.div`
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 1.1rem;
 
   img {
-    width: 64px;
-    height: 64px;
+    width: 6.4rem;
+    height: 6.4rem;
   }
 
   div {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    line-height: 18px;
+    line-height: 1.8rem;
 
     button {
-      font-size: 14px;
+      font-size: 1.4rem;
       font-weight: 400;
       color: ${({ theme }) => theme.COLORS.TOMATO_100};
     }
   }`;
+
+export const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const MobileIcon = styled.div`
+  display: none; 
+
+  @media (max-width: 767px) {
+    display: block; 
+  }
+`;
+
+export const MobileStar = styled.div`
+  display: none; 
+
+  @media (max-width: 767px) {
+    display: block; 
+  }
+`;

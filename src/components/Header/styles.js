@@ -5,9 +5,14 @@ grid-area: header;
 height: 10.5rem;
 width: 100%;
 background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
-display:flex;
-justify-content: space-between;
+
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+
 padding: 0 11.3rem;
+
+
 
 @media (max-width: 768px) {
     padding: 0 2rem; 
@@ -48,12 +53,6 @@ export const Profile = styled.div`
       color: ${({ theme }) => theme.COLORS.TOMATO_100};
     }
   }`;
-
-export const SearchContainer = styled.div`
-  input {
-   
-  }
-`;
 
 export const MobileIcon = styled.div`
   display: none; 

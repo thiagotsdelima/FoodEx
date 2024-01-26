@@ -2,6 +2,7 @@ import { Container } from "./styles"
 
 
 export function Input({ icon: Icon, ...rest }) {
+
   return(
     <Container id="inputs">
       {Icon && <Icon size={20} />}

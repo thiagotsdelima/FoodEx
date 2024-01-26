@@ -1,8 +1,7 @@
-import { Container, Profile, SearchContainer, MobileIcon, MobileStar } from './styles';
+import { Container, Profile, MobileIcon, MobileStar } from './styles';
 import { Link } from 'react-router-dom';
 import { Input } from '../Input';
 import { Button } from '../Button';
-import { FaSearch } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa";
 import { PiReceiptThin } from "react-icons/pi";
@@ -25,14 +24,14 @@ export function Header({ onChange }) {
         </MobileStar>
       </Link>
 
-      <SearchContainer> 
-      <FaSearch />
+       
+      
         <Input
-          type="text"
-          placeholder="Busque por pratos ou ingredientes"
-          onChange={onChange}
+        type="text"
+        placeholder="Busque por pratos ou ingredientes" 
+        onChange={onChange}
         />
-      </SearchContainer>
+      
       
       <Profile>
         <div>

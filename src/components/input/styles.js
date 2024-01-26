@@ -1,29 +1,23 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 63rem;
-  background-color: ${({ theme }) => theme.COLORS.BACKDROUND_400};
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
+  width: 100vh;
+  
 
   > input {
-    height: 5.6rem;
+    border-radius: 0.5rem;
+    height: 5rem;
     width: 100%;
-    padding: 0 1.2rem;
-    color: ${({ theme }) => theme.COLORS.GRAY_500}; 
-    background: transparent;
+    padding: 0 13.2rem;
+    color: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
     &::placeholder { 
-      font-size: 1.4rem;
-      font-weight: 400;
+      color: ${({ theme }) => theme.FONTS.RobotoSmallRegular}; 
+      
       color: ${({ theme }) => theme.COLORS.GRAY_400}; 
     }
   }
 
-  svg {
-    margin-left: 2rem;
-    background: transparent;
-    color: ${({ theme }) => theme.FONTS.Poppins100Medium}; 
-  }
+  
 `;

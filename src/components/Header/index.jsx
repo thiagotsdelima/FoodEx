@@ -1,7 +1,7 @@
 import { Container, Profile, SearchContainer, MobileIcon, MobileStar } from './styles';
 import { Link } from 'react-router-dom';
-import { Input } from '../../components/Input';
-import { Button } from '../../components/Button';
+import { Input } from '../Input';
+import { Button } from '../Button';
 import { FaSearch } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa";

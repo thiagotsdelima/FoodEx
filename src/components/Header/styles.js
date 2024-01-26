@@ -9,14 +9,14 @@ display:flex;
 justify-content: space-between;
 padding: 0 11.3rem;
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     padding: 0 2rem; 
     height: auto; 
 Input {
     display: none;
 }
   }
-@media (min-width: 370px) {
+@media (max-width: 370px) {
 grid-area: header;
 height: 11.4rem;
 width: 100%;
@@ -50,8 +50,9 @@ export const Profile = styled.div`
   }`;
 
 export const SearchContainer = styled.div`
-  display: flex;
-  align-items: center;
+  input {
+   
+  }
 `;
 
 export const MobileIcon = styled.div`

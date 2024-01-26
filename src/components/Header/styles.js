@@ -42,16 +42,17 @@ Input {
 export const Profile = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 2.8rem;
 
   a {
     display: flex;
     align-items: center;
-    font-size: 3.8rem;
+    font-size: 3.2rem;
     color: ${({ theme }) => theme.COLORS.GRAY_100};
    }
 
     button {
+      margin-left: 0.8rem;
       height: 5.6rem;
       width: 21.6rem;
       color: ${({ theme }) => theme.COLORS.TOMATO_100};
@@ -81,7 +82,7 @@ export const MobileStar = styled.div`
   }
   `;
 
-export const Search = styled.div`
+export const Found = styled.div`
 display: flex;
 align-items: center; 
 
@@ -90,10 +91,13 @@ a {
   display: flex;
   align-items: center; 
   color: ${({ theme }) => theme.COLORS.GRAY_100};
+  gap: 2rem;
 }
   img {
-    width: 40px; 
-   
+    
+    height: 3rem;
+    width: 3rem;
+    
   }
 
   h1 {

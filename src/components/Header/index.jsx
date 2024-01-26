@@ -1,4 +1,4 @@
-import { Container, Profile, MobileIcon, MobileStar, Search } from './styles';
+import { Container, Profile, MobileIcon, MobileStar, Found } from './styles';
 import { Link } from 'react-router-dom';
 import { Input } from '../Input';
 import { Button } from '../Button';
@@ -15,12 +15,12 @@ export function Header({ onChange }) {
           <FaBars />
         </MobileIcon>
         </Link>
-      <Search>
+      <Found>
       <Link to="/">
         <img src="/public/Polygon1.svg" alt="Logo" /> 
-        <h1>FoodExplorer</h1>
+        <h1>food explorer</h1>
       </Link>
-      </Search>
+      </Found>
       <Link>
         <MobileStar>
           <PiReceiptThin />

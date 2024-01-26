@@ -10,20 +10,25 @@ import { PiReceiptThin } from "react-icons/pi";
 export function Header({ onChange }) {
   return (
     <Container>
-       <MobileIcon>
-       <FaBars />
-      </MobileIcon>
+        <Link>
+        <MobileIcon>
+          <FaBars />
+        </MobileIcon>
+        </Link>
       <Link to="/">
         <img src="/public/Polygon1.svg" alt="Logo" /> 
         <h1>FoodExplorer</h1>
       </Link>
-      <MobileStar>
-      <PiReceiptThin />
-      </MobileStar>
+      <Link>
+        <MobileStar>
+          <PiReceiptThin />
+        </MobileStar>
+      </Link>
 
       <SearchContainer> 
       <FaSearch />
         <Input
+          type="text"
           placeholder="Busque por pratos ou ingredientes"
           onChange={onChange}
         />

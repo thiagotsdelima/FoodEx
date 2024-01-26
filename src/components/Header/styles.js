@@ -59,6 +59,10 @@ export const MobileIcon = styled.div`
 
   @media (max-width: 767px) {
     display: block; 
+
+    a:hover, a:focus {
+      
+    }
   }
 `;
 
@@ -67,5 +71,8 @@ export const MobileStar = styled.div`
 
   @media (max-width: 767px) {
     display: block; 
+    a:hover, a:focus {
+     
+    }
   }
-`;
+  `;

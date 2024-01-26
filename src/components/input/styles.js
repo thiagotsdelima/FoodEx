@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.input`
+export const Container = styled.div`
 width: 63rem;
 
 background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
@@ -27,10 +27,10 @@ border-radius: 1rem;
   }
 }
 
-> svg {
+svg {
   margin-left: 20px;
   background: transparent;
-  color: ${({ theme }) => theme.COLORS.FONT_DARK_GRAY};
+  color: ${({ theme }) => theme.FONTS.Poppins100Medium};
 }
 
 `;

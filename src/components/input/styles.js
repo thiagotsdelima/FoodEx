@@ -8,7 +8,7 @@ export const Container = styled.div`
     border-radius: 0.5rem;
     height: 5rem;
     width: 100%;
-    padding: 0 13.2rem;
+    padding: 0 11.2rem;
     color: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 

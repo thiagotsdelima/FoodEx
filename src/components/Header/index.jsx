@@ -1,7 +1,8 @@
-import { Container, Profile, MobileIcon, MobileStar } from './styles';
+import { Container, Profile, MobileIcon, MobileStar, Search } from './styles';
 import { Link } from 'react-router-dom';
 import { Input } from '../Input';
 import { Button } from '../Button';
+import { FaSearch } from 'react-icons/fa';
 import { IoLogOutOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa";
 import { PiReceiptThin } from "react-icons/pi";
@@ -14,10 +15,12 @@ export function Header({ onChange }) {
           <FaBars />
         </MobileIcon>
         </Link>
+      <Search>
       <Link to="/">
         <img src="/public/Polygon1.svg" alt="Logo" /> 
         <h1>FoodExplorer</h1>
       </Link>
+      </Search>
       <Link>
         <MobileStar>
           <PiReceiptThin />
@@ -25,7 +28,7 @@ export function Header({ onChange }) {
       </Link>
 
        
-      
+        <FaSearch className="inputIcon" />
         <Input
         type="text"
         placeholder="Busque por pratos ou ingredientes" 

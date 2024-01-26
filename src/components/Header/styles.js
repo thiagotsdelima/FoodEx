@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
+
 grid-area: header;
 height: 10.5rem;
 width: 100%;
@@ -10,8 +11,15 @@ background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
   justify-content: space-between;
   align-items: center;
 
-padding: 0 11.3rem;
+  padding: 0 5.9rem;
 
+.inputIcon {
+    position: absolute;
+    font-size: 1.8rem;
+    margin-top: 1.9rem;
+    left: 34%; 
+    transform: translate(-50%, -50%);
+  }
 
 
 @media (max-width: 768px) {
@@ -36,23 +44,19 @@ export const Profile = styled.div`
   align-items: center;
   gap: 1.1rem;
 
-  img {
-    width: 6.4rem;
-    height: 6.4rem;
-  }
-
-  div {
+  a {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    line-height: 1.8rem;
+    align-items: center;
+    font-size: 3.8rem;
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+   }
 
     button {
-      font-size: 1.4rem;
-      font-weight: 400;
+      height: 5.6rem;
+      width: 21.6rem;
       color: ${({ theme }) => theme.COLORS.TOMATO_100};
     }
-  }`;
+  `;
 
 export const MobileIcon = styled.div`
   display: none; 
@@ -76,3 +80,25 @@ export const MobileStar = styled.div`
     }
   }
   `;
+
+export const Search = styled.div`
+display: flex;
+align-items: center; 
+
+
+a {
+  display: flex;
+  align-items: center; 
+  color: ${({ theme }) => theme.COLORS.GRAY_100};
+}
+  img {
+    width: 40px; 
+   
+  }
+
+  h1 {
+    
+    color: ${({ theme }) => theme.FONTS.RobotoBiggerBold};
+  }
+
+`;

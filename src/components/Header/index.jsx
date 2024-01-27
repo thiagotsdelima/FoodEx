@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import { FaSearch } from 'react-icons/fa';
-import { IoLogOutOutline } from "react-icons/io5";
+
 import { FaBars } from "react-icons/fa";
-import { PiReceiptThin } from "react-icons/pi";
+
 
 export function Header({ onChange }) {
   return (
@@ -21,12 +21,6 @@ export function Header({ onChange }) {
         <h1>food explorer</h1>
       </Link>
       </Found>
-      <Link>
-        <MobileStar>
-          <PiReceiptThin />
-        </MobileStar>
-      </Link>
-
        
         <FaSearch className="inputIcon" />
         <Input
@@ -38,13 +32,18 @@ export function Header({ onChange }) {
       
       <Profile>
         <div>
-          <Button title="Pedidos" />
+        <Button title="Pedidos (0)">
+        <img src="/public/sheet.svg" alt="image of a torn sheet" />
+        </Button>
         </div>
         
         <Link title="Sair" to="/">
-          <IoLogOutOutline />
+          <img src="/public/arrow.png" alt="right arrow" />
         </Link>
       </Profile>
+      <MobileStar>
+        <img src="/public/Frame.png" alt="image of a torn sheet" />
+      </MobileStar>
     </Container>
   );
 }

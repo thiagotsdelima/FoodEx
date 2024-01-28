@@ -10,27 +10,28 @@ import { FaBars } from "react-icons/fa";
 export function Header({ onChange }) {
   return (
     <Container>
-        <Link>
+
         <MobileIcon>
           <FaBars />
         </MobileIcon>
-        </Link>
+
       <Found>
-      <Link to="/">
+
         <img src="/public/Polygon1.svg" alt="Logo" /> 
         <h1>food explorer</h1>
-      </Link>
+
       </Found>
-       
+
         <FaSearch className="inputIcon" />
         <Input
         type="text"
         placeholder="Busque por pratos ou ingredientes" 
         onChange={onChange}
+
         />
-      
-      
+
       <Profile>
+
         <div>
         <Button title="Pedidos (0)">
         <img src="/public/sheet.svg" alt="image of a torn sheet" />
@@ -40,10 +41,12 @@ export function Header({ onChange }) {
         <Link title="Sair" to="/">
           <img src="/public/arrow.png" alt="right arrow" />
         </Link>
+        
       </Profile>
       <MobileStar>
         <img src="/public/Frame.png" alt="image of a torn sheet" />
       </MobileStar>
+      
     </Container>
   );
 }

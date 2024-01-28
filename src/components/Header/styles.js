@@ -21,7 +21,7 @@ background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
     position: absolute;
     font-size: 1.8rem;
     margin-top: 1.9rem;
-    left: 34%; 
+    left: 32%; 
     transform: translate(-50%, -50%);
     @media (max-width: 376px) {
     display: none;
@@ -33,27 +33,11 @@ background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
     Input {
     display: none;
   }
-
   }
-@media (max-width: 376px) {
-    grid-area: header;
+  @media (max-width: 376px) {
     height: 11.4rem;
-    width: 100%;
-    padding: 0 1rem;
-    h1 {
-      width: 0;
-      margin: 0;
-      padding: 0;
-      justify-content: center;
-      text-align: center; 
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-    img {
-      margin: 0;
-      padding: 0;
-    }
-}
+  }
+
 `;
 
 export const Found = styled.div`
@@ -61,12 +45,7 @@ display: flex;
 align-items: center; 
 
 
-a {
-  display: flex;
-  align-items: center; 
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  gap: 1rem;
-}
+
   img {
     
     height: 3rem;
@@ -81,7 +60,35 @@ a {
   
   @media (max-width: 768px) {
     justify-content: center;
+    
   }
+  @media (max-width: 376px) {
+    display:flex;
+    justify-content: space-between;
+   
+    grid-area: header;
+    align-items: center;
+    
+    width: 0;
+    img {
+      height: 2.4rem;
+      position: fixed;
+      margin-left: 30px;
+      z-index: 1;
+    }
+
+    h1 {
+      
+      margin-left: 70px;
+      white-space: nowrap;
+      
+      right: 0;
+      bottom: 0;
+      
+      z-index: 1;
+    }
+  }
+  
 
 `;
 
@@ -128,9 +135,10 @@ export const MobileIcon = styled.div`
     }
   }
 
-  @media (max-width: 370px) {
-    display: block; 
-
+  @media (max-width: 376px) {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
     a:hover, a:focus {
       
     }
@@ -147,7 +155,10 @@ export const MobileStar = styled.div`
   }
   @media (max-width: 370px) {
     display: block; 
-
+    display: flex;
+    align-items: center;
+    height: 3.2rem;
+    margin-left: 2rem;
     a:hover, a:focus {
      
     }

@@ -70,7 +70,7 @@ export default {
       textTransform: 'none',
     },
     
-    RobotoSmallest100Regular: {
+    RobotoSmallestRegular: {
       fontFamily: 'var(--ff-secondary)',
       letterSpacing: '0%',
       fontWeight: 400, 
@@ -81,7 +81,7 @@ export default {
       textTransform: 'none',
     },
     
-    RobotoSmallest200Regular: {
+    RobotoSmallerRegular: {
       fontFamily: 'var(--ff-secondary)',
       letterSpacing: '0%',
       fontWeight: 400, 
@@ -128,7 +128,7 @@ export default {
     RobotoBigBold: {
       fontFamily: 'var(--ff-secondary)',
       letterSpacing: '0%',
-      fontWeight: 700, 
+      fontWeight: 700,  
       textDecoration: 'none', 
       fontSize: '2rem',
       marginBottom: '0rem', 

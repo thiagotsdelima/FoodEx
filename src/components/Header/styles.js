@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
 
-grid-area: header;
+  position: sticky;
+  top: 0;
+  width: 100%;
 
 width: 100%;
 background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};

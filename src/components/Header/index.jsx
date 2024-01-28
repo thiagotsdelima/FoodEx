@@ -21,6 +21,9 @@ export function Header({ onChange }) {
         <h1>food explorer</h1>
 
       </Found>
+      <MobileStar>
+        <img src="/public/Frame.png" alt="image of a torn sheet" />
+      </MobileStar>
 
         <FaSearch className="inputIcon" />
         <Input
@@ -43,9 +46,6 @@ export function Header({ onChange }) {
         </Link>
         
       </Profile>
-      <MobileStar>
-        <img src="/public/Frame.png" alt="image of a torn sheet" />
-      </MobileStar>
       
     </Container>
   );

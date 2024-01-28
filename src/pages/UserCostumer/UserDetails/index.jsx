@@ -7,7 +7,8 @@ export function UserDetails() {
 return (
   <Container>
   <Header />
-  <Button title="Entra"/>
+  <Button id="wrapperButton" title="Entra"/>
+  
   <Footer />
   </Container>
 )

@@ -4,10 +4,10 @@ export const Container = styled.header`
 
   position: sticky;
   top: 0;
-  width: 100%;
+  
 
-width: 100%;
-background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
+  width: 100%;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
 
   display:flex;
   justify-content: space-between;
@@ -32,21 +32,29 @@ background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
   }
   @media (max-width: 768px) {
     
+    .inputIcon {
+      display: none;
+    }
     Input {
     display: none;
   }
+  
   }
   @media (max-width: 376px) {
-    height: 11.4rem;
+    
+    .inputIcon {
+      display: none;
+    }
   }
 
 `;
 
 export const Found = styled.div`
-display: flex;
-align-items: center; 
 
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 
   img {
     
@@ -61,33 +69,32 @@ align-items: center;
   }
   
   @media (max-width: 768px) {
-    justify-content: center;
+    margin: 0 auto;
+    padding: 0 2rem; 
     
   }
   @media (max-width: 376px) {
-    display:flex;
-    justify-content: space-between;
-   
-    grid-area: header;
-    align-items: center;
+    margin: 0 auto;
+    padding: 0 1rem; 
     
-    width: 0;
     img {
-      height: 2.4rem;
-      position: fixed;
-      margin-left: 30px;
-      z-index: 1;
+    height: 1.8rem;
+    width: 2.4rem;
+    position: fixed;
+    top: 6.4rem;
+    right: 0;
+    bottom: 0;
+    left: 8.7rem;
+    z-index: 1;
     }
 
     h1 {
-      
-      margin-left: 70px;
+      margin-top: 4rem;
+      margin-left: 5.9rem;
       white-space: nowrap;
+      font-weight: 700;
+      color: ${({ theme }) => theme.COLORS.GRAY_100};
       
-      right: 0;
-      bottom: 0;
-      
-      z-index: 1;
     }
   }
   
@@ -129,18 +136,24 @@ export const Profile = styled.div`
   `;
 
 export const MobileIcon = styled.div`
+  font-size: 2rem;
   @media (min-width: 768px){
    display: none; 
-
+   
     &:hover, &:focus {
        
     }
   }
 
   @media (max-width: 376px) {
-    display: flex;
-    align-items: center;
-    font-size: 1.8rem;
+    height: 1.8rem;
+    width: 2.4rem;
+    position: fixed;
+    top: 6rem;
+    right: 0;
+    bottom: 0;
+    left: 1.6rem;
+    z-index: 1;
     a:hover, a:focus {
       
     }
@@ -148,6 +161,12 @@ export const MobileIcon = styled.div`
 `;
 
 export const MobileStar = styled.div`
+  display: flex;
+  justify-content: end;
+  margin-left: 3.9rem;
+  font-size: 2rem;
+  margin-top: 4rem;
+  
 @media (min-width: 768px){
    display: none; 
 
@@ -155,12 +174,8 @@ export const MobileStar = styled.div`
        
     }
   }
-  @media (max-width: 370px) {
-    display: block; 
-    display: flex;
-    align-items: center;
-    height: 3.2rem;
-    margin-left: 2rem;
+  @media (max-width: 376px) {
+    
     a:hover, a:focus {
      
     }

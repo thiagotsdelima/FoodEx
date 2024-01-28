@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.footer`
   display: flex;
-	justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
   
-  gap: 55rem;
+  padding: 2.4rem 14.8rem;  
   
  
   #logo {
@@ -36,18 +39,43 @@ export const Container = styled.footer`
       color: ${({ theme }) => theme.COLORS.GRAY_200};
     }
   }
-
   
   @media (max-width: 376px) {
+  display: flex;
+	justify-content: flex-start;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  
+  #logo {
+    gap: 5px;
 
-    #logo {
+    img {
+      margin-bottom: .4rem;
+      margin-left: .7rem;
+      height: 1.5rem;
       
     }
 
-    footer.container {
-      p {
-        
-      }
+    p {
+      margin-bottom: .4rem;
+      font-weight: 700;
+      font-size: 1.6rem; 
+      width: 11.4rem;
+      color: ${({ theme }) => theme.COLORS.GRAY_700};
+      font-family: ${({ theme }) => theme.FONTS.secondary};
     }
   }
+
+  footer.container {
+    
+    p {
+      margin-left: 2.7rem;
+      font-weight: 400;
+      font-size: 1rem; 
+      color: ${({ theme }) => theme.COLORS.GRAY_200};
+      font-family: ${({ theme }) => theme.FONTS.tertiary};
+    }
+  }
+}
+
 `;

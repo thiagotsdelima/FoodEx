@@ -3,6 +3,7 @@ export default {
   FONTS: {
     primary: "'Poppins', sans-serif",
     secondary: "'Roboto', sans-serif",
+    tertiary: "'DM Sans', sans-serif",
 
     Poppins100Medium: {
       fontFamily: 'var(--ff-primary)',

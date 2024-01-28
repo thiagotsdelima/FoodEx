@@ -15,6 +15,7 @@ font: inherit;
 :root {
   --ff-primary: 'Poppins', sans-serif;
   --ff-secondary: 'Roboto', sans-serif;
+  --ff-tertiary: 'DM Sans', sans-serif;
   font-size: 62.5%; /* 10px */
   scroll-behavior: smooth;
 }
@@ -28,6 +29,7 @@ body, button, input, textarea, html {
   font-family: var(--ff-primary);
   font-size: 1.6rem;
   outline: none;
+  overflow-x: hidden;
 }
 
 a {

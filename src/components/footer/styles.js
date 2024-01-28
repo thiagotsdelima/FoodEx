@@ -18,11 +18,11 @@ export const Container = styled.footer`
     
     gap: 10px; 
 
-    img {
+    #logo img  {
       height: 2.9rem; 
     }
 
-    p {
+    #logo p {
       color: ${({ theme }) => theme.FONTS.RobotoBiggerBold};
       color: ${({ theme }) => theme.COLORS.GRAY_700};
     }
@@ -35,7 +35,7 @@ export const Container = styled.footer`
    
     
     p {
-      color: ${({ theme }) => theme.FONTS.RobotoSmallerRegular};
+      font-size: ${({ theme }) => theme.FONTS.RobotoSmallerRegular};
       color: ${({ theme }) => theme.COLORS.GRAY_200};
     }
   }

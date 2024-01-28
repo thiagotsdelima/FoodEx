@@ -16,6 +16,14 @@ grid-template-areas:
   height :4.8rem;
   width: 18.2rem;
 }
+#wrapperTag {
+  display: flex;
+	justify-content: center;
+  font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
+  color: ${({ theme }) => theme.COLORS.GRAY_100};
+  height: 3.2rem;
+  width: 6.9rem;
+}
 
 @media (min-width: 376px) {
 

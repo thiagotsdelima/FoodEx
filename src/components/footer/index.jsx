@@ -10,7 +10,7 @@ return (
           />
         <p>food explorer</p>
       </div>
-<footer class="container">
+<footer className="container">
             <p>
             © 2023 - Todos os direitos reservados.
             </p>

@@ -78,10 +78,10 @@ export const Found = styled.div`
     padding: 0 1rem; 
     
     img {
-    height: 1.8rem;
+    height: 2.8rem;
     width: 2.4rem;
     position: fixed;
-    top: 6.4rem;
+    top: 6rem;
     right: 0;
     bottom: 0;
     left: 8.7rem;
@@ -92,9 +92,9 @@ export const Found = styled.div`
       margin-top: 4rem;
       margin-left: 5.9rem;
       white-space: nowrap;
-      font-weight: 700;
+      font-family: ${({ theme }) => theme.FONTS.RobotoBiggerBold};
       color: ${({ theme }) => theme.COLORS.GRAY_100};
-      
+      font-weight: 700;
     }
   }
   

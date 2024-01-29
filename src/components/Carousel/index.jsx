@@ -1,52 +1,45 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './styles'; 
+import './Carousel.css'; 
 
-export function Carousel() {
+export function Carousel({ url }) {
     const [data, setData] = useState([]);
-    const carousel = useRef(null);
+    const carouselRef = useRef(null);
 
     useEffect(() => {
-        fetch("http://localhost:3000/api/meals") 
-        .then((response) => response.json())
-        .then(setData)
-        .catch((error) => console.error("Erro ao carregar dados", error)); 
-    }, []);
+        axios.get(url)
+            .then(response => {
+                setData(response.data);
+            })
+            .catch(error => {
+                console.error("Erro ao carregar dados", error);
+            });
+    }, [url]);
 
-    const scrollCarousel = (direction) => {
-        const offsetWidth = carousel.current.offsetWidth;
-        carousel.current.scrollLeft += direction * offsetWidth;
+    const scroll = (direction) => {
+        const { current: carousel } = carouselRef;
+        const scrollAmount = carousel.offsetWidth / 2; 
+        carousel.scrollLeft += direction * scrollAmount;
     }
 
-    if(!data.length) return <p>Carregando...</p>;
+    if (!data.length) return <p>Carregando...</p>;
 
     return (
         <div className="carouselContainer">
-            <div className="carousel" ref={carousel}>
-            <div className="card" key={id}>
-              <div className="interactionIcon">
-                <HiOutlineHeart className="emptyHeart" size={24}/>
-                {/* <HiHeart className="fullHEart"/> */}
-                {/* <PiPencilSimple className="pencil"/> */}
-              </div>   
-
-              <div className="image">
-              <img src={image} alt={name} />
-              </div>
-
-              <div className="dishInfos">
-                <h1>{name}<span><PiCaretRight size={18}/></span></h1>
-                <p>{description} </p>
-                <h2>R$ {price} </h2>
-              </div>     
-
-              <div className="order">
-                <ButtonQuantity/>  
-                <Button title="Incluir"/> 
-              </div>
+            <button onClick={() => scroll(-1)}>Esquerda</button>
+            <div className="carousel" ref={carouselRef}>
+                {data.map((item) => (
+                    <div className="carouselItem" key={item.id}>
+                        <img src={item.image} alt={item.name} />
+                        <h3>{item.name}</h3>
+                        <p>{item.description}</p>
+                        <span>R$ {item.price}</span>
+                        {/* Outros elementos que você desejar */}
+                    </div>
+                ))}
             </div>
-            </div>
-            <button onClick={() => scrollCarousel(-1)}>Esquerda</button>
-            <button onClick={() => scrollCarousel(1)}>Direita</button>
+            <button onClick={() => scroll(1)}>Direita</button>
         </div>
     );
 }
+
+

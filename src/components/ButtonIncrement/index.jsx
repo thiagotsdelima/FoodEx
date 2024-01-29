@@ -1,16 +1,15 @@
-// import React, { useState, useEffect } from 'react';
-// import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { Button } from '../Button';
 import { Container, QuantitySelector } from "./styles"; 
 
 export function ButtonIncrement({ meal }) {
- /* const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(meal.price);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Atualiza o preço total sempre que a quantidade mudar
     setTotalPrice(meal.price * quantity);
   }, [quantity, meal.price]);
 
@@ -25,9 +24,9 @@ export function ButtonIncrement({ meal }) {
   };
 
   const handleAddToCart = () => {
-    // Adicione a lógica para adicionar ao carrinho aqui
+    // Lógica de adicionar ao carrinho
   };
-*/
+
   return (
     <Container>
       <div onClick={() => navigate(-1)}>
@@ -47,5 +46,5 @@ export function ButtonIncrement({ meal }) {
         </Button>
       </div>
     </Container>
-  )
+  );
 }

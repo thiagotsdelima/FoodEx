@@ -19,7 +19,7 @@ export const Profile = styled.div`
   gap: 1rem;
   width: 100%;
   max-width: 600px;
-  background: #f3f3f3;
+  
   padding: 1rem;
   border-radius: 8px;
 
@@ -36,17 +36,17 @@ export const Profile = styled.div`
     align-items: flex-start;
 
     h1 {
-      color: ${({ theme }) => theme.COLORS.Light300};
-      font-family: var(--poppins-font-family);
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+      font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
       font-size: clamp(2.7041rem, 3.2vw, 4rem);
-      font-weight: 500;
+      
     }
 
     p {
-      color: ${({ theme }) => theme.COLORS.Light300};
-      font-family: var(--poppins-font-family);
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+      font-family: ${({ theme }) => theme.FONTS.Poppins300Regular};
       font-size: clamp(1.6225rem, 2vw, 2.4rem);
-      font-weight: 400;
+      
     }
   }
 

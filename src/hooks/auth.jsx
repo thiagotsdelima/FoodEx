@@ -1,16 +1,16 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { api } from '../services/api';
 
-export const AuthContext = createContext({});
+const AuthContext = createContext({})
 
-function AuthProvider({ children }){
+export function AuthProvider({ children }){
   const [data, setData] = useState({});
   async function signIn({ email, password }){
     try{
       const response = await api.post("/sessions", { email, password });
       const { user, token } = response.data;
-      localStorage.setItem("@foodExplorer:user", JSON.stringify(user));
-      localStorage.setItem("@foodExplorer:token", token);
+      localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
+      localStorage.setItem("@foodexplorer:token", token);
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setData({ user, token })
     }catch(error) {
@@ -20,6 +20,14 @@ function AuthProvider({ children }){
         alert("not was possible goes into")
       }
     }
+    useEffect(() => { 
+      const user = localStorage.getItem("@foodexplorer:user");
+      const token = localStorage.getItem("@foodexplorer:token"); 
+      if(token && user) {
+        api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        setData({ token, user: JSON.parse(user) });
+      }
+    }, []);
 
   }
   return(
@@ -30,9 +38,8 @@ function AuthProvider({ children }){
   )
 }
 
-function useAuth() {
+export function useAuth() {
   const context = useContext(AuthContext);
   return context;
 }
 
-export { AuthProvider, useAuth };

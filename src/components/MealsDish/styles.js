@@ -56,14 +56,14 @@ export const Container = styled.div`
             right: 1.5rem;
             font-size: 1.5rem;
             color: ${({ theme }) => theme.COLORS.Light400};
-            cursor: pointer;
+            
           }
 
           > select {
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            cursor: pointer;
+            
             width: 100%;
             height: 3.5rem;
             padding: 0.9rem 1.4rem;
@@ -95,7 +95,7 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         gap: 0.3rem;
-        cursor: pointer;
+       
 
         transition: filter 0.4s ease-in-out;
 

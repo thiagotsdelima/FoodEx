@@ -17,7 +17,7 @@ export function Header({ onChange }) {
 
       <Found>
 
-        <img src="/public/Polygon1.svg" alt="Logo" /> 
+        <img src="/Polygon1.svg" alt="Logo" /> 
         <h1>food explorer</h1>
 
       </Found>

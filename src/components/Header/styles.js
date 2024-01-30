@@ -65,7 +65,7 @@ export const Found = styled.div`
 
   h1 {
     
-    color: ${({ theme }) => theme.FONTS.RobotoBiggerBold};
+    font-family: ${({ theme }) => theme.FONTS.RobotoBiggerBold};
   }
   
   @media (max-width: 768px) {

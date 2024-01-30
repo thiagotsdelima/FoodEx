@@ -1,11 +1,11 @@
 import { Container } from './styles';
-import Polygon2Png from '../../../public/Polygon2.png';
+
 export function Footer() {
 return (
 <Container>
 <div id="logo">
         <img
-            src={ Polygon2Png }
+            src="../../../Polygon2.png"
             alt="image Logo."
           />
         <p>food explorer</p>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Carousel.css'; 
+import { Container } from './styles';
 
 export function Carousel({ url }) {
     const [data, setData] = useState([]);
@@ -24,6 +24,7 @@ export function Carousel({ url }) {
     if (!data.length) return <p>Carregando...</p>;
 
     return (
+        <Container>
         <div className="carouselContainer">
             <button onClick={() => scroll(-1)}>Esquerda</button>
             <div className="carousel" ref={carouselRef}>
@@ -39,6 +40,7 @@ export function Carousel({ url }) {
             </div>
             <button onClick={() => scroll(1)}>Direita</button>
         </div>
+        </Container> 
     );
 }
 

@@ -22,7 +22,7 @@ export function Header({ onChange }) {
 
       </Found>
       <MobileStar>
-        <img src="/public/Frame.png" alt="image of a torn sheet" />
+        <img src="/Frame.png" alt="image of a torn sheet" />
       </MobileStar>
 
         <FaSearch className="inputIcon" />
@@ -37,12 +37,12 @@ export function Header({ onChange }) {
 
         <div>
         <Button title="Pedidos (0)">
-        <img src="/public/sheet.svg" alt="image of a torn sheet" />
+        <img src="/sheet.svg" alt="image of a torn sheet" />
         </Button>
         </div>
         
         <Link title="Sair" to="/">
-          <img src="/public/arrow.png" alt="right arrow" />
+          <img src="/arrow.png" alt="right arrow" />
         </Link>
         
       </Profile>

@@ -7,3 +7,10 @@ max-width: 1200px;
 
 }
 `;
+
+export const Form = styled.div`
+
+@media (min-width: 360px) {
+
+}
+`;

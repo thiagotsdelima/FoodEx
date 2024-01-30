@@ -8,7 +8,7 @@ import { Container, Form } from './styles';
 
 
 export function SignIn() {
-  console.log("Renderizando SignIn");
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signIn } = useAuth();

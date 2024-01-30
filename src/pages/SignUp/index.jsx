@@ -1,13 +1,12 @@
-import { api } from '../../services/api'
+import { api } from '../../services/api';
 import { useState } from "react";
-import { api } from "../../services/api"
-import { Link, useNavigate } from 'react-router-dom'
-import { Input } from '../../components/Input'
-import { Button } from '../../components/Button'
+import { Link, useNavigate } from 'react-router-dom';
+import { Input } from '../../components/Input';
+import { Button } from '../../components/Button';
 import { Container, Form } from './styles';
 
 export function SignUp() {
-  console.log("Renderizando SignUp");
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

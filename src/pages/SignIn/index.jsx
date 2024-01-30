@@ -21,9 +21,9 @@ return (
         <h1>food explorer</h1>
       </div>
 <Form>
-  <h1>Faça login</h1>
+  <h1 className='myTitle'>Faça login</h1>
 
-  <label><span>E-mail</span>
+  <label><span>Email</span>
   <Input 
   placeholder="Exemplo: exemplo@exemplo.com.br"
   type="text"
@@ -40,9 +40,11 @@ return (
   </label>
 
   <Button title="Entrar" onClick={handleSignIn} />
-  <Link to="/register">
+  
+  <Link to="/register" className="myStylizedLink">
   Criar uma conta
   </Link>
+  
 </Form>
 
 

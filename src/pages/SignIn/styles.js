@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 1200px;
   height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: "logo form";
-  align-items: center;
+  display: flex;
+  justify-content: space-between;
   
+  padding: 8rem;
 
   .logo {
     gap: 1.901rem;
@@ -37,34 +34,42 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 47rem;
+    height: 50rem;
+    padding: 3.4rem 6.4rem;
+    
     border: none;
     border-bottom-style: none;
     border-bottom-color: none;
     border-radius: 1.6rem;
-    padding: 2rem;
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
-    gap: 3.2rem;
     
-  h1 {
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+  
+    
+  .myTitle {
+    display: flex;
+    justify-content: center;
     font-family: ${({ theme }) => theme.FONTS.Poppins400Medium};
     color: ${({ theme }) => theme.COLORS.GRAY_100};
+    margin-bottom: 3.2rem; 
   }
 
-  span {
+  label span {
+    
     font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
     color: ${({ theme }) => theme.COLORS.GRAY_400};
   }
 
   input {
+    margin-bottom: 3.2rem;
     border-radius: .5rem;
     padding-left: 0.8rem;
-    margin: 0;
+    margin-top: .8rem;
     height: 4.8rem;
-    width: 34.8rem;
+    width: 34.8rem; 
+    border: 1px;
+    border-style: solid; 
+    border-color: ${({ theme }) => theme.COLORS.GRAY_100};
   }
   input::placeholder {
     position: absolute;
@@ -74,12 +79,17 @@ export const Form = styled.div`
   }
 
   button {
-    // Seus estilos para button
+    margin-bottom: 3.2rem; 
+    height: 4.8rem;
+    width: 34.8rem;
   }
+ 
 
-  Link {
-    
+  .myStylizedLink {
+    display: flex;
+    justify-content: center;
     font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
     color: ${({ theme }) => theme.COLORS.GRAY_100};
+    
   }
 `;

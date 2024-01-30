@@ -18,6 +18,7 @@ font: inherit;
   --ff-tertiary: 'DM Sans', sans-serif;
   font-size: 62.5%; /* 10px */
   scroll-behavior: smooth;
+  
 }
 
 body {
@@ -33,6 +34,7 @@ body, button, input, textarea, html {
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 

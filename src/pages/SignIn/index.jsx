@@ -23,7 +23,7 @@ return (
 <Form>
   <h1>Faça login</h1>
 
-  <label>E-mail
+  <label><span>E-mail</span>
   <Input 
   placeholder="Exemplo: exemplo@exemplo.com.br"
   type="text"
@@ -31,9 +31,9 @@ return (
   />
   </label>
 
-  <label> Senha
+  <label><span>Senha</span>
   <Input 
-  placeholder="Password"
+  placeholder="No mínimo 6 caracteres"
   type="Password"
   onChange={e => setPassword(e.target.value)}
   />

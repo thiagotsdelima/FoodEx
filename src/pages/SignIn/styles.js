@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   
-  padding: 8rem;
+  padding: 4rem 8rem;
 
   .logo {
     gap: 1.901rem;
@@ -27,15 +27,43 @@ export const Container = styled.div`
     font-family: ${({ theme }) => theme.FONTS.RobotoGiantBold};
     color: ${({ theme }) => theme.COLORS.GRAY_100};
   }
+  @media (max-width: 768px) {
+    
+  }
 
-  @media (min-width: 360px) {
-    // Seus estilos para telas maiores
+  @media (max-width: 376px) {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+
+    .logo {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      left: 0;
+      margin-top: 15.8rem;
+      width: 100%;
+      z-index: -1;
+  }
+
+
+  .logo img {
+    width: 4.3rem;
+    height: 4.3rem;
+  }
+  .logo h1 {
+   
+    font-weight: 700;
+    font-size: 3.6rem;
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+  }
+
   }
 `;
 
 export const Form = styled.div`
     width: 47rem;
-    height: 50rem;
+    height: 55rem;
     padding: 3.4rem 6.4rem;
     
     border: none;
@@ -47,6 +75,7 @@ export const Form = styled.div`
   
     
   .myTitle {
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
     font-family: ${({ theme }) => theme.FONTS.Poppins400Medium};
@@ -90,6 +119,22 @@ export const Form = styled.div`
     justify-content: center;
     font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
     color: ${({ theme }) => theme.COLORS.GRAY_100};
+    
+  }
+  @media (max-width: 768px) {
+    input {
+      display: none;
+   
+    }
+  }
+ 
+`;
+export const MobileForm = styled.div`
+  @media (max-width: 768px) {
+    display: block;
+  }
+
+  @media (max-width: 376px) {
     
   }
 `;

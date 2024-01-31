@@ -20,7 +20,7 @@ font: inherit;
   font-size: 16px; 
   scroll-behavior: smooth;
   @media (max-width: ${DEVICE_BREAKPOINTS}) {
-
+    font-size: 12px;
   }
 }
 

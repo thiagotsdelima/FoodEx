@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { useAuth } from "../../hooks/auth";
+import { PhoneForm } from "../../components/PhoneForm";
 
 import { Container, Form } from './styles';
 
@@ -44,30 +45,8 @@ return (
   <Link to="/register" className="myStylizedLink">
   Criar uma conta
   </Link>
-  
 </Form>
-<MobileForm>
-<>
-            <label><span>Email</span>
-                <Input 
-                    placeholder="Exemplo: exemplo@exemplo.com.br"
-                    type="text"
-                    onChange={e => setEmail(e.target.value)}
-                />
-            </label>
-            <label><span>Senha</span>
-                <Input 
-                    placeholder="No mínimo 6 caracteres"
-                    type="Password"
-                    onChange={e => setPassword(e.target.value)}
-                />
-            </label>
-            <Button title="Entrar" onClick={() => signIn({ email, password })} />
-            <Link to="/register" className="myStylizedLink">Criar uma conta</Link>
-        </>
-</MobileForm>
-
-
+<PhoneForm />
 </Container>
 );
 }

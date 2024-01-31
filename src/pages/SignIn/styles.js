@@ -8,6 +8,13 @@ export const Container = styled.div`
   
   padding: 4rem 8rem;
 
+  @media (max-width: 768px) {
+    form {
+      grid-area: none;
+      display: none;
+    }
+  }
+
   @media(max-width: ${DEVICE_BREAKPOINTS.MD}) {
     grid-template-columns: auto;
     grid-template-rows: auto 1fr;
@@ -36,9 +43,7 @@ export const Container = styled.div`
     font-family: ${({ theme }) => theme.FONTS.RobotoGiantBold};
     color: ${({ theme }) => theme.COLORS.GRAY_100};
   }
-  @media (max-width: 768px) {
-    
-  }
+ 
 
   @media (max-width: 376px) {
     display: grid;
@@ -130,20 +135,6 @@ export const Form = styled.div`
     color: ${({ theme }) => theme.COLORS.GRAY_100};
     
   }
-  @media (max-width: 768px) {
-    input {
-      display: none;
-   
-    }
-  }
  
 `;
-export const MobileForm = styled.div`
-  @media (max-width: 768px) {
-    display: block;
-  }
 
-  @media (max-width: 376px) {
-    
-  }
-`;

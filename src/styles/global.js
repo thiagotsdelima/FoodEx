@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { DEVICE_BREAKPOINTS } from "./deviceBreakpoints";
 
 export default createGlobalStyle`
 * {
@@ -16,9 +17,11 @@ font: inherit;
   --ff-primary: 'Poppins', sans-serif;
   --ff-secondary: 'Roboto', sans-serif;
   --ff-tertiary: 'DM Sans', sans-serif;
-  font-size: 62.5%; /* 10px */
+  font-size: 16px; 
   scroll-behavior: smooth;
-  
+  @media (max-width: ${DEVICE_BREAKPOINTS}) {
+
+  }
 }
 
 body {
@@ -28,7 +31,7 @@ body {
 
 body, button, input, textarea, html {
   font-family: var(--ff-primary);
-  font-size: 1.6rem;
+  font-size: 1rem;
   outline: none;
   overflow-x: hidden;
 }

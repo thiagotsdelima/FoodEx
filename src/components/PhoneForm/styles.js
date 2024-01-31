@@ -1,13 +1,12 @@
 import styled from 'styled-components';
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
-  @media (max-width: 768px) {
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: block;
   }
-  @media (min-width: 768px){
-   display: none; 
-   }
-  @media (max-width: 376px) {
-    
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    display: none; 
   }
+
 `;

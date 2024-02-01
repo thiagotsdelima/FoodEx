@@ -2,27 +2,16 @@ import styled from 'styled-components';
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
 
 export const Container = styled.div`
-  height: 100vh;
-  display: flex;
-  justify-content: space-between;
-  
-  padding: 2.5rem 5rem;
-
-  @media (max-width: 768px) {
-    form {
-      grid-area: none;
-      display: none;
-    }
-  }
-
-  @media(max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    grid-template-columns: auto;
-    grid-template-rows: auto 1fr;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     grid-template-areas: 
-    "top"
-    "content";
-  }
-
+      "menu"
+      ;
+      padding: 2rem;
+      gap: 15.625rem;
+ 
   .logo {
     gap: 1.901rem;
     padding-right: 1.25rem;
@@ -43,39 +32,55 @@ export const Container = styled.div`
     font-family: ${({ theme }) => theme.FONTS.RobotoGiantBold};
     color: ${({ theme }) => theme.COLORS.GRAY_100};
   }
- 
-
-  @media (max-width: 376px) {
+  
+  @media(max-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: grid;
+    grid-template-columns: auto;
     grid-template-rows: auto 1fr;
-    height: 100vh;
-
+    grid-template-areas: 
+      "top"
+      "content";
+    justify-content: center;
+  
     .logo {
-      position: absolute;
-      margin: 0;
-      padding: 0;
-      left: 0;
-      margin-top: 15.8rem;
-      width: 100%;
-      z-index: -1;
-  }
+     position: absolute;
+     z-index: 1;
+    }
 
 
   .logo img {
-    width: 4.3rem;
-    height: 4.3rem;
-  }
-  .logo h1 {
-   
-    font-weight: 700;
-    font-size: 3.6rem;
-    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    width: 2.6875rem;
+    height: 2.6875rem;
   }
 
+  .logo h1 {
+    font-weight: 700;
+    font-size: 2.25rem;
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
   }
+  input {
+    margin-bottom: 2rem;
+    border-radius: 0.3125rem;
+    padding-left: 0.5rem;
+    margin-top: .5rem;
+    height: 3rem;
+    width: 19.75rem; 
+    border: none;
+    border-bottom-style: none;
+    border-bottom-color: none;
+  }
+  button {
+    margin-bottom: 2rem; 
+    height: 3rem;
+    width: 19.75rem;
+  }
+  }
+  
+ 
 `;
 
 export const Form = styled.div`
+
     width: 29.375rem;
     height: 34.375rem;
     padding: 2.125rem 4rem;
@@ -141,9 +146,6 @@ export const Form = styled.div`
 `;
 
 export const PhoneFormContainer = styled.div`
-  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-    display: none;
-    grid-area: none;
-  }
+
   
 `;

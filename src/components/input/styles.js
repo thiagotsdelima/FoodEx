@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vh;
- 
-
   > input {
     border: none;
     border-bottom-style: none;
@@ -17,7 +14,7 @@ export const Container = styled.div`
 
     &::placeholder { 
       color: ${({ theme }) => theme.FONTS.RobotoSmallRegular}; 
-      
+      width: 100vh;
       color: ${({ theme }) => theme.COLORS.GRAY_400}; 
     }
   }

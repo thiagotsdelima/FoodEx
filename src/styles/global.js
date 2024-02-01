@@ -19,8 +19,18 @@ font: inherit;
   --ff-tertiary: 'DM Sans', sans-serif;
   font-size: 16px; 
   scroll-behavior: smooth;
+
   @media (max-width: ${DEVICE_BREAKPOINTS}) {
     font-size: 12px;
+    ::-webkit-scrollbar{
+      width: 0.5rem;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: ${({ theme }) => theme.COLORS.BACKGRAOUND_400};
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => theme.COLORS.BACKGRAOUND_1000};
+    }
   }
 }
 

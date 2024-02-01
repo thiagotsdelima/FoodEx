@@ -8,7 +8,7 @@ export const Container = styled.footer`
   width: 100%;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
   
-  padding: 2.4rem 14.8rem;  
+  padding: 1.5rem 9.25rem;  
   
  
   #logo {
@@ -19,7 +19,7 @@ export const Container = styled.footer`
     gap: 10px; 
 
     #logo img  {
-      height: 2.9rem; 
+      height: 1.8125rem; 
     }
 
     #logo p {
@@ -57,10 +57,10 @@ export const Container = styled.footer`
     }
 
     p {
-      margin-bottom: .4rem;
+      margin-bottom: 0.25rem;
       font-weight: 700;
-      font-size: 1.6rem; 
-      width: 11.4rem;
+      font-size: 1rem; 
+      width: 7.125rem;
       color: ${({ theme }) => theme.COLORS.GRAY_700};
       font-family: ${({ theme }) => theme.FONTS.secondary};
     }

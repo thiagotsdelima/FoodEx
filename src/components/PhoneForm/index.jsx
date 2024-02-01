@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Input } from '../Input'; 
 import { Button } from '../Button'; 
@@ -9,10 +9,22 @@ export function PhoneForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { signIn } = useAuth();
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleSubmit = () => {
     signIn({ email, password });
-  }
+  };
+
+  if (!isMobile) return null; 
 
   return (
     <Container>

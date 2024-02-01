@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   
-  padding: 4rem 8rem;
+  padding: 2.5rem 5rem;
 
   @media (max-width: 768px) {
     form {
@@ -25,16 +25,16 @@ export const Container = styled.div`
 
   .logo {
     gap: 1.901rem;
-    padding-right: 2rem;
-    margin-bottom: 7rem;
+    padding-right: 1.25rem;
+    margin-bottom: 4.375rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .logo img {
-    width: 4.94rem;
-    height: 4.75rem;
+    width: 3.0625rem;
+    height: 2.9375rem;
     
     
   }
@@ -76,25 +76,25 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.div`
-    width: 47rem;
-    height: 55rem;
-    padding: 3.4rem 6.4rem;
+    width: 29.375rem;
+    height: 34.375rem;
+    padding: 2.125rem 4rem;
     
     border: none;
     border-bottom-style: none;
     border-bottom-color: none;
-    border-radius: 1.6rem;
+    border-radius: 1rem;
     
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
   
     
   .myTitle {
-    margin-top: 5rem;
+    margin-top: 3.125rem;
     display: flex;
     justify-content: center;
     font-family: ${({ theme }) => theme.FONTS.Poppins400Medium};
     color: ${({ theme }) => theme.COLORS.GRAY_100};
-    margin-bottom: 3.2rem; 
+    margin-bottom: 2rem; 
   }
 
   label span {
@@ -104,13 +104,13 @@ export const Form = styled.div`
   }
 
   input {
-    margin-bottom: 3.2rem;
-    border-radius: .5rem;
-    padding-left: 0.8rem;
-    margin-top: .8rem;
-    height: 4.8rem;
-    width: 34.8rem; 
-    border: 1px;
+    margin-bottom: 2rem;
+    border-radius: 0.3125rem;
+    padding-left: 0.5rem;
+    margin-top: .5rem;
+    height: 3rem;
+    width: 21.75rem; 
+    border: 0.00625rem;
     border-style: solid; 
     border-color: ${({ theme }) => theme.COLORS.GRAY_100};
   }
@@ -122,9 +122,9 @@ export const Form = styled.div`
   }
 
   button {
-    margin-bottom: 3.2rem; 
-    height: 4.8rem;
-    width: 34.8rem;
+    margin-bottom: 2rem; 
+    height: 3rem;
+    width: 21.75rem;
   }
  
 
@@ -135,6 +135,15 @@ export const Form = styled.div`
     color: ${({ theme }) => theme.COLORS.GRAY_100};
     
   }
- 
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    display: none;
+  }
 `;
 
+export const PhoneFormContainer = styled.div`
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    display: none;
+    grid-area: none;
+  }
+  
+`;

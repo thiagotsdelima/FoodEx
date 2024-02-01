@@ -39,7 +39,7 @@ return (
   
   <label>Seu nome
   <Input 
-  placeholder="Name"
+  placeholder="Exemplo: Maria da Silva"
   type="text"
   onChange={e => setName(e.target.value)}
   />
@@ -47,7 +47,7 @@ return (
 
   <label>E-mail
   <Input 
-  placeholder="E-mail"
+  placeholder="Exemplo: exemplo@exemplo.com.br"
   type="text"
   onChange={e => setEmail(e.target.value)}
   />
@@ -55,7 +55,7 @@ return (
 
   <label>Senha
   <Input 
-  placeholder="Password"
+  placeholder="No mínimo 6 caracteres"
   type="Password"
   onChange={e => setPassword(e.target.value)}
   />
@@ -66,6 +66,7 @@ return (
   Já tenho uma conta
   </Link>
 </Form>
+<PhoneForm formType="signUp" onSubmit={handleSignUp} />
 </Container>
 );
 }

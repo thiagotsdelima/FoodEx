@@ -5,7 +5,8 @@ import { Button } from '../Button';
 import { useAuth } from "../../hooks/auth"; 
 import { Container } from './styles';
 
-export function PhoneForm() {
+export function PhoneForm({ formType, onSubmit }) {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { signIn } = useAuth();
@@ -20,15 +21,30 @@ export function PhoneForm() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleSubmit = () => {
-    signIn({ email, password });
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+    if (formType === 'signUp') {
+      onSubmit({ name, email, password });
+    } else {
+      signIn({ email, password });
+    }
   };
 
   if (!isMobile) return null; 
 
   return (
     <Container>
-      <label><span>Email</span>
+      {formType === 'signUp' && (
+        <label>Seu nome
+          <Input 
+            placeholder="Exemplo: Maria da Silva"
+            type="text"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+        </label>
+      )}
+      <label>Email
         <Input 
           placeholder="Exemplo: exemplo@exemplo.com.br"
           type="text"
@@ -36,7 +52,7 @@ export function PhoneForm() {
           onChange={e => setEmail(e.target.value)}
         />
       </label>
-      <label><span>Senha</span>
+      <label>Senha
         <Input 
           placeholder="No mínimo 6 caracteres"
           type="Password"
@@ -44,8 +60,10 @@ export function PhoneForm() {
           onChange={e => setPassword(e.target.value)}
         />
       </label>
-      <Button title="Entrar" onClick={handleSubmit} />
-      <Link to="/register" className="myStylizedLink">Criar uma conta</Link>
+      <Button title={formType === 'signUp' ? "Register" : "Entrar"} onClick={handleSubmit} />
+      <Link to={formType === 'signUp' ? "/" : "/register"} className="myStylizedLink">
+        {formType === 'signUp' ? "Já tenho uma conta" : "Criar uma conta"}
+      </Link>
     </Container>
   );
 }

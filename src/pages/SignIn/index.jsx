@@ -47,7 +47,7 @@ return (
   </Link>
 </Form>
 <PhoneFormContainer>
-<PhoneForm /> 
+<PhoneForm formType="signIn" />
 </PhoneFormContainer>
 </Container>
 );

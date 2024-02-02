@@ -59,6 +59,9 @@ export const Container = styled.div`
     padding-left: 0.5rem;
     margin-top: .5rem;
   }
+  input::-ms-reveal {
+    display: none;
+    }
   button {
     margin-bottom: 2rem; 
     height: 3rem;
@@ -105,6 +108,9 @@ export const Form = styled.div`
     input::placeholder {
       font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
       color: ${({ theme }) => theme.COLORS.GRAY_500};
+    }
+    input::-ms-reveal {
+    display: none;
     }
     button {
     margin-bottom: 2rem; 

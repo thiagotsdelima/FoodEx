@@ -9,7 +9,8 @@ export const Container = styled.div`
       grid-template-areas: 
       "menu menu"
       "footer footer"; 
-    place-items: center;
+      place-items: center;
+    
 
     &:after {
       content: ""; 
@@ -58,6 +59,7 @@ export const Container = styled.div`
     border-radius: 0.3125rem;
     padding-left: 0.5rem;
     margin-top: .5rem;
+    
   }
   button {
     margin-bottom: 2rem; 
@@ -101,14 +103,17 @@ export const Form = styled.div`
       border-radius: 0.3125rem;
       padding-left: 0.5rem;
       margin-top: .5rem;
-      border: none;
-      border-bottom-style: none;
-      border-bottom-color: none;
+      border: 1px;
+      border-style: solid;
+      border-color: ${({ theme }) => theme.COLORS.GRAY_100};
     }
     input::placeholder {
       font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
       color: ${({ theme }) => theme.COLORS.GRAY_500};
     }
+    input::-ms-reveal {
+      display: none;
+      }
     button {
     margin-bottom: 2rem; 
     height: 3rem;
@@ -127,6 +132,8 @@ export const Form = styled.div`
 `;
 
 export const PhoneFormContainer = styled.div`
-
+ input::-ms-reveal {
+    display: none;
+    }
   
 `;

@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import { FaSearch } from 'react-icons/fa';
 import { useAuth } from '../../hooks/auth';
 import { FaBars } from "react-icons/fa";
-import { FiSearch } from 'react-icons/fi'
+
 
 export function Header({ onChange }) {
   const { signOut } = useAuth();
@@ -37,7 +37,6 @@ export function Header({ onChange }) {
         <Input
         type="text"
         placeholder="Busque por pratos ou ingredientes" 
-        icon={FiSearch} 
         onChange={onChange}
         />
 

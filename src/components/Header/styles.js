@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import {DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
 
 export const Container = styled.header`
-  max-width: fit-content;
   position: sticky;
   top: 0;
   
@@ -13,10 +13,10 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 5rem;
+  padding: 0 3.125rem;
 
   img {
-    margin-right: 8px;
+    margin-right: 0.5rem;
   }
 
 .inputIcon {

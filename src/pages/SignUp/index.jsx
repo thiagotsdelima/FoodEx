@@ -65,7 +65,7 @@ return (
   />
   </label>
 
-  <Button title="Register" onClick={handleSignUp} />
+  <Button title="Criar conta" onClick={handleSignUp} />
   <Link to="/" className="myStylizedLink">
   Já tenho uma conta
   </Link>

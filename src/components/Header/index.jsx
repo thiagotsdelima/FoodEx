@@ -1,13 +1,21 @@
 import { Container, Profile, MobileIcon, MobileStar, Found } from './styles';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import { FaSearch } from 'react-icons/fa';
-
+import { useAuth } from '../../hooks/auth';
 import { FaBars } from "react-icons/fa";
-
+import { FiSearch } from 'react-icons/fi'
 
 export function Header({ onChange }) {
+  const { signOut } = useAuth();
+  const navigation = useNavigate();
+  function handleSignOut(){
+    signOut();
+    navigation("/");
+  }
+  
   return (
     <Container>
 
@@ -29,8 +37,8 @@ export function Header({ onChange }) {
         <Input
         type="text"
         placeholder="Busque por pratos ou ingredientes" 
+        icon={FiSearch} 
         onChange={onChange}
-
         />
 
       <Profile>
@@ -41,7 +49,7 @@ export function Header({ onChange }) {
         </Button>
         </div>
         
-        <Link title="Sair" to="/">
+        <Link title="Sair" onClick={handleSignOut}>
           <img src="/arrow.png" alt="right arrow" />
         </Link>
         

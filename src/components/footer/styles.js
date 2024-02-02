@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.footer`
+ max-width: fit-content;
   display: flex;
   flex-direction: row;
   align-items: center;

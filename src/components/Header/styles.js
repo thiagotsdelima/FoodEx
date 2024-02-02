@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-
+  max-width: fit-content;
   position: sticky;
   top: 0;
   

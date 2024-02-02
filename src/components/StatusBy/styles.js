@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DivStyled = styled.div`
+  max-width: fit-content;
   display: flex;
   flex-direction: column;
   gap: 0.5em;

@@ -2,6 +2,7 @@ import { styled } from "styled-components"
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakPoints"
 
 export const Container = styled.div`
+ max-width: fit-content;
   border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
   border-radius: 0.8rem;
   padding: ${({ $user }) => $user ? ".5rem 1.5rem 1.5rem" : "0rem 1.5rem 1.5rem"};

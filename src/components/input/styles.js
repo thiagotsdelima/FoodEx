@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   > input {
+    max-width: fit-content;
     border: none;
     border-bottom-style: none;
     border-bottom-color: none;

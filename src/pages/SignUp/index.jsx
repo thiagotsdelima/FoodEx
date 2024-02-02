@@ -39,9 +39,9 @@ return (
         <h1>food explorer</h1>
       </div>
 <Form>
-  <h1>Crie sua conta</h1>
+  <h1 className='myTitle'>Crie sua conta</h1>
   
-  <label>Seu nome
+  <label><span>Seu nome</span>
   <Input 
   placeholder="Exemplo: Maria da Silva"
   type="text"
@@ -49,7 +49,7 @@ return (
   />
   </label>
 
-  <label>E-mail
+  <label><span>Email</span>
   <Input 
   placeholder="Exemplo: exemplo@exemplo.com.br"
   type="text"
@@ -57,7 +57,7 @@ return (
   />
   </label>
 
-  <label>Senha
+  <label><span>Senha</span>
   <Input 
   placeholder="No mínimo 6 caracteres"
   type="Password"
@@ -66,7 +66,7 @@ return (
   </label>
 
   <Button title="Register" onClick={handleSignUp} />
-  <Link to="/">
+  <Link to="/" className="myStylizedLink">
   Já tenho uma conta
   </Link>
 </Form>

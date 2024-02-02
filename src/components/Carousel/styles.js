@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+ max-width: fit-content;
 .carouselContainer {
   display: flex;
   flex-direction: column;

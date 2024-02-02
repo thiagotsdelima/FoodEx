@@ -41,10 +41,12 @@ export const Container = styled.div`
       "top"
       "content";
     justify-content: center;
-  
+    padding: 0.625rem; 
+    gap: 0.625rem;
+    
     .logo {
-     position: absolute;
-     z-index: 1;
+     margin-top: 1.875rem;
+     gap: 0.625rem;
     }
 
 
@@ -54,6 +56,7 @@ export const Container = styled.div`
   }
 
   .logo h1 {
+    
     font-weight: 700;
     font-size: 2.25rem;
     color: ${({ theme }) => theme.COLORS.GRAY_100};
@@ -73,6 +76,9 @@ export const Container = styled.div`
     margin-bottom: 2rem; 
     height: 3rem;
     width: 19.75rem;
+  }
+  a {
+    margin-bottom: 1.875rem;
   }
   }
   

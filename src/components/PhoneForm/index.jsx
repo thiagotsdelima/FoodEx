@@ -14,7 +14,7 @@ export function PhoneForm({ formType, onSubmit }) {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 770);
     };
 
     window.addEventListener('resize', handleResize);

@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
-import { Container, Form } from './styles';
+import { PhoneForm } from "../../components/PhoneForm";
+import { Container, Form, PhoneFormContainer } from './styles';
 
 export function SignUp() {
   
@@ -33,7 +34,10 @@ export function SignUp() {
 
 return (
 <Container>
-
+      <div className="logo">
+        <img src="/Polygon1.svg" alt="Logo" /> 
+        <h1>food explorer</h1>
+      </div>
 <Form>
   <h1>Crie sua conta</h1>
   
@@ -66,7 +70,10 @@ return (
   Já tenho uma conta
   </Link>
 </Form>
+<PhoneFormContainer>
 <PhoneForm formType="signUp" onSubmit={handleSignUp} />
+</PhoneFormContainer>
 </Container>
 );
 }
+

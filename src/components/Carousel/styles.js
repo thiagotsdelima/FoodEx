@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
  max-width: fit-content;
@@ -61,7 +62,7 @@ right: 10px;
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
 .carouselItem {
 width: 90%;
 }

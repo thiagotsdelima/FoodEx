@@ -3,9 +3,9 @@ import {DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
 
 export const Container = styled.header`
   position: sticky;
-  top: 0;
+  grid-area: header;
   
-
+  height: 6.5rem;
   width: 100%;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
 
@@ -13,39 +13,13 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 3.125rem;
+  padding: 0 6.5rem;
 
   img {
     margin-right: 0.5rem;
   }
-
-.inputIcon {
-    position: absolute;
-    font-size: 1.8rem;
-    margin-top: 1.9rem;
-    left: 32%; 
-    transform: translate(-50%, -50%);
-    @media (max-width: 376px) {
-    display: none;
-
-    }
-  }
-  @media (max-width: 768px) {
-    
-    .inputIcon {
-      display: none;
-    }
-    Input {
-    display: none;
-  }
   
-  }
-  @media (max-width: 376px) {
-    
-    .inputIcon {
-      display: none;
-    }
-  }
+
 
 `;
 
@@ -55,25 +29,22 @@ export const Found = styled.div`
   justify-content: center;
   align-items: center;
   
-
+  gap: 0.625rem;
   img {
-    
-    height: 3rem;
-    width: 3rem;
+   
+    height: 1.875rem;
+    width: 1.875rem;
     
   }
 
   h1 {
     
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
     font-family: ${({ theme }) => theme.FONTS.RobotoBiggerBold};
   }
   
-  @media (max-width: 768px) {
-    margin: 0 auto;
-    padding: 0 2rem; 
-    
-  }
-  @media (max-width: 376px) {
+  
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     margin: 0 auto;
     padding: 0 1rem; 
     
@@ -104,12 +75,12 @@ export const Found = styled.div`
 export const Profile = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 2.8rem;
+  gap: 1.75rem;
   margin-bottom: 1.3rem;
-
+  
+  
   a {
-    font-size: 3.2rem;
+    font-size: 2rem;
     display: flex;
     align-items: center;
     margin-top: 1.3rem;
@@ -122,12 +93,12 @@ export const Profile = styled.div`
       align-items: center;
       justify-content: center;
       
-      height: 5.3rem;
-      width: 21.6rem;
+      height: 3.3125rem;
+      width: 13.3rem;
       background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
       color: ${({ theme }) => theme.FONTS.Poppins100Medium}
     }
-    @media (max-width: 768px) {
+    @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
    
     button, a {
     display: none;
@@ -137,7 +108,7 @@ export const Profile = styled.div`
 
 export const MobileIcon = styled.div`
   font-size: 2rem;
-  @media (min-width: 768px){
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
    display: none; 
    
     &:hover, &:focus {
@@ -145,7 +116,7 @@ export const MobileIcon = styled.div`
     }
   }
 
-  @media (max-width: 376px) {
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     height: 1.8rem;
     width: 2.4rem;
     position: fixed;
@@ -163,22 +134,60 @@ export const MobileIcon = styled.div`
 export const MobileStar = styled.div`
   display: flex;
   justify-content: end;
-  margin-left: 3.9rem;
-  font-size: 2rem;
-  margin-top: 4rem;
+  margin-left: 2.4375rem;
+  font-size: 1.3rem;
+  margin-top: 2.5rem;
   
-@media (min-width: 768px){
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
    display: none; 
 
     &:hover, &:focus {
        
     }
   }
-  @media (max-width: 376px) {
-    
-    a:hover, a:focus {
-     
-    }
-  }
   `;
 
+export const InputContainer = styled.div`
+ 
+  width: 36.3rem;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+  border-radius: 0.3125rem;
+  color: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
+
+  input {
+    width: 100%;
+    padding: 0 6.5rem; 
+    height: 3.125rem;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+
+    &::placeholder {
+      font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
+      color: ${({ theme }) => theme.COLORS.GRAY_500};
+    }
+  }
+
+  .inputIcon {
+    position: absolute;
+    font-size: 1.2rem;
+    margin-top: 1.6rem;
+    left: 32%; 
+    transform: translate(-50%, -50%);
+    color: ${({ theme }) => theme.COLORS.GRAY_400};
+    @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    display: none;
+    }
+  }
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    
+    .inputIcon {
+      display: none;
+    }
+    Input {
+    display: none;
+  }
+  
+  }
+`;

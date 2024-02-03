@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.textarea`
 
@@ -34,7 +35,7 @@ export const Container = styled.textarea`
   
   padding: 3rem;
 
-  @media (min-width: 1024px) {
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
     padding: 1.2rem;
   }
 

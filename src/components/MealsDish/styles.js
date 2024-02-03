@@ -1,5 +1,5 @@
-import { styled } from "styled-components"
-import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakPoints"
+import { styled } from "styled-components";
+import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
  max-width: fit-content;
@@ -9,6 +9,10 @@ export const Container = styled.div`
 
   margin-bottom: 2rem;
   user-select: none;
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+
+  }
 
   > section {
     display: flex;

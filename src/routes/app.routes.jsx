@@ -8,7 +8,7 @@ import { UserDetails } from '../pages/UserDetails';
 export function AppRoutes() {
 
   const user = localStorage.getItem("@foodexplorer:user");
- 
+  
   return (
     <Routes>
       <Route path="/" element={<UserEfexHome />} />

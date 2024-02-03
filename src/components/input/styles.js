@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Container = styled.div`
   > input {
     max-width: fit-content;
@@ -19,6 +20,5 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.GRAY_400}; 
     }
   }
-
   
 `;

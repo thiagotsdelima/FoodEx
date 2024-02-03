@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
   max-width: fit-content;
@@ -8,7 +9,7 @@ export const Container = styled.div`
   padding: 2rem;
   width: 100%;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     /* Estilos para telas menores (responsivo) */
     flex-direction: column;
   }
@@ -51,7 +52,7 @@ export const Profile = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
    
     flex-direction: column;
     align-items: center;

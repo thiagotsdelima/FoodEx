@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 export const Container = styled.div`
 width: 100%;
 height: 100vh;
@@ -25,7 +25,7 @@ grid-template-areas:
   width: 6.9rem;
 }
 
-@media (min-width: 376px) {
+@media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
 
 }
 `;

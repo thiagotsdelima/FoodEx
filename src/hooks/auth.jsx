@@ -9,6 +9,7 @@ export function AuthProvider({ children }) {
   async function signIn({ email, password }) {
     try {
       const response = await api.post("/sessions", { email, password });
+      console.log(response.data);
       const { user, token } = response.data;
 
       localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
@@ -40,15 +41,15 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => { 
-    const token = localStorage.getItem("@foodexplorer:token");
     const user = localStorage.getItem("@foodexplorer:user");
-
-    if (token && user) {
-      // Define o token de autorização para futuras solicitações
+    const token = localStorage.getItem("@foodexplorer:token"); 
+    if(token && user) {
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      setData({ user: JSON.parse(user), token });
+      setData({ token, user: JSON.parse(user) });
     }
   }, []);
+  
+  
 
   return (
     <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>

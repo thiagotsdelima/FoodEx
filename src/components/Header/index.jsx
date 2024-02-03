@@ -1,4 +1,4 @@
-import { Container, Profile, MobileIcon, MobileStar, Found } from './styles';
+import { Container, Profile, MobileIcon, MobileStar, Found, InputContainer } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Input } from '../Input';
@@ -13,6 +13,7 @@ export function Header({ onChange }) {
   const navigation = useNavigate();
   function handleSignOut(){
     signOut();
+   
     navigation("/");
   }
   
@@ -33,12 +34,14 @@ export function Header({ onChange }) {
         <img src="/Frame.png" alt="image of a torn sheet" />
       </MobileStar>
 
+      <InputContainer>
         <FaSearch className="inputIcon" />
-        <Input
-        type="text"
-        placeholder="Busque por pratos ou ingredientes" 
-        onChange={onChange}
+        <input
+          type="text"
+          placeholder="Busque por pratos ou ingredientes"
+          onChange={onChange}
         />
+      </InputContainer>
 
       <Profile>
 

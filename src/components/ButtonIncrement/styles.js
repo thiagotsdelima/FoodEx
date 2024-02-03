@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Container = styled.div`
   padding: 2rem;
   display: flex;
@@ -35,4 +36,5 @@ export const QuantitySelector = styled.div`
       background-color: #f0f0f0;
     }
   }
+
 `;

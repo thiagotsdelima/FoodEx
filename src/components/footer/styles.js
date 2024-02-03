@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.footer`
  max-width: fit-content;
@@ -41,7 +42,7 @@ export const Container = styled.footer`
     }
   }
   
-  @media (max-width: 376px) {
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
   display: flex;
 	justify-content: flex-start;
   align-items: center;

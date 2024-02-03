@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { Container } from "./styles"
 import { IoIosArrowBack } from "react-icons/io"
+import { useAuth } from '../../hooks/auth';
 
 
 

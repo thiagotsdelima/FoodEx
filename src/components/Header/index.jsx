@@ -1,7 +1,6 @@
 import { Container, Profile, MobileIcon, MobileStar, Found, InputContainer } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Input } from '../Input';
 import { Button } from '../Button';
 import { FaSearch } from 'react-icons/fa';
 import { useAuth } from '../../hooks/auth';

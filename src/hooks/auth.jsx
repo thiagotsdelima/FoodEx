@@ -8,17 +8,14 @@ export function AuthProvider({ children }) {
 
   async function signIn({ email, password }) {
     try {
-      const response = await api.post("/sessions", { email, password });
-      console.log(response.data);
-      const { user, token } = response.data;
-
-      localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
-      localStorage.setItem("@foodexplorer:token", token);
-
-      // Define o token de autorização para futuras solicitações
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
-      setData({ user, token });
+      const { data } = await api.post('/sessions', { email, password });
+      localStorage.setItem('@foodexplorer:token', data.token);
+      localStorage.setItem('@foodexplorer:user', JSON.stringify(data.user));
+     
+      
+      api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
+      
+      setData({ user: data.user, token: data.token });
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);

@@ -7,7 +7,7 @@ import { UserDetails } from '../pages/UserDetails';
 
 export function AppRoutes() {
 
-  const user = localStorage.getItem("@foodexplorer:user");
+
   
   return (
     <Routes>
@@ -16,7 +16,6 @@ export function AppRoutes() {
       <Route path="/userMealNew" element={<UserMealNew />} />
       <Route path="/userMealFound" element={<UserMealFound />} />
       <Route path="/userDetails/:id" element={<UserDetails />} />
-     
     </Routes>
   );
 }

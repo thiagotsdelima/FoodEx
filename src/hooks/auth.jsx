@@ -9,13 +9,15 @@ export function AuthProvider({ children }) {
   async function signIn({ email, password }) {
     try {
       const { data } = await api.post('/sessions', { email, password });
-      localStorage.setItem('@foodexplorer:token', data.token);
+      const { user, token } = response.date;
+      
       localStorage.setItem('@foodexplorer:user', JSON.stringify(data.user));
-     
+      localStorage.setItem('@foodexplorer:token', token);
       
       api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
       
-      setData({ user: data.user, token: data.token });
+      setData({ user, token });
+
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
@@ -25,24 +27,19 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // A função signOut deve ser definida no escopo do componente AuthProvider
+ 
   function signOut() {
     localStorage.removeItem("@foodexplorer:token");
     localStorage.removeItem("@foodexplorer:user");
-
-    // Limpa o cabeçalho de autorização
-    api.defaults.headers.common['Authorization'] = '';
-
-    // Limpa o estado da aplicação
     setData({});
   }
 
   useEffect(() => { 
-    const user = localStorage.getItem("@foodexplorer:user");
     const token = localStorage.getItem("@foodexplorer:token"); 
+    const user = localStorage.getItem("@foodexplorer:user"); 
     if(token && user) {
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      setData({ token, user: JSON.parse(user) });
+      setData({ token, user: JSON.parse(user)});
     }
   }, []);
   

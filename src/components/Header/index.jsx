@@ -1,5 +1,5 @@
 import { Container, Profile, MobileIcon, MobileStar, Found, InputContainer } from './styles';
-import { useNavigate } from 'react-router-dom';
+
 import { Link } from 'react-router-dom';
 import { Button } from '../Button';
 import { FaSearch } from 'react-icons/fa';
@@ -9,11 +9,9 @@ import { FaBars } from "react-icons/fa";
 
 export function Header({ onChange }) {
   const { signOut } = useAuth();
-  const navigation = useNavigate();
+  
   function handleSignOut(){
     signOut();
-   
-    navigation("/");
   }
   
   return (

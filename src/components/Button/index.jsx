@@ -9,6 +9,6 @@ export function Button({title, loading = false, children, ...rest}) {
     >
       {children}
       { loading ? "Carregando..." : title}
-      </Container>
+    </Container>
 );
 }

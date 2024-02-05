@@ -11,11 +11,7 @@ grid-template-areas:
 "content"
 "footer"
 ;
-#wrapperButton {
-  margin: 0;
-  height :4.8rem;
-  width: 18.2rem;
-}
+
 #wrapperTag {
   display: flex;
 	justify-content: center;

@@ -1,25 +1,54 @@
-import { Container } from './styles';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../Button';
+import { useCart } from '../../hooks/cart'; 
+import { FiMinus, FiPlus } from 'react-icons/fi';
 
+import { Container } from './styles';
 
-export function Meals({ data, ...rest}) {
-  const [name, setName] = useState(meal.name);
-  const [description, setdescription] = useState(meal.description);
+export function Meals({ data }) {
+  const { cart, setCart } = useCart();
+  const [amount, setAmount] = useState(1);
+  const navigate = useNavigate();
 
-return (
-<Container {...rest}>
-<div className='main'>
-<span>
-  {data.imageDish && <img src={data.photo_food} alt="image of meals" />}
-</span>
-<div className="request">
-<strong>
-  {data.name && <h1>{data.name}</h1>}
-</strong>
-    {data && <p>{data.description}</p>}
-</div>
-</div>
+  const handleIncrement = () => setAmount(prevAmount => prevAmount + 1);
+  const handleDecrement = () => setAmount(prevAmount => Math.max(prevAmount - 1, 1));
 
-</Container>
-);
+  const handleIncludeNewItem = () => {
+    const newItem = {
+      ...data,
+      amount,
+      total_price: amount * data.price,
+    };
+    setCart([...cart, newItem]);
+  };
+
+  return (
+    <Container>
+      <div className='main'>
+        <span>
+          {data.photo_food && <img src={`${api.defaults.baseURL}/files/${data.photo_food}`} alt={data.name} />}
+        </span>
+        <div className="request">
+          <strong>{data.name}</strong>
+          <p>{data.description}</p>
+          <p className="price">R$ {data.price.toFixed(2)}</p>
+          <div className="wrapperAmountInclude">
+            <div className="amount">
+              <div className="counter">
+                <button onClick={handleDecrement}>
+                <FiMinus />
+                </button>
+                <span>{amount.toString().padStart(2, '0')}</span>
+                <button onClick={handleIncrement}>
+                <FiPlus />
+                </button>
+              </div>
+            </div>
+            <Button title="Incluir" onClick={handleIncludeNewItem} />
+          </div>         
+        </div>
+      </div>
+    </Container>
+  );
 }

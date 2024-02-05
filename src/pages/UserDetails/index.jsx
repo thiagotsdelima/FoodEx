@@ -1,5 +1,4 @@
 import { Container } from './styles';
-import { ButtonIncrement } from '../../components/ButtonIncrement';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { ButtonBack } from '../../components/ButtonBack';
@@ -11,9 +10,9 @@ return (
   <Container>
   <Header />
   <ButtonBack />
-  <Meals />
+  <Meals data={mealData} />
   <Seasoning id="wrapperTag" title="tomate"/>
-  <ButtonIncrement id="wrapperButton" title="Entra"/>
+
   
   <Footer />
   </Container>

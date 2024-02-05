@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Container } from './styles';
-import { Meals } from './Meals';
+import { Meals } from '../Meals';
 
 export function Carousel({ url }) {
     const [data, setData] = useState([]);

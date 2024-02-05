@@ -14,27 +14,17 @@ export const Container = styled.div`
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 20px 0;
+  padding: 1.25rem 0;
   width: 100%;
-  gap: 20px; /* Espaçamento entre os itens */
+  gap: 1.25rem; 
 }
 
 .carouselItem {
   flex: 0 0 auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  box-shadow: 0 0.3rem 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
   overflow: hidden;
   background-color: #fff;
-}
-
-.carouselItem img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.carouselItem h3, .carouselItem p, .carouselItem span {
-  padding: 10px;
 }
 
 button {
@@ -44,9 +34,9 @@ button {
   background-color: #fff;
   border: none;
 
-padding: 10px;
+padding: 0.6rem;
 border-radius: 50%;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
@@ -54,27 +44,25 @@ background-color: #f0f0f0;
 }
 
 .carouselContainer > button:first-of-type {
-left: 10px;
+left: 0.6rem;
 }
 
 .carouselContainer > button:last-of-type {
-right: 10px;
+right: 0.6rem;
 }
 
 
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-.carouselItem {
-width: 90%;
-}
+  .carouselItem {
+    width: 90%;
+  }
 
-css
-Copy code
-.carousel {
-  justify-content: center;
-}
+  .carousel {
+    justify-content: center;
+  }
 
-button {
-  display: none; 
-}
+  button {
+    display: none; 
+  }
 }
 `;

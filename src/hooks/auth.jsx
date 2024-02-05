@@ -9,15 +9,15 @@ export function AuthProvider({ children }) {
   async function signIn({ email, password }) {
     try {
       const { data } = await api.post('/sessions', { email, password });
-      const { user, token } = response.date;
+      const { user, token } = data; 
       
-      localStorage.setItem('@foodexplorer:user', JSON.stringify(data.user));
+      localStorage.setItem('@foodexplorer:user', JSON.stringify(user)); 
       localStorage.setItem('@foodexplorer:token', token);
       
-      api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       
       setData({ user, token });
-
+  
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
@@ -26,6 +26,7 @@ export function AuthProvider({ children }) {
       }
     }
   }
+  
 
  
   function signOut() {

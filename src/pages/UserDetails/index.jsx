@@ -10,8 +10,8 @@ return (
   <Container>
   <Header />
   <ButtonBack />
-  <Meals data={mealData} />
-  <Seasoning id="wrapperTag" title="tomate"/>
+  <Meals />
+  <Seasoning id="wrapperTag" />
 
   
   <Footer />

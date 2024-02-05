@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../Button';
 import { useCart } from '../../hooks/cart'; 
 import { FiMinus, FiPlus } from 'react-icons/fi';
-
+import { api } from '../../services/api';
 import { Container } from './styles';
 
 export function Meals({ data }) {
+  if (!data) return null;
   const { cart, setCart } = useCart();
   const [amount, setAmount] = useState(1);
   const navigate = useNavigate();

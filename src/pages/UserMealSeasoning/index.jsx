@@ -1,16 +1,15 @@
 import { Container } from './styles';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { Preparation } from '../../components/Preparation';
+import { Seasoning } from '../../components/Seasoning';
 
-export function UserMealFound() {
+export function UserMealSeasoning() {
 return (
 <Container>
 <Header />
 <main>
-  <h2>Histórico de pedidos</h2>
-<Preparation />
-
+  <h2>Meus favoritos</h2>
+<Seasoning />
 </main>
 <Footer />
 </Container>

@@ -1,6 +1,6 @@
 import { Container } from './styles';
 
-export function UserMealNew() {
+export function AdminDetails() {
 return (
 <Container>
 

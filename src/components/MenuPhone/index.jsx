@@ -1,6 +1,6 @@
 import { Container } from './styles';
 
-export function UserMealDescription() {
+export function MenuPhone() {
 return (
 <Container>
 

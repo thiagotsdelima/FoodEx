@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../Button';
 import { FaSearch, FaBars } from 'react-icons/fa';
 import { USER_ROLES } from "../../utils/roles"
-import { api } from "../../services"
+import { api } from "../../services/api";
 import { useAuth } from '../../hooks/auth';
 
 export function Header({ onChange }) {

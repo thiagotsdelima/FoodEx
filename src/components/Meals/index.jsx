@@ -4,6 +4,7 @@ import { Button } from '../Button';
 import { useCart } from '../../hooks/cart'; 
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { api } from '../../services/api';
+import { MealPhoto } from './MealPhoto'; 
 import { Container } from './styles';
 
 export function Meals({ data }) {
@@ -28,7 +29,7 @@ export function Meals({ data }) {
     <Container>
       <div className='main'>
         <span>
-          {data.photo_food && <img src={`${api.defaults.baseURL}/files/${data.photo_food}`} alt={data.name} />}
+        {data.photo_food && <MealPhoto meal={data} />}
         </span>
         <div className="request">
           <strong>{data.name}</strong>

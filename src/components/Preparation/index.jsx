@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-export function StatusOrders ({ title, data, color, details, onChange, children, ...rest }) {
+export function Preparation ({ title, data, color, details, onChange, children, ...rest }) {
 
   return (
     <Container

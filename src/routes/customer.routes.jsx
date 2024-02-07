@@ -1,11 +1,11 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { UserMealDescription } from '../pages/UserMealDescription';
 import { UserEfexHome } from '../pages/UserEfexHome';
 import { UserMealNew } from '../pages/UserMealNew';
 import { UserMealFound } from '../pages/UserMealFound';
 import { UserDetails } from '../pages/UserDetails';
 
-export function AppRoutes() {
+export function CustomerRoutes() {
 
 
   
@@ -16,6 +16,7 @@ export function AppRoutes() {
       <Route path="/userMealNew" element={<UserMealNew />} />
       <Route path="/userMealFound" element={<UserMealFound />} />
       <Route path="/userDetails/:id" element={<UserDetails />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }

@@ -4,7 +4,7 @@ import { Button } from '../Button';
 import { useCart } from '../../hooks/cart'; 
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { api } from '../../services/api';
-import { MealPhoto } from './MealPhoto'; 
+import { MealPhoto } from '../MealPhoto'; 
 import { Container } from './styles';
 
 export function Meals({ data }) {

@@ -1,8 +1,8 @@
-import { DivStyled } from "./styles";
+import { Container } from "./styles";
 
-function Select({ ...rest }) {
+export function StatusBy({ ...rest }) {
   return (
-    <DivStyled>
+    <Container>
       <label htmlFor="">Categoria</label>
       <select name="" id="" {...rest}>
         <option value="" selected disabled hidden>
@@ -12,8 +12,7 @@ function Select({ ...rest }) {
         <option value="bebidas">Bebidas</option>
         <option value="refeicoes">Refeições</option>
       </select>
-    </DivStyled>
+    </Container>
   );
 }
 
-export default Select;

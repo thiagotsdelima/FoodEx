@@ -2,7 +2,8 @@ import { Container, Profile, MobileIcon, MobileStar, Found, InputContainer } fro
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../Button';
 import { FaSearch, FaBars } from 'react-icons/fa';
-import { USER_ROLES } from "../../utils/roles"
+import { USER_ROLE } from "../../utils/roles";
+import { useState } from 'react'
 import { api } from "../../services/api";
 import { useAuth } from '../../hooks/auth';
 
@@ -30,7 +31,7 @@ export function Header({ onChange }) {
       {toggleMenu && (
         <nav>
           <ul>
-            {USER_ROLES.ADMIN.includes(user?.role) ? (
+            {USER_ROLE.ADMIN.includes(user?.role) ? (
               <>
                 <li>
                   <button onClick={handleAddNewDish}>Novo Prato</button>
@@ -47,7 +48,9 @@ export function Header({ onChange }) {
       <Found>
         <img src="/Polygon1.svg" alt="Logo" />
         <h1>food explorer</h1>
-        {userType === 'admin' && <p>admin</p>}
+        {USER_ROLE.ADMIN.includes(user?.role) ? (
+        <p>admin</p>
+        ) : null}
       </Found>
 
       <MobileStar onClick={() => setToggleMenu(!toggleMenu)}>
@@ -68,7 +71,7 @@ export function Header({ onChange }) {
       </InputContainer>
 
       <Profile>
-      {USER_ROLES.ADMIN.includes(user?.role) ?(
+      {USER_ROLE.ADMIN.includes(user?.role) ?(
       
           <Button title="Novo Prato" onClick={handleAddNewDish}>
             Novo Prato

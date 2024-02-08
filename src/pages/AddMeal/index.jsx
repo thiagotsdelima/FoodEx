@@ -15,7 +15,7 @@ return (
     <div className="header">
     <ButtonBack />
     <Section />
-    <Input />
+    <Button />
     <Input />
     <Input />
     </div>

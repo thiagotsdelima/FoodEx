@@ -1,21 +1,22 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { UserMealDescription } from '../pages/UserMealDescription';
-import { UserEfexHome } from '../pages/UserEfexHome';
-import { UserMealNew } from '../pages/UserMealNew';
-import { UserMealFound } from '../pages/UserMealFound';
-import { UserDetails } from '../pages/UserDetails';
+import { MealFinishing } from '../pages/MealFinishing';
+import { Home } from '../pages/Home';
+import { MealOrder } from '../pages/MealOrder';
+import { MealFound } from '../pages/MealFound';
+import { Details } from '../pages/Details';
+import { Bank } from '../pages/Bank';
+import { MealSeasoning } from '../pages/MealSeasoning';
 
 export function CustomerRoutes() {
-
-
-  
   return (
     <Routes>
-      <Route path="/" element={<UserEfexHome />} />
-      <Route path="/userMealDescription" element={<UserMealDescription />} />
-      <Route path="/userMealNew" element={<UserMealNew />} />
-      <Route path="/userMealFound" element={<UserMealFound />} />
-      <Route path="/userDetails/:id" element={<UserDetails />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/mealFinishing" element={<MealFinishing />} />
+      <Route path="/mealOrder" element={<MealOrder />} />
+      <Route path="/mealFound" element={<MealFound />} />
+      <Route path="/details/:id" element={<Details />} />
+      <Route path="/bank" element={<Bank />} />
+      <Route path="/mealSeasoning" element={<MealSeasoning />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

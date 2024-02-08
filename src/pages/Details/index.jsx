@@ -6,7 +6,7 @@ import { Meals } from '../../components/Meals';
 import { TextArea } from './components/TextArea';
 import { Seasoning } from '../../components/Seasoning';
 
-export function UserDetails() {
+export function Details() {
 return (
   <Container>
   <Header />

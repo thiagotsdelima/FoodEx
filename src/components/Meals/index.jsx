@@ -2,13 +2,16 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../Button';
 import { useCart } from '../../hooks/cart'; 
-import { FiMinus, FiPlus } from 'react-icons/fi';
+import { FiMinus, FiPlus, FiHeart, FiEdit3 } from 'react-icons/fi';
 import { api } from '../../services/api';
 import { MealPhoto } from '../MealPhoto'; 
 import { Container } from './styles';
+import { USER_ROLE } from '../../utils/roles'; 
+import { useAuth } from '../../hooks/auth';
 
 export function Meals({ data }) {
   if (!data) return null;
+  const { user } = useAuth();
   const { cart, setCart } = useCart();
   const [amount, setAmount] = useState(1);
   const navigate = useNavigate();
@@ -35,22 +38,30 @@ export function Meals({ data }) {
           <strong>{data.name}</strong>
           <p>{data.description}</p>
           <p className="price">R$ {data.price.toFixed(2)}</p>
-          <div className="wrapperAmountInclude">
-            <div className="amount">
-              <div className="counter">
-                <button onClick={handleDecrement}>
-                <FiMinus />
+          {!USER_ROLE.ADMIN.includes(user?.role) && (
+            <FiHeart className="likeIcon" />
+          )}
+           
+           {!USER_ROLE.ADMIN.includes(user?.role) && (
+            <div className="wrapperAmountInclude">
+              <div className="amount">
+                <button onClick={() => setAmount(prevAmount => Math.max(prevAmount - 1, 1))}>
+                  <FiMinus />
                 </button>
                 <span>{amount.toString().padStart(2, '0')}</span>
-                <button onClick={handleIncrement}>
-                <FiPlus />
+                <button onClick={() => setAmount(prevAmount => prevAmount + 1)}>
+                  <FiPlus />
                 </button>
               </div>
+              <Button title="Incluir" onClick={handleIncludeNewItem} />
             </div>
-            <Button title="Incluir" onClick={handleIncludeNewItem} />
+          )}
+          {USER_ROLE.ADMIN.includes(user?.role) && (
+            <FiEdit3 className="editIcon" onClick={() => console.log('Edit clicked')} />
+          )}
           </div>         
         </div>
-      </div>
+     
     </Container>
   );
 }

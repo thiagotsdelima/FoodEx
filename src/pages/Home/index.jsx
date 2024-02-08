@@ -7,7 +7,7 @@ import { Footer } from '../../components/Footer';
 import { Rings } from 'react-loader-spinner';
 
 
-export function UserEfexHome() {
+export function Home() {
      const [loading, setLoading] = useState(true);
 
  

@@ -3,7 +3,7 @@ import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { MealsDish } from '../../components/MealsDish';
 
-export function AdminMealOrder() {
+export function MealOrder() {
 return (
 <Container>
   <Header />

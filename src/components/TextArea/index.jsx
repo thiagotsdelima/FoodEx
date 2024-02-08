@@ -2,14 +2,15 @@ import { Container } from "./styles";
 
 import { useRef, useEffect } from 'react';
 
-export function TextArea({ value, readOnly, ...rest }) {
+export function TextArea({ value, readOnly, interactive = true, ...rest }) {
   const textareaRef = useRef(null);
 
   useEffect(() => {
     const textarea = textareaRef.current;
-
-    textarea.style.height = 'auto';
-    textarea.style.height = `${textarea.scrollHeight}px`;
+    if (textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    }
   }, [value]);
 
   return(
@@ -18,8 +19,12 @@ export function TextArea({ value, readOnly, ...rest }) {
     value={value}
     readOnly={readOnly}
     {...rest}
+    style={{
+      pointerEvents: interactive ? 'auto' : 'none',
+      userSelect: interactive ? 'text' : 'none',
+      cursor: interactive ? 'text' : 'default',
+    }}
     >
-
     </Container>
   );
 }

@@ -4,16 +4,16 @@ export const Container = styled.section`
   margin: 2.8rem 0;
 
 > h2 {
-  ${({theme }) => theme.FONTS.POPPINS};
-  color: ${({theme }) => theme.COLORS.GRAY_300};
+    color: ${({ theme }) => theme.COLORS.GRAY_300};
+    font-family: ${({ theme }) => theme.FONTS.Poppins400Medium};
   font-size: 1.5rem;
   
   font-weight: 500;
   margin-bottom: 1rem;
 
-  border-bottom-width: 0.1rem;
-  border-bottom-style: solid;
-  border-bottom-color: ${({theme }) => theme.COLORS.BACKGROUND_1000};
+  border-bottom-width: none;
+  border-bottom-style: none;
+  border-bottom-color: none;
 
   padding: 1.0rem;
 }

@@ -1,27 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import { api } from '../../services/api';
 import { Container } from './styles';
 import { Meals } from '../Meals';
 
-export function Carousel({ url }) {
+export function Carousel() {
     const [data, setData] = useState([]);
     const carouselRef = useRef(null);
     const autoScrollRef = useRef(null);
 
     useEffect(() => {
-        axios.get(url)
+        api.get('/meals') 
             .then(response => {
+                 
                 setData(response.data);
             })
             .catch(error => {
                 console.error("Erro ao carregar dados", error);
             });
-
-        // Inicia a rolagem automática
-        startAutoScroll(50);
-
-        return () => clearInterval(autoScrollRef.current); // Limpa o intervalo quando o componente é desmontado
-    }, [url]);
+    }, []);
+    
 
     const scroll = (direction, scrollAmount = carouselRef.current.offsetWidth / 2) => {
         carouselRef.current.scrollLeft += direction * scrollAmount;
@@ -30,7 +27,7 @@ export function Carousel({ url }) {
     const startAutoScroll = (speed = 30) => {
         autoScrollRef.current = setInterval(() => {
             if (carouselRef.current) {
-                carouselRef.current.scrollLeft += 1; // Ajuste este valor para controlar a velocidade da rolagem automática
+                carouselRef.current.scrollLeft += 1; 
             }
         }, speed);
     };

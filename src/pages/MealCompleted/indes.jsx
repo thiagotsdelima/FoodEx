@@ -6,7 +6,7 @@ import { Section } from '../../components/Section';
 import { Button } from '../../components/Button';
 
 
-export function MealFinishing() {
+export function MealCompleted() {
 return (
 <Container>
 <Header />

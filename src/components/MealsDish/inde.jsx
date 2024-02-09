@@ -1,6 +1,8 @@
-import { Container } from "./style"
-import Button from "../Button"
-import { useState, useEffect } from "react"
+/*import { Container } from "./style";
+import { Button } from "../Button";
+import { useState, useEffect } from "react";
+import { useAuth } from "../../hooks/auth";
+import api from "../../services/api";
 
 import { IoIosArrowDown } from "react-icons/io"
 
@@ -19,8 +21,8 @@ export function MealsDish({ data, UpdateOrder }) {
 
     const arrayItems = await Promise.all(
       dishIdAndCount.map(async (item) => {
-        const response = await api.get(`/dish/${item.id}`)
-        const imageURL = `${api.defaults.baseURL}/files_image/${response.data.image}`
+        const response = await api.get(`/meal/${item.id}`)
+        const imageURL = `${api.defaults.baseURL}/photo_food/${response.data.image}`
 
         return {
           count: item.count,
@@ -117,9 +119,9 @@ export function MealsDish({ data, UpdateOrder }) {
         </div>
 
         <div>
-          <Button title="Ver detalhes" to={`/details_order/${data.id}`} />
+          <Button title="Ver detalhes" to={`/details/${data.id}`} />
         </div>
       </section>
     </Container>
   )
-}
+}*/

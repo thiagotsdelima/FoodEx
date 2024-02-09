@@ -57,7 +57,7 @@ export function Meals({ data }) {
             </div>
           )}
           {USER_ROLE.ADMIN.includes(user?.role) && (
-            <FiEdit3 className="editIcon" onClick={() => console.log('Edit clicked')} />
+            <FiEdit3 className="editIcon" />
           )}
           </div>         
         </div>

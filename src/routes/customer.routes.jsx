@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { MealFinishing } from '../pages/MealFinishing';
 import { Home } from '../pages/Home';
 import { MealOrder } from '../pages/MealOrder';
 import { MealFound } from '../pages/MealFound';
@@ -11,7 +10,6 @@ export function CustomerRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/mealFinishing" element={<MealFinishing />} />
       <Route path="/mealOrder" element={<MealOrder />} />
       <Route path="/mealFound" element={<MealFound />} />
       <Route path="/details/:id" element={<Details />} />

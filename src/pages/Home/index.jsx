@@ -35,7 +35,7 @@ return (
           <Rings color="#065E7C" width="110" height="110" />
         </div>
       ) : (
-        <div>
+        <div className='contentWrapper'>
          <Section>
           <h2>Refeições</h2>
           <Carousel category="refeicoes" />

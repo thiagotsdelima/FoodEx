@@ -31,16 +31,17 @@ export function Meals({ data }) {
   return (
     <Container>
       <div className='main'>
-        <span>
+      {!USER_ROLE.ADMIN.includes(user?.role) && (
+            <FiHeart className="likeIcon" />
+          )}
+        <span  className="mealPhotoContainer">
         {data.photo_food && <MealPhoto meal={data} />}
         </span>
         <div className="request">
           <strong>{data.name}</strong>
           <p>{data.description}</p>
           <p className="price">R$ {data.price.toFixed(2)}</p>
-          {!USER_ROLE.ADMIN.includes(user?.role) && (
-            <FiHeart className="likeIcon" />
-          )}
+        
            
            {!USER_ROLE.ADMIN.includes(user?.role) && (
             <div className="wrapperAmountInclude">
@@ -53,7 +54,7 @@ export function Meals({ data }) {
                   <FiPlus />
                 </button>
               </div>
-              <Button title="Incluir" onClick={handleIncludeNewItem} />
+              <Button className="buttonInclud" title="Incluir" onClick={handleIncludeNewItem} />
             </div>
           )}
           {USER_ROLE.ADMIN.includes(user?.role) && (

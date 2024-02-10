@@ -2,68 +2,76 @@ import styled from 'styled-components';
 import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
-  max-width: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  width: 100%;
-
-  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    /* Estilos para telas menores (responsivo) */
-    flex-direction: column;
-  }
-`;
-
-export const Profile = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  max-width: 600px;
   
-  padding: 1rem;
-  border-radius: 8px;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+  gap: 1.7rem;
 
-  img {
-    width: clamp(26.4rem, 31vw, 38.9rem);
-    height: clamp(26.4rem, 31vw, 38.9rem);
-    object-fit: cover;
-    border-radius: 9999rem;
+  .main {
+    
+    width: ${({ $user }) => $user === false ? "clamp(21rem, 30vw, 25.4rem)" : "clamp(21rem, 38vw, 25.4rem)"};
+    height: clamp(30.2rem, 50vw, 40.2rem);
+    border-radius: 0.8rem;
+    border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_300};
+    background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
+    gap: 1rem;
+    padding: 20px;
+
+    .buttonInclud {
+    
+    background: ${({ theme }) => theme.COLORS.TOMATO_300};
+    }
+    span img {
+     
+    }
   }
 
-  div {
+  .mealPhotoContainer img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+      
+  }
+
+  .likeIcon, .editIcon {
+   
+  }
+  
+
+  .wrapperAmountInclude {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
 
-    h1 {
-      color: ${({ theme }) => theme.COLORS.GRAY_300};
-      font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
-      font-size: clamp(2.7041rem, 3.2vw, 4rem);
-      
-    }
+  }
 
-    p {
-      color: ${({ theme }) => theme.COLORS.GRAY_300};
-      font-family: ${({ theme }) => theme.FONTS.Poppins300Regular};
-      font-size: clamp(1.6225rem, 2vw, 2.4rem);
-      
+  .amount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    button {
+      background: none;
+      border: none;
+     
     }
+  }
+
+  strong, p {
+    text-align: center;
+  }
+
+  p.price {
+    font-weight: bold;
+    color: ${({ theme }) => theme.COLORS.PRIMARY};
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-   
-    flex-direction: column;
-    align-items: center;
-
-    img {
-      margin-bottom: 1rem;
-    }
-
-    div {
-      align-items: center;
-      text-align: center;
+    .main {
+      width: clamp(21rem, 28vw, 30.4rem);
+      height: clamp(30.2rem, 46vw, 46.2rem);
     }
   }
 `;

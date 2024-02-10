@@ -37,6 +37,7 @@ grid-template-areas:
   
 }
 
+
 .wrapper h2 {
     font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
     color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -47,6 +48,12 @@ grid-template-areas:
    font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
    color: ${({ theme }) => theme.COLORS.GRAY_300};
    
+}
+
+.contentWrapper {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
 }
 
 @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {

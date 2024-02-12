@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../Button';
 import { useCart } from '../../hooks/cart'; 
-import { FiMinus, FiPlus, FiHeart, FiEdit3 } from 'react-icons/fi';
-import { api } from '../../services/api';
+import { FiHeart, FiEdit3 } from 'react-icons/fi';
 import { MealPhoto } from '../MealPhoto'; 
 import { Container } from './styles';
 import { USER_ROLE } from '../../utils/roles'; 
 import { useAuth } from '../../hooks/auth';
+import { AmountControls } from '../../components/AmountControls';
 
 export function Meals({ data }) {
   if (!data) return null;
@@ -15,9 +15,6 @@ export function Meals({ data }) {
   const { cart, setCart } = useCart();
   const [amount, setAmount] = useState(1);
   const navigate = useNavigate();
-
-  const handleIncrement = () => setAmount(prevAmount => prevAmount + 1);
-  const handleDecrement = () => setAmount(prevAmount => Math.max(prevAmount - 1, 1));
 
   const handleIncludeNewItem = () => {
     const newItem = {
@@ -46,13 +43,7 @@ export function Meals({ data }) {
            {!USER_ROLE.ADMIN.includes(user?.role) && (
             <div className="wrapperAmountInclude">
               <div className="amount">
-                <button onClick={() => setAmount(prevAmount => Math.max(prevAmount - 1, 1))}>
-                  <FiMinus />
-                </button>
-                <span>{amount.toString().padStart(2, '0')}</span>
-                <button onClick={() => setAmount(prevAmount => prevAmount + 1)}>
-                  <FiPlus />
-                </button>
+              <AmountControls />
               </div>
               <Button className="buttonInclud" title="Incluir" onClick={handleIncludeNewItem} />
             </div>

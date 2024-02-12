@@ -43,19 +43,11 @@ export const Container = styled.div`
     justify-content: space-between;
     width: 100%;
     padding: 0 20px;
+    .amount {
 
-  }
+      button {
 
-  .amount {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    button {
-      background: none;
-      border: none;
-     
+      }
     }
   }
 

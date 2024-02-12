@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { api } from '../../services/api';
-import { MealPhoto } from './MealPhoto';
+import { Meals } from './Meals';
 
-export function MealPhotoModule() {
+export function MealsModule() {
   const [meals, setMeals] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export function MealPhotoModule() {
   return (
     <div>
       {meals.map(meal => (
-        <MealPhoto key={meal.id} meal={meal} />
+        <Meals key={meal.id} meal={meal} />
       ))}
     </div>
   );

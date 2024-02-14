@@ -42,13 +42,17 @@ export function Carousel() {
     return (
         <Container onMouseOver={stopAutoScroll} onMouseOut={startAutoScroll}>
             <div className="carouselContainer">
-                <button onClick={() => scroll(-1, 100)}><FiChevronLeft /></button> 
+            <div className="arrowContainer arrowLeft" onClick={() => scroll(-1, 100)}>
+                    <FiChevronLeft />
+                </div>
                 <div className="carousel" ref={carouselRef}>
                     {data.map((item) => (
                         <Meals key={item.id} data={item} />
                     ))}
                 </div>
-                <button onClick={() => scroll(1, 100)}><FiChevronRight /></button> 
+                <div className="arrowContainer arrowRight" onClick={() => scroll(1, 100)}>
+                    <FiChevronRight />
+                </div>
             </div>
         </Container>
     );

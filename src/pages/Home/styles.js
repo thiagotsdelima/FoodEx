@@ -72,8 +72,12 @@ main {
 
 
 .contentWrapper {
-     max-width: 70rem;
-    
+  
+     
+    section {
+
+      
+    }
 }
 
 @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {

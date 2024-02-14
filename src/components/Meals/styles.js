@@ -3,29 +3,31 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
   
-  width: calc((100% - 2*27px - 150px) / 3.5); 
-  height: 1.8rem;
-  margin-right: 1.7rem; 
-  padding: 2.4rem;
-  border-radius: 0.8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   
-  height: auto;
+  
+  
+  align-items: center;
+ 
+
+  margin-right: 1.7rem; 
+ 
+
 
   .likeIcon{
     font-size: 2.4rem;
-    margin-left: 11.3rem;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: end; 
     right: 1.8rem;
     top: 1.6rem;
     animation: zoomIn 1s infinite alternate;
   }
 
   .main {
+    height: 28rem;
+    width: 19rem;
     
-  
+    
    
     border-radius: 0.8rem;
     border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_300};
@@ -38,6 +40,8 @@ export const Container = styled.div`
     background: ${({ theme }) => theme.COLORS.TOMATO_300};
     }
     .request {
+     
+      
       strong {
         align-items: center;
         text-align: center;
@@ -56,7 +60,7 @@ export const Container = styled.div`
     width: clamp(8.8rem, 16vw, 17.6rem);
     height: clamp(8.8rem, 16vw, 17.6rem);
     object-fit: cover;
-    border-radius: 9999rem;
+   
     transition: transform 0.4s ease-in-out;
 
     &:hover {
@@ -68,6 +72,7 @@ export const Container = styled.div`
   .wrapperAmountInclude {
     display: flex;
     align-items: center;
+    text-align: center;
     justify-content: space-between;
     width: 100%;
     padding: 0 20px;
@@ -76,12 +81,17 @@ export const Container = styled.div`
       button {
 
       }
+      
     }
   }
 
  
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    .meal {
+      width: 100%;
+      flex-direction: column;
+    }
     .main {
       width: clamp(21rem, 28vw, 30.4rem);
       height: clamp(30.2rem, 46vw, 46.2rem);

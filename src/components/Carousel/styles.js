@@ -2,41 +2,36 @@ import styled from 'styled-components';
 import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
- max-width: fit-content;
+ 
+
 .carouselContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
   position: relative;
+ 
 }
 
 .carousel {
+  
+  
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 1.25rem 0;
-  width: 100%;
-  gap: 1.25rem; 
+ 
+ 
+  
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .carouselItem {
-  flex: 0 0 auto;
-  box-shadow: 0 0.3rem 8px rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  background-color: #fff;
+ 
 }
 
 button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #fff;
-  border: none;
-
-padding: 0.6rem;
-border-radius: 50%;
-box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
+ 
 }
 
 button:hover {

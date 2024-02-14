@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { api } from '../../services/api';
 import { Container } from './styles';
 import { Meals } from '../Meals';
@@ -41,13 +42,13 @@ export function Carousel() {
     return (
         <Container onMouseOver={stopAutoScroll} onMouseOut={startAutoScroll}>
             <div className="carouselContainer">
-                <button onClick={() => scroll(-1, 100)}>Esquerda</button> 
+                <button onClick={() => scroll(-1, 100)}><FiChevronLeft /></button> 
                 <div className="carousel" ref={carouselRef}>
                     {data.map((item) => (
                         <Meals key={item.id} data={item} />
                     ))}
                 </div>
-                <button onClick={() => scroll(1, 100)}>Direita</button> 
+                <button onClick={() => scroll(1, 100)}><FiChevronRight /></button> 
             </div>
         </Container>
     );

@@ -12,48 +12,64 @@ grid-template-areas:
 "content"
 "footer"
 ;
+
+main {
+    
+   margin: auto;
+}
+
 .Header {
-    background-color: ${({ theme }) => theme.COLORS.GRADIENTS_200};
-    height: 200px;
-    max-width: 1120px;
+  position: relative;
+  width: 100%;
+  height: clamp(9.5rem, 23vw, 26rem);
+  margin-top: clamp(4.4rem, 14vw, 16.4rem);
+ 
+ 
+  background: ${({ theme }) => theme.COLORS.GRADIENTS_200};
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  > div {
+    width: fit-content;
+    height: 100%;
     display: flex;
-    align-items: center; 
-    justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    border-radius: 8px;
-    margin: 200px auto 68px; 
-  
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+
+    > img {
+      position: absolute;
+      bottom: -1rem;
+      left: -5.1rem;
+      z-index: 1;
+      width: clamp(19.1rem, 58vw, 63.2rem);
+    }
+
+     h2 {
+      margin-right: 5.3rem;
+      z-index: 1;
+      white-space: nowrap;
+      font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+    }
+
+     p {
+      z-index: 1;
+      width: clamp(55%, 37vw, 100%);
+      font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+    }
+}
 }
 
 
-.Header img {
-    width: 100%; 
-    max-width: 656px; 
-    height: auto; 
-    margin-bottom: 186px; 
-}
 
-.wrapper h2, .wrapper p {
-  
-}
-
-
-.wrapper h2 {
-    font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
-    color: ${({ theme }) => theme.COLORS.GRAY_300};
-    margin-bottom: 10px; 
-}
-
-.wrapper p {
-   font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
-   color: ${({ theme }) => theme.COLORS.GRAY_300};
-   
-}
 
 .contentWrapper {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
+     max-width: 70rem;
+    
 }
 
 @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {

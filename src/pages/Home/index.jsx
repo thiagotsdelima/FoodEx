@@ -1,19 +1,22 @@
 import { Container } from './styles';
 import { useState, useEffect } from 'react';
-import { Header, Carousel, Footer, Section } from '../../components';
+import { Header } from '../../components/Header';
+import { Carousel } from '../../components/Carousel';
+import { Footer } from '../../components/Footer';
+import { Section } from '../../components/Section';
 import maskGroupImage from '../../assets/Maskgroup.png';
 import { Rings } from 'react-loader-spinner';
 import { api } from '../../services/api'; 
 
 export function Home() {
     const [loading, setLoading] = useState(true);
-    const [pratos, setPratos] = useState([]);
+    const [meals, setMeals] = useState([]);
 
    
     useEffect(() => {
-        api.get('/pratos')
+        api.get('/meals')
             .then(response => {
-                setPratos(response.data);
+                setMeals(response.data);
                 setLoading(false);
             })
             .catch(error => {
@@ -23,14 +26,16 @@ export function Home() {
     }, []);
 
     
-    const filterDishesByCategory = (categoria) => pratos.filter(prato => prato.category_name === categoria);
+    const filterDishesByCategory = (categoria) => meals.filter(meal => meal.category_name === categoria);
 
     return (
         <Container>
             <Header />
             <main>
                 <div className="Header">
+                    <div className="image">
                     <img src={maskGroupImage} alt="flying fruits" />
+                    </div>
                     <div className="wrapper">
                         <h2>Sabores Inigualáveis</h2>
                         <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
@@ -44,15 +49,15 @@ export function Home() {
                     <div className='contentWrapper'>
                         <Section>
                             <h2>Refeições</h2>
-                            <Carousel pratos={filterDishesByCategory('refeicoes')} />
+                            <Carousel meals={filterDishesByCategory('refeicoes')} />
                         </Section>
                         <Section>
                             <h2>Sobremesas</h2>
-                            <Carousel pratos={filterDishesByCategory('sobremesas')} />
+                            <Carousel meals={filterDishesByCategory('sobremesas')} />
                         </Section>
                         <Section>
                             <h2>Bebidas</h2>
-                            <Carousel pratos={filterDishesByCategory('bebidas')} />
+                            <Carousel meals={filterDishesByCategory('bebidas')} />
                         </Section>
                     </div>
                 )}

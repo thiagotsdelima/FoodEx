@@ -3,18 +3,19 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
   
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-  gap: 1.7rem;
+  
+  height: auto;
 
   .main {
     
-    width: ${({ $user }) => $user === false ? "clamp(21rem, 30vw, 25.4rem)" : "clamp(21rem, 38vw, 25.4rem)"};
-    height: clamp(30.2rem, 50vw, 40.2rem);
+    
+    align-items: center;
+    text-align: center;
     border-radius: 0.8rem;
     border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_300};
     background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
-    gap: 1rem;
-    padding: 20px;
+    padding: .5rem 1rem;
+    
 
     .buttonInclud {
     
@@ -26,14 +27,16 @@ export const Container = styled.div`
   }
 
   .mealPhotoContainer img {
-    width: 50%;
-    height: auto;
+    width: 11rem;
+    height: 11rem;
     object-fit: cover;
-      
   }
 
   .likeIcon, .editIcon {
-   
+    > :first-child {
+    
+  }
+    
   }
   
 
@@ -52,11 +55,11 @@ export const Container = styled.div`
   }
 
   strong, p {
-    text-align: center;
+    
   }
 
   p.price {
-    font-weight: bold;
+    
     color: ${({ theme }) => theme.COLORS.PRIMARY};
   }
 

@@ -10,8 +10,10 @@ export function ButtonIncrement({ meal }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTotalPrice(meal.price * quantity);
-  }, [quantity, meal.price]);
+    if (meal) {
+      setTotalPrice(meal.price * quantity);
+    }
+  }, [quantity, meal]);
 
   const handleIncrement = () => {
     setQuantity(qty => qty + 1);

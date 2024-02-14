@@ -2,7 +2,7 @@ import React from 'react';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { Container } from './styles';
 
-const AmountControls = ({ amount, setAmount }) => {
+export function AmountControls({ amount, setAmount }) {
   const handleIncrement = () => setAmount(prevAmount => prevAmount + 1);
   const handleDecrement = () => setAmount(prevAmount => Math.max(prevAmount - 1, 1));
 
@@ -18,5 +18,3 @@ const AmountControls = ({ amount, setAmount }) => {
     </Container>
   );
 };
-
-export default AmountControls;

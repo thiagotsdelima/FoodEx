@@ -4,35 +4,33 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 export const Container = styled.div`
   
   
-  
-  
-  align-items: center;
  
-
-  margin-right: 1.7rem; 
+ text-align: end;
+ margin-right: 1.7rem; 
  
 
 
   .likeIcon{
-    font-size: 2.4rem;
-    display: flex;
-    justify-content: flex-end; 
-    align-items: end; 
-    right: 1.8rem;
-    top: 1.6rem;
-    animation: zoomIn 1s infinite alternate;
+    position: absolute;
+    z-index: 1;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-left: 2.2rem;
+  display: flex;
+	justify-content: flex-end;
+  color: ${({ theme }) => theme.COLORS.GRAY_300};
   }
 
   .main {
-    height: 28rem;
+    height: auto;
     width: 19rem;
-    
+  
     
    
     border-radius: 0.8rem;
     border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_300};
     background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
-    padding: .5rem 1rem;
+    padding: 0 1rem;
     
 
     .buttonInclud {
@@ -43,15 +41,28 @@ export const Container = styled.div`
      
       
       strong {
+        color: ${({ theme }) => theme.COLORS.GRAY_300};
+        font-family: ${({ theme }) => theme.FONTS.Poppins300Bold};
+        display: flex;
+	      justify-content: center;
         align-items: center;
-        text-align: center;
+        margin-bottom: .9rem;
+        .arrowSymbol {
+          margin-left: .5rem;
+          color: ${({ theme }) => theme.COLORS.GRAY_300};
+          font-family: ${({ theme }) => theme.FONTS.Poppins300Bold};
+        }
       }
       p {
       text-align: center;
+      color: ${({ theme }) => theme.COLORS.GRAY_400};
+      font-family: ${({ theme }) => theme.FONTS.RobotoSmallerRegular};
+      margin-bottom: .9rem;
       }
       p.price {
-       
-    color: ${({ theme }) => theme.COLORS.PRIMARY};
+      color: ${({ theme }) => theme.COLORS.CAKE_200};
+      font-family: ${({ theme }) => theme.FONTS.RobotoBiggestRegular};
+    
     }
     }
   }
@@ -60,7 +71,9 @@ export const Container = styled.div`
     width: clamp(8.8rem, 16vw, 17.6rem);
     height: clamp(8.8rem, 16vw, 17.6rem);
     object-fit: cover;
-   
+    margin-top: 1.5rem;
+    margin-right: 1.7rem;
+    margin-bottom: .9rem;
     transition: transform 0.4s ease-in-out;
 
     &:hover {
@@ -71,15 +84,21 @@ export const Container = styled.div`
 
   .wrapperAmountInclude {
     display: flex;
+   
     align-items: center;
-    text-align: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 20px;
+    
+    padding: .3rem 2rem;
+    font-size: 1.5rem;
     .amount {
-
+     margin-left: 1rem;
+    .AmountControls {
+     
+    }
       button {
-
+        background-color: transparent;
+        border: none;
+        color: ${({ theme }) => theme.COLORS.GRAY_100};
+        padding: 0.5rem;
       }
       
     }

@@ -9,6 +9,9 @@ import { USER_ROLE } from '../../utils/roles';
 import { useAuth } from '../../hooks/auth';
 import { AmountControls } from '../AmountControls';
 
+
+
+
 export function Meals({ data }) {
   if (!data) return null;
   const { user } = useAuth();
@@ -35,7 +38,7 @@ export function Meals({ data }) {
           {data.photo_food && <MealPhoto meal={data} />}
         </span>
         <div className="request">
-          <strong>{data.name}</strong>
+          <strong>{data.name} <span className="arrowSymbol">&#62;</span></strong>
           <p>{data.description}</p>
           <p className="price">R$ {data.price.toFixed(2)}</p>
           {!USER_ROLE.ADMIN.includes(user?.role) && (

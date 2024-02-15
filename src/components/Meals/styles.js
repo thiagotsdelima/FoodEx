@@ -3,7 +3,7 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
   
-  
+ 
  
  text-align: end;
  margin-right: 1.7rem; 
@@ -11,11 +11,9 @@ export const Container = styled.div`
 
 
   .likeIcon{
-    position: absolute;
-    z-index: 1;
   font-size: 1.8rem;
   margin-top: 1rem;
-  margin-left: 2.2rem;
+  margin-left: 15.2rem;
   display: flex;
 	justify-content: flex-end;
   color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -23,20 +21,17 @@ export const Container = styled.div`
 
   .main {
     height: auto;
-    width: 19rem;
-  
+    max-height: 28.9rem;
+    max-width: 19rem;
     
    
     border-radius: 0.8rem;
     border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_300};
     background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
     padding: 0 1rem;
-    
+   
 
-    .buttonInclud {
-    
-    background: ${({ theme }) => theme.COLORS.TOMATO_300};
-    }
+   
     .request {
      
       
@@ -67,19 +62,26 @@ export const Container = styled.div`
     }
   }
   
-  .mealPhotoContainer img {
-    width: clamp(8.8rem, 16vw, 17.6rem);
-    height: clamp(8.8rem, 16vw, 17.6rem);
-    object-fit: cover;
-    margin-top: 1.5rem;
-    margin-right: 1.7rem;
-    margin-bottom: .9rem;
-    transition: transform 0.4s ease-in-out;
+  .mealPhotoContainer {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    height: auto; 
+    margin: auto; 
+}
+
+.mealPhotoContainer img {
+    width: clamp(8.8rem, 16vw, 11rem); 
+    height: clamp(8.8rem, 16vw, 11rem); 
+    object-fit: cover; 
+    transition: transform 0.4s ease-in-out; 
 
     &:hover {
-      transform: scale(1.03);
+      transform: scale(1.03); 
     }
-  }
+}
+
   
 
   .wrapperAmountInclude {
@@ -88,8 +90,10 @@ export const Container = styled.div`
     align-items: center;
     
     padding: .3rem 2rem;
-    font-size: 1.5rem;
+    
     .amount {
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+      font-family: ${({ theme }) => theme.FONTS.RobotoBigBold};
      margin-left: 1rem;
     .AmountControls {
      
@@ -99,9 +103,26 @@ export const Container = styled.div`
         border: none;
         color: ${({ theme }) => theme.COLORS.GRAY_100};
         padding: 0.5rem;
+        font-size: 1.4rem;
+        margin-top: .4rem;
       }
       
+      
     }
+    .buttonInclude {
+        height: 2.8rem;
+        width: 5.5rem;
+        padding: .8rem auto;
+        transition: background-color 0.3s;
+        background-color:  ${({ theme }) => theme.COLORS.TOMATO_200};
+      }
+      .buttonInclude:hover {
+        background-color:  ${({ theme }) => theme.COLORS.TOMATO_100};
+      }
+
+      .buttonInclude:active {
+        background-color:  ${({ theme }) => theme.COLORS.TOMATO_400};
+      }
   }
 
  

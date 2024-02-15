@@ -21,6 +21,9 @@ export function Header({ onChange }) {
   function handleAddNewDish() {
     navigate('/adminAddMeals'); 
   }
+  function handleOrderHistory() {
+    navigate('/mealFound');
+  }
 
   return (
     <Container>
@@ -78,7 +81,7 @@ export function Header({ onChange }) {
           </Button>
         ) : (
           
-          <Button title="Pedidos (0)">
+          <Button title="Pedidos (0)" onClick={handleOrderHistory}>
             <img src="/sheet.svg" alt="image of a torn sheet" />
           </Button>
         )}

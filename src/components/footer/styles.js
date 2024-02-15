@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.footer`
- max-width: fit-content;
+
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  max-height: 4.8rem;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
   
   padding: 1.5rem 9.25rem;  
@@ -16,12 +16,10 @@ export const Container = styled.footer`
   #logo {
     display: flex;
     align-items: center;
-    
-    
-    gap: 10px; 
+    gap: .6rem; 
 
     #logo img  {
-      height: 1.8125rem; 
+      height: 1.9rem; 
     }
 
     #logo p {

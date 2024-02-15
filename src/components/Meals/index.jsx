@@ -28,8 +28,12 @@ export function Meals({ data }) {
     setCart([...cart, newItem]);
   };
 
+  const handleClickCard = () => {
+    navigate(`/details/${data.id}`);
+  };
+
   return (
-    <Container>
+    <Container onClick={handleClickCard}> 
       <div className='main'>
         {!USER_ROLE.ADMIN.includes(user?.role) && (
           <FiHeart className="likeIcon" />
@@ -44,9 +48,7 @@ export function Meals({ data }) {
           {!USER_ROLE.ADMIN.includes(user?.role) && (
             <div className="wrapperAmountInclude">
               <div className="amount">
-              
                 <AmountControls amount={amount} setAmount={setAmount} />
-             
               </div>
               <Button className="buttonInclude" title="Incluir" onClick={handleIncludeNewItem} />
             </div>

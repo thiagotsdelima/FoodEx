@@ -4,8 +4,10 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 export const Container = styled.div`
  position: relative;
 
- max-width: 70rem;
+
  .carouselContainer {
+  max-width: 70rem;
+  max-height: 29rem;
   position: relative;
   overflow: hidden; 
   

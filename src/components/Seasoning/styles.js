@@ -12,3 +12,7 @@ font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
 
 }
 `;
+
+export const SeasoningBox = styled.div`
+ 
+`;

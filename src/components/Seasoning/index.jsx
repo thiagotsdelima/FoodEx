@@ -1,9 +1,12 @@
-import { Container } from './styles';
+import React from 'react';
+import { Container, SeasoningBox } from './styles';
 
-export function Seasoning({ title, ...rest }) {
-return (
-<Container {...rest}>
-{title}
-</Container>
-);
+export function Seasoning({ seasonings }) {
+  return (
+    <Container>
+      {seasonings.map((seasoning, index) => (
+        <SeasoningBox key={index}>{seasoning.name}</SeasoningBox>
+      ))}
+    </Container>
+  );
 }

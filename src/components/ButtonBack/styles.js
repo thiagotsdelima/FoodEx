@@ -13,7 +13,7 @@ export const Container = styled.div`
   
 
   > svg {
-    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    font-size: clamp(2rem, 4vw, 2.5rem);
     padding-top: 0.1rem;
   }
 

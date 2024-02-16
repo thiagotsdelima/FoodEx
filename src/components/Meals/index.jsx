@@ -12,7 +12,7 @@ import { AmountControls } from '../AmountControls';
 
 
 
-export function Meals({ data }) {
+export function Meals({ data, customStyle  }) {
   if (!data) return null;
   const { user } = useAuth();
   const { cart, setCart } = useCart();
@@ -33,17 +33,17 @@ export function Meals({ data }) {
   };
 
   return (
-    <Container onClick={handleClickCard}> 
+    <Container className={`meal-container ${customStyle}`}> 
       <div className='main'>
         {!USER_ROLE.ADMIN.includes(user?.role) && (
           <FiHeart className="likeIcon" />
         )}
-        <span className="mealPhotoContainer">
+        <span className="mealPhotoContainer" onClick={handleClickCard}>
           {data.photo_food && <MealPhoto meal={data} />}
         </span>
         <div className="request">
-          <strong>{data.name} <span className="arrowSymbol">&#62;</span></strong>
-          <p>{data.description}</p>
+          <strong onClick={handleClickCard}>{data.name} <span className="arrowSymbol">&#62;</span></strong>
+          <p onClick={handleClickCard}>{data.description}</p>
           <p className="price">R$ {data.price.toFixed(2)}</p>
           {!USER_ROLE.ADMIN.includes(user?.role) && (
             <div className="wrapperAmountInclude">

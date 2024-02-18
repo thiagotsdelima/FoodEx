@@ -34,9 +34,11 @@ export function Details() {
             <ButtonBackWrapper>
                 <ButtonBack />
             </ButtonBackWrapper>
-            <Meals data={meal} customStyle="meals-custom-style" />
+            <Meals data={meal} customStyle="mealsCustomStyle" />
             {meal && meal.seasonings && (
-                <Seasoning seasonings={meal.seasonings} />
+                <div className="seasoningWrapper">
+                 <Seasoning seasonings={meal.seasonings} />
+                 </div>
             )}
             </main>
             <Footer />

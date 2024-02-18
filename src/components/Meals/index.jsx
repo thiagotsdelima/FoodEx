@@ -33,7 +33,7 @@ export function Meals({ data, customStyle  }) {
   };
 
   return (
-    <Container className={`meal-container ${customStyle}`}> 
+    <Container className={`mealContainer ${customStyle}`}> 
       <div className='main'>
         {!USER_ROLE.ADMIN.includes(user?.role) && (
           <FiHeart className="likeIcon" />

@@ -13,35 +13,51 @@ grid-template-areas:
 "footer"
 ;
 
-#wrapperTag {
+
+.mealsCustomStyle {
   display: flex;
 	justify-content: center;
-  font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  height: 3.2rem;
-  width: 6.9rem;
+  .likeIcon {
+    display: none;
+  }
 }
-.meals-custom-style {
-  
-}
-.meals-custom-style .main {
+.mealsCustomStyle .main {
+  display: flex;
+  justify-content:space-between;
   border: none; 
   background: transparent; 
   padding: 0; 
+  .seasoningWrapper {
   
-}
-
-.meals-custom-style .request strong {
  
-  font-size: 2rem; 
-  color: #333; 
-  cursor: pointer; 
+ 
+}
 }
 
-.meals-custom-style .mealPhotoContainer img {
-  width: 100px; 
-  height: auto; 
-  border-radius: 50%; 
+.mealsCustomStyle .request strong {
+  font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
+  
+  
+  .arrowSymbol {
+    display: none;
+  }
+}
+
+.mealsCustomStyle .request p:first-of-type {
+  
+  color: red;
+}
+
+
+.mealsCustomStyle .request p:nth-of-type(2) {
+  
+  color: blue; 
+}
+
+
+.mealsCustomStyle .mealPhotoContainer img {
+  width: 24.4rem;
+  height: 24.3rem;
 }
 
 

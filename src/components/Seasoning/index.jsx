@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container, SeasoningBox } from './styles';
+import { Container, SeasoningTag } from './styles';
 
-export function Seasoning({ seasonings }) {
+export function Seasoning({ seasonings, ...rest }) {
   return (
-    <Container>
+    <Container {...rest}>
       {seasonings.map((seasoning, index) => (
-        <SeasoningBox key={index}>{seasoning.name}</SeasoningBox>
+        <SeasoningTag key={index}>{seasoning.name}</SeasoningTag>
       ))}
     </Container>
   );

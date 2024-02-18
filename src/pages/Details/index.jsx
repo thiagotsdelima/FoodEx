@@ -6,7 +6,7 @@ import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { ButtonBack } from '../../components/ButtonBack';
 import { Meals } from '../../components/Meals';
-import { Seasoning } from '../../components/Seasoning';
+
 
 export function Details() {
     const { id } = useParams();
@@ -34,12 +34,7 @@ export function Details() {
             <ButtonBackWrapper>
                 <ButtonBack />
             </ButtonBackWrapper>
-            <Meals data={meal} customStyle="mealsCustomStyle" />
-            {meal && meal.seasonings && (
-                <div className="seasoningWrapper">
-                 <Seasoning seasonings={meal.seasonings} />
-                 </div>
-            )}
+            <Meals data={meal} customStyle="mealsCustomStyle" isInDetailsPage={true} />
             </main>
             <Footer />
         </Container>

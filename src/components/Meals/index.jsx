@@ -7,12 +7,14 @@ import { MealPhoto } from '../MealPhoto';
 import { Container } from './styles';
 import { USER_ROLE } from '../../utils/roles'; 
 import { useAuth } from '../../hooks/auth';
+import { Seasoning } from '../Seasoning';
 import { AmountControls } from '../AmountControls';
+import { TbPointFilled } from "react-icons/tb";
 
 
 
 
-export function Meals({ data, customStyle  }) {
+export function Meals({ data, customStyle, isInDetailsPage = false }) {
   if (!data) return null;
   const { user } = useAuth();
   const { cart, setCart } = useCart();
@@ -45,12 +47,28 @@ export function Meals({ data, customStyle  }) {
           <strong onClick={handleClickCard}>{data.name} <span className="arrowSymbol">&#62;</span></strong>
           <p onClick={handleClickCard}>{data.description}</p>
           <p className="price">R$ {data.price.toFixed(2)}</p>
+          <div className="seasoningWrapper">
+          {isInDetailsPage && data.seasonings && (
+                <Seasoning seasonings={data.seasonings} />
+              )}
+              </div>
           {!USER_ROLE.ADMIN.includes(user?.role) && (
+            
             <div className="wrapperAmountInclude">
               <div className="amount">
                 <AmountControls amount={amount} setAmount={setAmount} />
               </div>
-              <Button className="buttonInclude" title="Incluir" onClick={handleIncludeNewItem} />
+              <Button className="buttonInclude" onClick={handleIncludeNewItem}>
+              {isInDetailsPage ? (
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
+                  Incluir 
+                  <TbPointFilled size={10} style={{ marginLeft: '4px', marginRight: '4px' }} />
+                  R$ {(data.price * amount).toFixed(2)}
+                </div>
+              ) : "Incluir"}
+            </Button>
+
+             
             </div>
           )}
           {USER_ROLE.ADMIN.includes(user?.role) && (

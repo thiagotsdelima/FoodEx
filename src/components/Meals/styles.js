@@ -41,7 +41,7 @@ export const Container = styled.div`
         display: flex;
 	      justify-content: center;
         align-items: center;
-        margin-bottom: .9rem;
+        margin-bottom: .5rem;
         .arrowSymbol {
           margin-left: .5rem;
           color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -52,12 +52,12 @@ export const Container = styled.div`
       text-align: center;
       color: ${({ theme }) => theme.COLORS.GRAY_400};
       font-family: ${({ theme }) => theme.FONTS.RobotoSmallerRegular};
-      margin-bottom: .9rem;
+      margin-bottom: .5rem;
       }
       p.price {
       color: ${({ theme }) => theme.COLORS.CAKE_200};
       font-family: ${({ theme }) => theme.FONTS.RobotoBiggestRegular};
-    
+     
     }
     }
   }

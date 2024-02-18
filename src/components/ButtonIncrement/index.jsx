@@ -26,7 +26,13 @@ export function ButtonIncrement({ meal }) {
   };
 
   const handleAddToCart = () => {
-    // Lógica de adicionar ao carrinho
+    addToCart({
+      id: meal.id,
+      name: meal.name,
+      quantity,
+      price: meal.price,
+      totalPrice
+    });
   };
 
   return (
@@ -39,9 +45,9 @@ export function ButtonIncrement({ meal }) {
         <h3>{meal.name}</h3>
         <p>Preço: R$ {meal.price.toFixed(2)}</p>
         <QuantitySelector>
-          <button onClick={handleDecrement}>-</button>
+        <button onClick={handleDecrement} aria-label="Diminuir quantidade">-</button>
           <span>{quantity}</span>
-          <button onClick={handleIncrement}>+</button>
+          <button onClick={handleIncrement} aria-label="Aumentar quantidade">+</button>
         </QuantitySelector>
         <Button onClick={handleAddToCart}>
           Incluir (R$ {totalPrice.toFixed(2)})

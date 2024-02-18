@@ -1,4 +1,4 @@
-import { Container, Profile, MobileIcon, MobileStar, Found, InputContainer } from './styles';
+import { Container, Profile, MobileIcon, MobileStar, Found, InputContainer, AdminTag, StyledButton } from './styles';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../Button';
 import { FaSearch, FaBars } from 'react-icons/fa';
@@ -52,7 +52,7 @@ export function Header({ onChange }) {
         <img src="/Polygon1.svg" alt="Logo" />
         <h1>food explorer</h1>
         {USER_ROLE.ADMIN.includes(user?.role) ? (
-        <p>admin</p>
+        <AdminTag><p>admin</p></AdminTag>
         ) : null}
       </Found>
 
@@ -62,23 +62,23 @@ export function Header({ onChange }) {
         
       </MobileStar>
 
-      <InputContainer>
-        <FaSearch className="inputIcon" />
-        <input
+      <InputContainer isAdmin={USER_ROLE.ADMIN.includes(user?.role)}>
+      <FaSearch className="inputIcon" />
+      <input
         type="text"
         placeholder="Busque por pratos ou ingredientes"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         onKeyPress={(e) => e.key === 'Enter' && onChange(searchValue)}
-        />
-      </InputContainer>
+      />
+    </InputContainer>
 
       <Profile>
       {USER_ROLE.ADMIN.includes(user?.role) ?(
       
-          <Button title="Novo Prato" onClick={handleAddNewDish}>
+          <StyledButton  title="Novo Prato" onClick={handleAddNewDish}>
             Novo Prato
-          </Button>
+          </StyledButton >
         ) : (
           
           <Button title="Pedidos (0)" onClick={handleOrderHistory}>

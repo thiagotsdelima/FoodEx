@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../Button';
 import { useCart } from '../../hooks/cart'; 
-import { FiHeart, FiEdit3 } from 'react-icons/fi';
+import { FiHeart } from 'react-icons/fi';
+import { PiPencilSimple } from "react-icons/pi";
 import { MealPhoto } from '../MealPhoto'; 
 import { Container } from './styles';
 import { USER_ROLE } from '../../utils/roles'; 
@@ -30,8 +31,12 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
     setCart([...cart, newItem]);
   };
 
-  const handleClickCard = () => {
+  const handleDetails = () => {
     navigate(`/details/${data.id}`);
+  };
+ 
+  const handleEditMeal = () => {
+    navigate(`/editMeal/${data.id}`);
   };
 
   return (
@@ -40,12 +45,15 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
         {!USER_ROLE.ADMIN.includes(user?.role) && (
           <FiHeart className="likeIcon" />
         )}
-        <span className="mealPhotoContainer" onClick={handleClickCard}>
+         {USER_ROLE.ADMIN.includes(user?.role) && (
+            <PiPencilSimple onClick={handleEditMeal} size={24} className="editIcon" />
+          )}
+        <span className="mealPhotoContainer"  onClick={handleDetails}>
           {data.photo_food && <MealPhoto meal={data} />}
         </span>
         <div className="request">
-          <strong onClick={handleClickCard}>{data.name} <span className="arrowSymbol">&#62;</span></strong>
-          <p onClick={handleClickCard}>{data.description}</p>
+          <strong onClick={handleDetails}>{data.name} <span className="arrowSymbol">&#62;</span></strong>
+          <p onClick={handleDetails}>{data.description}</p>
           <p className="price">R$ {data.price.toFixed(2)}</p>
           <div className="seasoningWrapper">
           {isInDetailsPage && data.seasonings && (
@@ -71,11 +79,10 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
              
             </div>
           )}
-          {USER_ROLE.ADMIN.includes(user?.role) && (
-            <FiEdit3 className="editIcon" />
-          )}
         </div>         
       </div>
     </Container>
   );
 }
+
+

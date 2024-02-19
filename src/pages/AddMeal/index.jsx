@@ -1,4 +1,5 @@
 import { Container } from './styles';
+import { useState } from 'react';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { TextArea } from '../../components/TextArea';
@@ -8,6 +9,7 @@ import { ButtonBack } from '../../components/ButtonBack';
 import { Button } from '../../components/Button';
 
 export function AddMeal() {
+  const [mealDescription, setMealDescription] = useState('Your meal description here.');
 return (
 <Container>
   <Header />
@@ -20,11 +22,11 @@ return (
     <Input />
     </div>
     <div className="favorites">
-    <TextArea interactive={false} readOnly={true} value={mealDescription} />
+    <TextArea $interactive={false} readOnly={true} value={mealDescription} />
     <Input />
     </div>
     <div className="footer">
-    <TextArea interactive={true} />
+    <TextArea $interactive={true} />
     <Button />
     </div>
     </main>

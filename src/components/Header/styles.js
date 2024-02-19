@@ -100,7 +100,7 @@ export const Profile = styled.div`
       color: ${({ theme }) => theme.FONTS.Poppins100Medium}
     }
     a:last-child {
-    margin-top: ${({ isAdmin }) => (isAdmin ? '0' : '25px')}; 
+      margin-top: ${({ $isAdmin }) => $isAdmin ? '0' : '25px'}; 
   }
     @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
    
@@ -158,7 +158,7 @@ export const InputContainer = styled.div`
   border-radius: 0.3125rem;
   color: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
  
-  margin-top: ${({ isAdmin }) => (isAdmin ? '5px' : '0')}; 
+  margin-top: ${({ $isAdmin }) => $isAdmin ? '5px' : '0'}; 
   input {
     width: 100%;
     padding: 0 6.5rem; 
@@ -178,10 +178,10 @@ export const InputContainer = styled.div`
     position: absolute;
     font-size: 1.2rem;
     margin-top: 1.6rem;
-    left: ${({ isAdmin }) => (isAdmin ? 'calc(50% - 14.5rem)' : '32%')}; 
+    left: ${({ $isAdmin }) => $isAdmin ? 'calc(50% - 14.5rem)' : '32%'};
     transform: translate(-50%, -50%);
     color: ${({ theme }) => theme.COLORS.GRAY_400};
-    color: ${({ theme }) => theme.COLORS.GRAY_400};
+   
     @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: none;
     }
@@ -215,13 +215,16 @@ export const StyledButton = styled.div`
       border-radius: .5rem;
       height: 3.3125rem;
       width: 13.3rem;
-      background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+      background-color:  ${({ theme }) => theme.COLORS.TOMATO_200};
       color: ${({ theme }) => theme.FONTS.Poppins100Medium};
   cursor: pointer;
   transition: background-color 0.3s;
  
 
   &:hover {
-    background-color: #45a049;
+    background-color:  ${({ theme }) => theme.COLORS.TOMATO_100};
+  }
+  &:active {
+    background-color:  ${({ theme }) => theme.COLORS.TOMATO_400};
   }
 `;

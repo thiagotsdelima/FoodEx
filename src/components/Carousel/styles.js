@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
- position: relative;
+
 
 
  .carouselContainer {
   max-width: 70rem;
-  max-height: 29rem;
+  max-height: 31rem;
   position: relative;
   overflow: hidden; 
   
@@ -21,11 +21,11 @@ export const Container = styled.div`
   }
 
   .arrowLeft {
-    left: .1rem; /* Ajuste conforme necessário */
+    left: .1rem; 
   }
 
   .arrowRight {
-    right: .1rem; /* Ajuste conforme necessário */
+    right: .1rem; 
   }
 
 .carouselContainer::before,

@@ -3,11 +3,11 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
   
- 
- 
+
+
  text-align: end;
  margin-right: 1.7rem; 
- 
+
 
 
   .likeIcon{
@@ -18,12 +18,12 @@ export const Container = styled.div`
 	justify-content: flex-end;
   color: ${({ theme }) => theme.COLORS.GRAY_300};
   }
+  .editIcon {
+    margin-top: 1rem
+    
+  }
 
   .main {
-    height: auto;
-    max-height: 28.9rem;
-    max-width: 19rem;
-    
    
     border-radius: 0.8rem;
     border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_300};
@@ -69,6 +69,8 @@ export const Container = styled.div`
     width: 100%; 
     height: auto; 
     margin: auto; 
+    margin-bottom: .5rem;
+   
 }
 
 .mealPhotoContainer img {
@@ -94,7 +96,8 @@ export const Container = styled.div`
     .amount {
       color: ${({ theme }) => theme.COLORS.GRAY_300};
       font-family: ${({ theme }) => theme.FONTS.RobotoBigBold};
-     margin-left: 1rem;
+      margin-left: 1rem;
+     
     .AmountControls {
      
     }
@@ -124,7 +127,7 @@ export const Container = styled.div`
         background-color:  ${({ theme }) => theme.COLORS.TOMATO_400};
       }
   }
-
+ 
  
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
@@ -138,3 +141,4 @@ export const Container = styled.div`
     }
   }
 `;
+

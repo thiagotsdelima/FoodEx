@@ -32,7 +32,7 @@ export const Container = styled.div`
    
 
    
-    .request {
+    .content {
      
       
       strong {
@@ -141,4 +141,3 @@ export const Container = styled.div`
     }
   }
 `;
-

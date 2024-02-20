@@ -13,8 +13,6 @@ import { AmountControls } from '../AmountControls';
 import { TbPointFilled } from "react-icons/tb";
 
 
-
-
 export function Meals({ data, customStyle, isInDetailsPage = false }) {
   if (!data) return null;
   const { user } = useAuth();
@@ -34,10 +32,6 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
   const handleDetails = () => {
     navigate(`/details/${data.id}`);
   };
- 
-  const handleEditMeal = () => {
-    navigate(`/editMeal/${data.id}`);
-  };
 
   return (
     <Container className={`mealContainer ${customStyle}`}> 
@@ -46,39 +40,60 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
           <FiHeart className="likeIcon" />
         )}
          {USER_ROLE.ADMIN.includes(user?.role) && (
-            <PiPencilSimple onClick={handleEditMeal} size={24} className="editIcon" />
+            <PiPencilSimple size={24} className="editIcon" onClick={handleDetails}/>
           )}
         <span className="mealPhotoContainer"  onClick={handleDetails}>
           {data.photo_food && <MealPhoto meal={data} />}
         </span>
+        {USER_ROLE.ADMIN.includes(user?.role) ?(
+        
+        <div className="menuAdmin">
+        <strong onClick={handleDetails}>{data.name} <span className="arrowSymbol">&#62;</span></strong>
+        <p onClick={handleDetails}>{data.description}</p>
+        <p className="price">R$ {data.price.toFixed(2)}</p>
+        </div>
+      ) : (
+        
+        <div className="content">
+        <strong onClick={handleDetails}>{data.name} <span className="arrowSymbol">&#62;</span></strong>
+        <p onClick={handleDetails}>{data.description}</p>
+        <p className="price">R$ {data.price.toFixed(2)}</p>
+        </div>
+      )}
+
+
         <div className="request">
-          <strong onClick={handleDetails}>{data.name} <span className="arrowSymbol">&#62;</span></strong>
-          <p onClick={handleDetails}>{data.description}</p>
-          <p className="price">R$ {data.price.toFixed(2)}</p>
+          
+          
           <div className="seasoningWrapper">
+            
           {isInDetailsPage && data.seasonings && (
                 <Seasoning seasonings={data.seasonings} />
               )}
               </div>
-          {!USER_ROLE.ADMIN.includes(user?.role) && (
+           
+          {USER_ROLE.ADMIN.includes(user?.role) ? (
+           <div className="StyleClick">
+           <Button />
+           </div>
+           ) : (
+        
+           <div className="wrapperAmountInclude">
             
-            <div className="wrapperAmountInclude">
-              <div className="amount">
-                <AmountControls amount={amount} setAmount={setAmount} />
-              </div>
-              <Button className="buttonInclude" onClick={handleIncludeNewItem}>
-              {isInDetailsPage ? (
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
-                  Incluir 
-                  <TbPointFilled size={10} style={{ marginLeft: '4px', marginRight: '4px' }} />
-                  R$ {(data.price * amount).toFixed(2)}
-                </div>
-              ) : "Incluir"}
-            </Button>
-
-             
-            </div>
-          )}
+                    <div className="amount">
+                      <AmountControls amount={amount} setAmount={setAmount} />
+                    </div>
+                    <Button className="buttonInclude" onClick={handleIncludeNewItem}>
+                    {isInDetailsPage ? (
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
+                        Incluir 
+                        <TbPointFilled size={10} style={{ marginLeft: '4px', marginRight: '4px' }} />
+                        R$ {(data.price * amount).toFixed(2)}
+                      </div>
+                    ) : "Incluir"}
+                  </Button> 
+                  </div>
+      )}
         </div>         
       </div>
     </Container>

@@ -29,19 +29,26 @@ export const Container = styled.div`
     border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_300};
     background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
     padding: 0 1rem;
-   
+
 
    
-    .content {
+      .menuAdmin {
+        width: 300px;
+        height: 250px;
+
+      }
+   
+    .content, .menuAdmin {
      
       
       strong {
+       
         color: ${({ theme }) => theme.COLORS.GRAY_300};
         font-family: ${({ theme }) => theme.FONTS.Poppins300Bold};
         display: flex;
 	      justify-content: center;
         align-items: center;
-        margin-bottom: .5rem;
+        margin-bottom: .9rem;
         .arrowSymbol {
           margin-left: .5rem;
           color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -49,16 +56,18 @@ export const Container = styled.div`
         }
       }
       p {
+       
       text-align: center;
       color: ${({ theme }) => theme.COLORS.GRAY_400};
       font-family: ${({ theme }) => theme.FONTS.RobotoSmallerRegular};
-      margin-bottom: .5rem;
+      margin-bottom: .9rem;
       }
       p.price {
       color: ${({ theme }) => theme.COLORS.CAKE_200};
       font-family: ${({ theme }) => theme.FONTS.RobotoBiggestRegular};
      
     }
+   
     }
   }
   
@@ -69,7 +78,8 @@ export const Container = styled.div`
     width: 100%; 
     height: auto; 
     margin: auto; 
-    margin-bottom: .5rem;
+    margin-top: 0.9rem;
+    margin-bottom: .9rem;
    
 }
 
@@ -83,8 +93,6 @@ export const Container = styled.div`
       transform: scale(1.03); 
     }
 }
-
-  
 
   .wrapperAmountInclude {
     display: flex;

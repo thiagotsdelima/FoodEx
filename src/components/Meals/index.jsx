@@ -19,6 +19,7 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
   const { cart, setCart } = useCart();
   const [amount, setAmount] = useState(1);
   const navigate = useNavigate();
+  const isAdmin = USER_ROLE.ADMIN.includes(user?.role);
 
   const handleIncludeNewItem = () => {
     const newItem = {
@@ -33,68 +34,85 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
     navigate(`/details/${data.id}`);
   };
 
+  const showAmountControls = !isAdmin && !isInDetailsPage;
+
   return (
     <Container className={`mealContainer ${customStyle}`}> 
       <div className='main'>
-        {!USER_ROLE.ADMIN.includes(user?.role) && (
-          <FiHeart className="likeIcon" />
-        )}
-         {USER_ROLE.ADMIN.includes(user?.role) && (
-            <PiPencilSimple size={24} className="editIcon" onClick={handleDetails}/>
-          )}
+      {!USER_ROLE.ADMIN.includes(user?.role) && !isInDetailsPage && (
+        <FiHeart className="likeIcon" />
+      )}
+
+      {USER_ROLE.ADMIN.includes(user?.role) && !isInDetailsPage && (
+        <PiPencilSimple size={30} className="editIcon" onClick={handleDetails}/>
+      )}
+
         <span className="mealPhotoContainer"  onClick={handleDetails}>
           {data.photo_food && <MealPhoto meal={data} />}
         </span>
         {USER_ROLE.ADMIN.includes(user?.role) ?(
-        
-        <div className="menuAdmin">
-        <strong onClick={handleDetails}>{data.name} <span className="arrowSymbol">&#62;</span></strong>
-        <p onClick={handleDetails}>{data.description}</p>
-        <p className="price">R$ {data.price.toFixed(2)}</p>
-        </div>
+              <div className="menuAdmin">
+              <strong onClick={handleDetails}>
+                {data.name} {!isInDetailsPage && (<span className="arrowSymbol">&#62;</span>)}
+              </strong>
+              <p onClick={handleDetails}>{data.description}</p>
+              {!isInDetailsPage && (
+                <p className="price">R$ {data.price.toFixed(2)}</p>
+              )}
+              <div className="seasoningWrapper">
+                {isInDetailsPage && data.seasonings && (
+                  <Seasoning seasonings={data.seasonings} />
+                )}
+              </div>
+              
+              {showAmountControls && (
+          <div className="wrapperAmountInclude">
+            <AmountControls amount={amount} setAmount={setAmount} />
+            <Button className="buttonInclude" onClick={handleIncludeNewItem}>
+              Incluir <TbPointFilled size={10} style={{ marginLeft: '4px', marginRight: '4px' }} /> R$ {(data.price * amount).toFixed(2)}
+            </Button>
+          </div>
+        )}
+              {isInDetailsPage && (
+                <div className="StyleClick">
+                  <Button className="adminActionButton" onClick={() => console.log('Ação específica de admin')}>
+                    Ação de Admin
+                  </Button>
+                </div>
+              )}
+            </div>
       ) : (
         
         <div className="content">
-        <strong onClick={handleDetails}>{data.name} <span className="arrowSymbol">&#62;</span></strong>
-        <p onClick={handleDetails}>{data.description}</p>
-        <p className="price">R$ {data.price.toFixed(2)}</p>
-        </div>
-      )}
-
-
-        <div className="request">
-          
-          
-          <div className="seasoningWrapper">
-            
-          {isInDetailsPage && data.seasonings && (
-                <Seasoning seasonings={data.seasonings} />
+         <strong onClick={handleDetails}>
+                {data.name} {!isInDetailsPage && (<span className="arrowSymbol">&#62;</span>)}
+              </strong>
+              <p onClick={handleDetails}>{data.description}</p>
+              {!isInDetailsPage && (
+                <p className="price">R$ {data.price.toFixed(2)}</p>
               )}
+              <div className="seasoningWrapper">
+                {isInDetailsPage && data.seasonings && (
+                  <Seasoning seasonings={data.seasonings} />
+                )}
               </div>
-           
-          {USER_ROLE.ADMIN.includes(user?.role) ? (
-           <div className="StyleClick">
-           <Button />
-           </div>
-           ) : (
-        
-           <div className="wrapperAmountInclude">
-            
-                    <div className="amount">
-                      <AmountControls amount={amount} setAmount={setAmount} />
+              <div className="wrapperAmountInclude">
+                <div className="amount">
+                  <AmountControls amount={amount} setAmount={setAmount} />
+                </div>
+                <Button className="buttonInclude" onClick={handleIncludeNewItem}>
+                  {isInDetailsPage ? (
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
+                      Incluir 
+                      <TbPointFilled size={10} style={{ marginLeft: '4px', marginRight: '4px' }} />
+                      R$ {(data.price * amount).toFixed(2)}
                     </div>
-                    <Button className="buttonInclude" onClick={handleIncludeNewItem}>
-                    {isInDetailsPage ? (
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
-                        Incluir 
-                        <TbPointFilled size={10} style={{ marginLeft: '4px', marginRight: '4px' }} />
-                        R$ {(data.price * amount).toFixed(2)}
-                      </div>
-                    ) : "Incluir"}
-                  </Button> 
-                  </div>
-      )}
-        </div>         
+                  ) : "Incluir"}
+                </Button>
+              </div>
+                
+        </div>
+      )} 
       </div>
     </Container>
   );

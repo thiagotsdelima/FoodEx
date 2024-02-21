@@ -6,6 +6,8 @@
   import { useState } from 'react'
   import { api } from "../../services/api";
   import { useAuth } from '../../hooks/auth';
+  
+  
 
   export function Header({ onChange }) {
     const { user, signOut } = useAuth();
@@ -90,6 +92,7 @@
             <img src="/arrow.png" alt="right arrow" />
           </Link>
         </Profile>
+        
       </Container>
     );
   }

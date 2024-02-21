@@ -13,6 +13,62 @@ grid-template-areas:
 "footer"
 ;
 
+.mealsCustomStyle .main .menuAdmin {
+ 
+  width: auto; 
+  padding: 20px; 
+
+  
+  strong {
+    margin-top: -40px;
+    
+    font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
+    color: ${({ theme }) => theme.COLORS.GRAY_300};
+    white-space: nowrap;
+  }
+
+
+  p {
+    text-align: left;
+    color: ${({ theme }) => theme.COLORS.GRAY_300};
+    font-family: ${({ theme }) => theme.FONTS.Poppins300Regular};
+  }
+
+}
+
+.mealsCustomStyle .main .menuAdmin .StyleClick {
+    display: grid;
+    margin-left: -555px;
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
+    .adminActionButton {
+      height: 3rem;
+      width: 8rem;
+    }
+
+      .adminActionButton:active {
+        background-color:  ${({ theme }) => theme.COLORS.TOMATO_400};
+      }
+   
+  }
+
+.mealsCustomStyle .main .menuAdmin .seasoningWrapper {
+  margin-left: -28px; 
+  margin-top: .5rem;
+  margin-bottom: 2rem;
+}
+
+.mealsCustomStyle .main .menuAdmin .wrapperAmountInclude {
+  gap: 2.1rem;
+  margin-top: 1.5rem;
+ 
+}
+
+.mealsCustomStyle .mealPhotoContainer img {
+  width: 24.4rem;
+  height: 24.3rem;
+  margin-left: 110px; 
+}
 
 
 .mealsCustomStyle .mealContainer {
@@ -31,13 +87,10 @@ grid-template-areas:
   margin-bottom: 155px;
   display: flex;
   align-items: center;
- 
+
   border: none; 
   background: transparent; 
  
-}
-.mealsCustomStyle .request {
-  margin-left: 3.9rem;
 }
 
 .mealsCustomStyle .request strong {
@@ -85,7 +138,7 @@ grid-template-areas:
 .mealsCustomStyle .mealPhotoContainer img {
   width: 24.4rem;
   height: 24.3rem;
-  margin-left: -120px;
+  margin-left: 110px;
 }
 
 

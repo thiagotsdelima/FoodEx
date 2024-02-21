@@ -1,5 +1,6 @@
 import { Container } from './styles';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { Carousel } from '../../components/Carousel';
 import { Footer } from '../../components/Footer';
@@ -7,10 +8,15 @@ import { Section } from '../../components/Section';
 import maskGroupImage from '../../assets/Maskgroup.png';
 import { Rings } from 'react-loader-spinner';
 import { api } from '../../services/api'; 
+import { FaShoppingCart } from 'react-icons/fa';
+import { useCart } from '../../hooks/cart';
+
 
 export function Home() {
     const [loading, setLoading] = useState(true);
     const [meals, setMeals] = useState([]);
+    const { cart, setCart } = useCart();
+    const navigate = useNavigate();
 
    
     useEffect(() => {
@@ -25,6 +31,9 @@ export function Home() {
             });
     }, []);
 
+    const handleOpenCart = () => {
+        navigate('/editMeal'); 
+      };
     
     const filterDishesByCategory = (categoria) => meals.filter(meal => meal.category_name === categoria);
 
@@ -32,6 +41,10 @@ export function Home() {
         <Container>
             <Header />
             <main>
+            <div onClick={handleOpenCart}>
+            <FaShoppingCart />
+            <span>{cart.length}</span> 
+            </div>
                 <div className="Header">
                     <div className="image">
                     <img src={maskGroupImage} alt="flying fruits" />

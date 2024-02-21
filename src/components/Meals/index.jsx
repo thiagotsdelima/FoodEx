@@ -13,6 +13,7 @@ import { AmountControls } from '../AmountControls';
 import { TbPointFilled } from "react-icons/tb";
 
 
+
 export function Meals({ data, customStyle, isInDetailsPage = false }) {
   if (!data) return null;
   const { user } = useAuth();
@@ -22,16 +23,39 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
   const isAdmin = USER_ROLE.ADMIN.includes(user?.role);
 
   const handleIncludeNewItem = () => {
-    const newItem = {
-      ...data,
-      amount,
-      total_price: amount * data.price,
-    };
-    setCart([...cart, newItem]);
+    setCart(currentCart => {
+      // Verifica se o item já existe no carrinho
+      const existingItemIndex = currentCart.findIndex(cartItem => cartItem.id === data.id);
+  
+      if (existingItemIndex > -1) {
+        // Se o item já existe, atualiza apenas a quantidade
+        const updatedCart = [...currentCart];
+        const existingItem = updatedCart[existingItemIndex];
+        const updatedItem = {
+          ...existingItem,
+          amount: existingItem.amount + amount,
+          total_price: (existingItem.amount + amount) * existingItem.price,
+        };
+        updatedCart[existingItemIndex] = updatedItem;
+        return updatedCart;
+      } else {
+        // Se o item não existe, adiciona ao carrinho com a quantidade atual
+        return [...currentCart, {
+          ...data,
+          amount,
+          total_price: amount * data.price,
+        }];
+      }
+    });
   };
+  
 
   const handleDetails = () => {
     navigate(`/details/${data.id}`);
+  };
+
+  const handleEditMeal = () => {
+    navigate(`/editMeal/${data.id}`);
   };
 
   const showAmountControls = !isAdmin && !isInDetailsPage;
@@ -51,6 +75,7 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
           {data.photo_food && <MealPhoto meal={data} />}
         </span>
         {USER_ROLE.ADMIN.includes(user?.role) ?(
+          <div className="request">
               <div className="menuAdmin">
               <strong onClick={handleDetails}>
                 {data.name} {!isInDetailsPage && (<span className="arrowSymbol">&#62;</span>)}
@@ -75,16 +100,18 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
         )}
               {isInDetailsPage && (
                 <div className="StyleClick">
-                  <Button className="adminActionButton" onClick={() => console.log('Ação específica de admin')}>
-                    Ação de Admin
+                  <Button className="adminActionButton" onClick={handleEditMeal}>
+                  Editar prato
                   </Button>
                 </div>
               )}
             </div>
+            </div>
       ) : (
         
         <div className="content">
-         <strong onClick={handleDetails}>
+          <div className="request">
+              <strong onClick={handleDetails}>
                 {data.name} {!isInDetailsPage && (<span className="arrowSymbol">&#62;</span>)}
               </strong>
               <p onClick={handleDetails}>{data.description}</p>
@@ -112,9 +139,12 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
               </div>
                 
         </div>
+        </div>
       )} 
       </div>
+      
     </Container>
+    
   );
 }
 

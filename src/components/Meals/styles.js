@@ -78,7 +78,7 @@ export const Container = styled.div`
     width: 100%; 
     height: auto; 
     margin: auto; 
-    margin-top: 0.9rem;
+   
     margin-bottom: .9rem;
    
 }
@@ -134,6 +134,8 @@ export const Container = styled.div`
       .buttonInclude:active {
         background-color:  ${({ theme }) => theme.COLORS.TOMATO_400};
       }
+
+     
   }
  
  

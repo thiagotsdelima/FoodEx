@@ -21,7 +21,7 @@ return (
     <Input />
     <Input />
     </div>
-    <div className="favorites">
+    <div className="content">
     <TextArea $interactive={false} readOnly={true} value={mealDescription} />
     <Input />
     </div>

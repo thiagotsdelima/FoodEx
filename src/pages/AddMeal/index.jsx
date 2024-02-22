@@ -2,11 +2,13 @@ import { Container } from './styles';
 import { useState } from 'react';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { TextArea } from '../../components/TextArea';
 import { Input } from '../../components/Input';
 import { Section } from '../../components/Section';
-import { ButtonBack } from '../../components/ButtonBack';
+import { TextArea } from '../../components/TextArea';
 import { Button } from '../../components/Button';
+import { Tag } from '../../components/Tag';
+import { ButtonBack } from '../../components/ButtonBack';
+
 import { FiLogOut } from "react-icons/fi";
 
 export function AddMeal() {
@@ -17,7 +19,6 @@ return (
     <main>
     <ButtonBack />
     <Section title='Adicionar prato' />
-
     <form id="newDish" action="#" method="post" className="dishes">
     <div className="formImage">
     <label htmlFor="image" >
@@ -28,7 +29,7 @@ return (
             <Input type="file" id="image" name="image" accept="image/*" onChange={(event)=>setDishImage(event.target.files[0])} />
               </p>                   
           </label>
-     </div>
+    
 
     <div className="formInputs">
       <label htmlFor="name">Nome</label>
@@ -46,33 +47,47 @@ return (
         </select>
         </div>
         </div>
+        </div>
 
+        
         <div className="formInputs">
         <label htmlFor="ingredients" id="seasoningLabel">
         Ingredientes
-        <TextArea $interactive={false} readOnly={true} value={mealDescription}>
-        <Tag className="tag" />                
-        <Tag className="tag" $isNew placeholder="Adicionar" required />                
-        </TextArea>  
+        <fieldset id="tagBackground" >                
+                    <Tag className="tag" />                
+                    <Tag className="tag" $isNew placeholder="Adicionar" required />                
+                  </fieldset>              
         </label>
-        {/* <input type="button" onClick="addTag()">Add</input> */}
-        </div>
-    <Button />
-    <Input />
-    <Input />
-    
-   
-   
-    <Input />
-    
-   
-    <TextArea $interactive={true} />
+        
+        
+
+        
+              <div className="formInputs">
+                <label htmlFor="price">Preço</label>
+                <Input type="text" id="price" name="price" placeholder="R$ 00,00" required onChange={(event)=>setPrice(event.target.value)}/>
+              </div>
+
+              </div>
+              
+              <div className="formInputs">
+                <label htmlFor="description">Descrição</label>
+                <TextArea id="description" name="description" readOnly={false} placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" rows="8" required onChange={(event)=>setDescription(event.target.value)} ></TextArea>
+              </div>
+              
+              <Button
+            type="submit" 
+            className="submitButton"
+            form="newDishForm"
+            title="Salvar Informações"
+            
+          /> 
+             
     </form>
-    <Button />
-   
    
     </main>
   <Footer />
 </Container>
 );
 }
+
+/* <TextArea $interactive={false} readOnly={true} value={mealDescription}>*/

@@ -10,12 +10,15 @@ import { Rings } from 'react-loader-spinner';
 import { api } from '../../services/api'; 
 import { FaShoppingCart } from 'react-icons/fa';
 import { useCart } from '../../hooks/cart';
+import { useAuth } from '../../hooks/auth';
+import { USER_ROLE } from '../../utils/roles'; 
 
 
 export function Home() {
     const [loading, setLoading] = useState(true);
     const [meals, setMeals] = useState([]);
-    const { cart, setCart } = useCart();
+    const { cart } = useCart();
+    const { user } = useAuth(); 
     const navigate = useNavigate();
 
    
@@ -42,9 +45,13 @@ export function Home() {
             <Header />
             <main>
             <div onClick={handleOpenCart}>
-            <FaShoppingCart />
-            <span>{cart.length}</span> 
-            </div>
+                {!USER_ROLE.ADMIN.includes(user?.role) && (
+                        <div>
+                            <FaShoppingCart />
+                            <span>{cart.length}</span> {/* Exibe a quantidade de itens no carrinho */}
+                        </div>
+                    )}
+                </div>
                 <div className="Header">
                     <div className="image">
                     <img src={maskGroupImage} alt="flying fruits" />

@@ -29,11 +29,13 @@ export const Main = styled.main`
   }
 
   .submitButton{
+    height: 3rem;
+    width: 18%;
     margin-right: 0;
     display: flex;
     justify-content: flex-end;
     background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
-    
+   
   }
 
   .submitButton:hover{

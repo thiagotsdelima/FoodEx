@@ -8,6 +8,7 @@ import { TextArea } from '../../components/TextArea';
 import { Button } from '../../components/Button';
 import { Tag } from '../../components/Tag';
 import { ButtonBack } from '../../components/ButtonBack';
+import { FaChevronDown } from 'react-icons/fa';
 
 import { FiLogOut } from "react-icons/fi";
 
@@ -34,7 +35,7 @@ return (
 
     <div className="formInputs">
       <label htmlFor="name">Nome</label>
-      <Input className="inputName" type="text" id="name" name="name" placeholder="Ex: Salada Ceasar" required onChange={(event)=>setName(event.target.value)}/>
+      <Input className="inputName" type="text" id="name" name="name" placeholder="Ex.: Salada Ceasar" required onChange={(event)=>setName(event.target.value)}/>
     </div>
 
     <div className="formInputs">
@@ -46,12 +47,13 @@ return (
           <option value="sobremesa">Sobremesa</option>
           <option value="bebida">Bebida</option>
         </select>
+        <FaChevronDown className="selectIcon" />
       </div>
     </div>
   </div>
 
         
-        <div className="formRow">
+        <div className="formRowTag">
     <div className="formInputs">
     <label htmlFor="ingredients" id="seasoningLabel">Ingredientes</label>
       <fieldset id="tagBackground">                

@@ -18,18 +18,22 @@ export const Content = styled.div`
 export const Main = styled.main`
   flex-grow: 1;
   padding: 0 2rem; 
-  margin: 3.2rem auto 0;
-  max-width: 1120px;
+  margin: 3.2rem auto 7rem;
+  max-width: 70rem;
   
   
   Section {
     margin-top: .5rem;
     
-    margin-left: -.5rem;
+    margin-left: -1rem;
   }
+
   .submitButton{
-    margin: 1.5rem 3.2rem 8.13rem;
+    margin-right: 0;
+    display: flex;
+    justify-content: flex-end;
     background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
+    
   }
 
   .submitButton:hover{
@@ -40,14 +44,45 @@ export const Main = styled.main`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  
-   margin-top: -2rem;
+  gap: 1rem;
+  margin-top: -2rem;
+   
  
    .inputName, .inputPrice {
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800}; 
+    height: 3rem;
    }
    .inputName {
-    width: 458px;
+    width: 435px;
+    
+   }
+   .inputPrice {
+    border-radius: .5rem;
+   
+    height: 3rem;
+    margin-top: 1rem;
+    &::placeholder {
+     
+  }
+   }
+
+   .formRowTag {
+    display: flex;
+    justify-content: space-between;
+  
+    #tagBackground {
+        width: 50rem; 
+        height: 3rem;
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+        border-radius: 0.5rem;  
+        border: none;      
+        margin-top: 1rem;
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+        flex-wrap: wrap;
+        
+      }
    }
 
   #description{
@@ -62,12 +97,11 @@ export const Form = styled.form`
       border: none;
       border-radius: 0.5rem;
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800}; 
-      label {
-      
-      }
-      ::placeholder {
-
-      }
+      &::placeholder {
+        color: ${({ theme }) => theme.COLORS.GRAY_500};
+        font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
+    }
+     
     }
 
   .formRow {
@@ -75,23 +109,18 @@ export const Form = styled.form`
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-  
-    #seasoningLabel{
-      
+   
 
-      fieldset {
-       
-      }   
-    }
+    
     #image{
     display: none;
+    
   }
     .formInputs {
       flex: 1;
       display: flex;
       flex-direction: column;
-      width: 28rem;
-      height: 3.rem;
+      
     
       label {
         height: 3rem;
@@ -102,6 +131,7 @@ export const Form = styled.form`
         color: ${({ theme }) => theme.COLORS.GRAY_400};
         
       }
+     
 
       select {
       width: 100%;
@@ -124,8 +154,7 @@ export const Form = styled.form`
       }
     }
     .formImageUpload {
-    width: 13.8rem;
-
+      width: 13.8rem;
     
     & > *:first-child {
       margin-bottom: 1rem;
@@ -137,19 +166,21 @@ export const Form = styled.form`
         color: ${({ theme }) => theme.COLORS.GRAY_400};
     }
   .upload {
+    gap: .5rem;
     height: 3rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+    width: 14.3rem;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
     border-radius: 0.5rem;
     
     svg{
       zoom:0.73; 
+     
     }
     .formIcon {
-      margin: 0.75rem 0.5rem 0.75rem 1rem;
+      margin-left: 1.5rem;
       width: 2.4rem;
       height: 2.4rem;
       transform: rotate(-90deg);
@@ -167,8 +198,30 @@ export const Form = styled.form`
 
  
   .customSelect {
-   width: 334px;
-  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+}
+
+.customSelect select {
+  -webkit-appearance: none; /* Chrome, Safari */
+  -moz-appearance: none;    /* Firefox */
+  appearance: none;         /* Remove a seta padrão */
+  padding-right: 2rem; /* Espaço para o ícone da seta */
+  width: 100%;
+  
+}
+
+.selectIcon {
+  position: absolute;
+  right: 10px; /* Ajuste baseado no seu design */
+  pointer-events: none; /* Faz com que o ícone não seja clicável */
+  font-size: 1rem; /* Aumenta o tamanho do ícone */
+  color: ${({ theme }) => theme.COLORS.GRAY_400};
+}
+
+
   
   }
 

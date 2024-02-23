@@ -17,7 +17,7 @@ export function Tag({$isNew, value, onClick, ...rest}){
         onClick={onClick}
         className={$isNew ? 'button-add' : 'button-delete'}
       >
-        {$isNew ? <AiOutlinePlus size={8}/> : <AiOutlineClose size={8}/> }
+        {$isNew ? <AiOutlinePlus size={10}/> : <AiOutlineClose size={10}/> }
       </button>
     </Container>
   );

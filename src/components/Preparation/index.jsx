@@ -4,6 +4,7 @@ export function Preparation ({ title, data, color, details, onChange, children, 
 
   return (
     <Container
+    status={data.status}
     {...rest}
     >
 

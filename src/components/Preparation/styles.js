@@ -80,14 +80,22 @@ export const Container = styled.ul`
     border-top: none;
     min-width: 15rem;
 
-    p {
-      position: absolute;
-      font-size: 4.3rem;
-      left: 13%;
-
-      color: ${({ value, theme }) => value === "Preparando" && theme.COLORS.ORANGE};
-      color: ${({ value, theme }) => value === "Pendente" && theme.COLORS.RED_100};
-      color: ${({ value, theme }) => value === "Entregue" && theme.COLORS.GREEN}; 
+    .selectStatus p {
+    position: absolute;
+    font-size: 4.3rem;
+    left: 13%;
+    color: ${({ status, theme }) => {
+      switch (status) {
+        case "Preparando":
+          return theme.COLORS.ORANGE;
+        case "Pendente":
+          return theme.COLORS.RED_100;
+        case "Entregue":
+          return theme.COLORS.GREEN;
+        default:
+          return theme.COLORS.GRAY_400;
+      }
+    }};
     
       @media(min-width: 1300px) {
         left: 11%;

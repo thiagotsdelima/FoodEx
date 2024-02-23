@@ -3,7 +3,6 @@ import { Home } from '../pages/Home';
 import { MealOrder } from '../pages/MealOrder';
 import { MealFound } from '../pages/MealFound';
 import { Details } from '../pages/Details';
-import { EditMeal } from '../pages/EditMeal';
 import { Bank } from '../pages/Bank';
 import { MealSeasoning } from '../pages/MealSeasoning';
 
@@ -13,7 +12,6 @@ export function CustomerRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/mealOrder" element={<MealOrder />} />
       <Route path="/mealFound" element={<MealFound />} />
-      <Route path="/editMeal" element={<EditMeal />} />
       <Route path="/details/:id" element={<Details />} />
       <Route path="/bank" element={<Bank />} />
       <Route path="/mealSeasoning" element={<MealSeasoning />} />

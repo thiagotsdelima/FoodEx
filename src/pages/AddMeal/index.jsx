@@ -24,7 +24,7 @@ return (
     <Form id="newDish" action="#" method="post" className="dishes">
   <div className="formRow">
     <div className="formImageUpload">
-      <p id="imageInput">Imagem do Prato</p>
+    <p id="imageInput">Imagem do Prato</p>
       <p className="upload">
         <FiLogOut className="formIcon"/>
         <span className="uploadText">Selecione imagem</span>
@@ -34,7 +34,7 @@ return (
 
     <div className="formInputs">
       <label htmlFor="name">Nome</label>
-      <Input type="text" id="name" name="name" placeholder="Ex: Salada Ceasar" required onChange={(event)=>setName(event.target.value)}/>
+      <Input className="inputName" type="text" id="name" name="name" placeholder="Ex: Salada Ceasar" required onChange={(event)=>setName(event.target.value)}/>
     </div>
 
     <div className="formInputs">
@@ -53,7 +53,7 @@ return (
         
         <div className="formRow">
     <div className="formInputs">
-      <label htmlFor="ingredients">Ingredientes</label>
+    <label htmlFor="ingredients" id="seasoningLabel">Ingredientes</label>
       <fieldset id="tagBackground">                
         <Tag className="tag" />                
         <Tag className="tag" $isNew placeholder="Adicionar" required />                
@@ -65,7 +65,7 @@ return (
         
     <div className="formInputs">
       <label htmlFor="price">Preço</label>
-      <Input type="text" id="price" name="price" placeholder="R$ 00,00" required onChange={(event)=>setPrice(event.target.value)}/>
+      <Input className="inputPrice" type="text" id="price" name="price" placeholder="R$ 00,00" required onChange={(event)=>setPrice(event.target.value)}/>
     </div>
   </div>
               

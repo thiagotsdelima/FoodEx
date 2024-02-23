@@ -6,9 +6,9 @@ export const Container = styled.section`
 > h2 {
     color: ${({ theme }) => theme.COLORS.GRAY_300};
     font-family: ${({ theme }) => theme.FONTS.Poppins400Medium};
-  font-size: 1.5rem;
+ 
   
-  font-weight: 500;
+  
   margin-bottom: 1rem;
 
   border-bottom-width: none;

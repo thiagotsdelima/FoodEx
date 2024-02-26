@@ -10,7 +10,7 @@ import { api } from '../../services/api';
 import { useAuth } from '../../hooks/auth';
 import { Rings } from 'react-loader-spinner';
 
-export function MealOrder({data}) {
+export function MealOrder() {
   const [loading, setLoading] = useState(true);
   const [meals, setMeals] = useState([]);
   const { cart } = useCart();
@@ -42,8 +42,8 @@ return (
         ) : (
           <>
             {cart.map(item => (
-                  <CartItem key={item.id} item={item} />
-                ))}
+  <CartItem key={item.id} data={item} />
+))}
             <div>Total: R$ {totalPrice.toFixed(2)}</div>
           </>
         )}

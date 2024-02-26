@@ -1,4 +1,5 @@
 import { Container } from './styles';
+import { MealPhoto } from '../../components/MealPhoto';
 
 export function CartItem({data = {}, onClick, loading, ...rest}) {
     const { photo_food = '', name = '', price = 0 } = data;
@@ -9,8 +10,9 @@ export function CartItem({data = {}, onClick, loading, ...rest}) {
                     {photo_food && <MealPhoto meal={data} alt={name} />}
                 </span>
                 <div>
-                    <h3>{data.name}</h3>
-                    <p>{`R$: ${data.price}`}</p>
+                <h3>{name}</h3>
+                <p>{`R$: ${price}`}</p>
+
                 </div>
             </div>
         </Container>

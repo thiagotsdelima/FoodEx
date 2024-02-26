@@ -24,9 +24,19 @@
     function handleAddNewDish() {
       navigate('/addMeal'); 
     }
+    
     function handleOrderHistory() {
-      navigate('/mealOrder');
+      if (cart.length === 0) {
+        alert("Por favor, adicione itens ao carrinho antes de visualizar os pedidos.");
+        return;
+      } 
+      if (user && user.id) {
+        navigate(`/mealOrder/${user.id}`);
+      } else {
+        console.log("Usuário não identificado");
+      }
     }
+    
     
 
     const uniqueItemsCount = cart.length;

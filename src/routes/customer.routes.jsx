@@ -11,7 +11,7 @@ export function CustomerRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/mealOrder" element={<MealOrder />} />
+      <Route path="/mealOrder/:id" element={<MealOrder />} />
       <Route path="/mealFound" element={<MealFound />} />
       <Route path="/details/:id" element={<Details />} />
       <Route path="/bank" element={<Bank />} />

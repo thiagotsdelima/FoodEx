@@ -24,11 +24,11 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
 
   const handleIncludeNewItem = () => {
     setCart(currentCart => {
-      // Verifica se o item já existe no carrinho
+      
       const existingItemIndex = currentCart.findIndex(cartItem => cartItem.id === data.id);
   
       if (existingItemIndex > -1) {
-        // Se o item já existe, atualiza apenas a quantidade
+       
         const updatedCart = [...currentCart];
         const existingItem = updatedCart[existingItemIndex];
         const updatedItem = {
@@ -39,7 +39,7 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
         updatedCart[existingItemIndex] = updatedItem;
         return updatedCart;
       } else {
-        // Se o item não existe, adiciona ao carrinho com a quantidade atual
+        
         return [...currentCart, {
           ...data,
           amount,

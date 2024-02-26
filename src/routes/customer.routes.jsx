@@ -6,6 +6,7 @@ import { Details } from '../pages/Details';
 import { Bank } from '../pages/Bank';
 import { MealSeasoning } from '../pages/MealSeasoning';
 
+
 export function CustomerRoutes() {
   return (
     <Routes>

@@ -8,15 +8,15 @@ import { Section } from '../../components/Section';
 import maskGroupImage from '../../assets/Maskgroup.png';
 import { Rings } from 'react-loader-spinner';
 import { api } from '../../services/api'; 
-import { FaShoppingCart } from 'react-icons/fa';
 import { useCart } from '../../hooks/cart';
 import { useAuth } from '../../hooks/auth';
-import { USER_ROLE } from '../../utils/roles'; 
+
 
 
 export function Home() {
     const [loading, setLoading] = useState(true);
     const [meals, setMeals] = useState([]);
+    const [orderCount, setOrderCount] = useState(0);
     const { cart } = useCart();
     const { user } = useAuth(); 
     const navigate = useNavigate();
@@ -39,19 +39,15 @@ export function Home() {
       };
     
     const filterDishesByCategory = (categoria) => meals.filter(meal => meal.category_name === categoria);
+    
+    const handleAddItemToOrder = () => {
+        setOrderCount(prevCount => prevCount + 1); // Atualiza a contagem
+    };
 
     return (
         <Container>
-            <Header />
+             <Header orderCount={orderCount} />
             <main>
-            <div onClick={handleOpenCart}>
-                {!USER_ROLE.ADMIN.includes(user?.role) && (
-                        <div>
-                            <FaShoppingCart />
-                            <span>{cart.length}</span> {/* Exibe a quantidade de itens no carrinho */}
-                        </div>
-                    )}
-                </div>
                 <div className="Header">
                     <div className="image">
                     <img src={maskGroupImage} alt="flying fruits" />

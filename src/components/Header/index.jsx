@@ -6,7 +6,7 @@
   import { useState } from 'react'
   import { api } from "../../services/api";
   import { useAuth } from '../../hooks/auth';
-  
+  import { useCart } from '../../hooks/cart';
   
 
   export function Header({ onChange }) {
@@ -14,6 +14,7 @@
     const navigate = useNavigate();
     const [toggleMenu, setToggleMenu] = useState(false);
     const [searchValue, setSearchValue] = useState('');
+    const { cart } = useCart();
 
     function handleSignOut() {
       signOut();
@@ -24,8 +25,11 @@
       navigate('/addMeal'); 
     }
     function handleOrderHistory() {
-      navigate('/mealFound');
+      navigate('/mealOrder');
     }
+    
+
+    const uniqueItemsCount = cart.length;
 
     return (
       <Container>
@@ -84,8 +88,8 @@
             </StyledButton >
           ) : (
             
-            <Button title="Pedidos (0)" onClick={handleOrderHistory}>
-              <img src="/sheet.svg" alt="image of a torn sheet" />
+            <Button title={`Pedidos (${uniqueItemsCount})`} onClick={handleOrderHistory}>
+            <img src="/sheet.svg" alt="image of a torn sheet" />
             </Button>
           )}
           <Link to="/" title="Sair" onClick={handleSignOut}>

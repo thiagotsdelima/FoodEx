@@ -27,7 +27,7 @@
     
     function handleOrderHistory() {
       if (cart.length === 0) {
-        alert("Por favor, adicione itens ao carrinho antes de visualizar os pedidos.");
+        alert("Por favor, adicione itens antes de visualizar os pedidos.");
         return;
       } 
       if (user && user.id) {

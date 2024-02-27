@@ -6,14 +6,16 @@ export function CartItem({data = {}, onClick, loading, ...rest}) {
     return (
         <Container {...rest}>
             <div className="cart-item">
+                
                 <span>
                     {photo_food && <MealPhoto meal={data} alt={name} />}
                 </span>
-                <div>
-                <h3>{name}</h3>
-                <p>{`R$: ${price}`}</p>
-
+                <div className="wrapper">
+                <h3>1 x {name}</h3>              
+                <a href="">Excluir</a>
                 </div>
+                <p>{`R$: ${price}`}</p>
+                
             </div>
         </Container>
     );

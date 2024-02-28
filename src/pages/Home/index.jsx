@@ -8,8 +8,7 @@ import { Section } from '../../components/Section';
 import maskGroupImage from '../../assets/Maskgroup.png';
 import { Rings } from 'react-loader-spinner';
 import { api } from '../../services/api'; 
-import { useCart } from '../../hooks/cart';
-import { useAuth } from '../../hooks/auth';
+
 
 
 
@@ -17,10 +16,10 @@ export function Home() {
     const [loading, setLoading] = useState(true);
     const [meals, setMeals] = useState([]);
     const [orderCount, setOrderCount] = useState(0);
-    const { cart } = useCart();
-    const { user } = useAuth(); 
     const navigate = useNavigate();
 
+   
+    const filterDishesByCategory = (categoria) => meals.filter(meal => meal.category_id === categoria);
    
     useEffect(() => {
         api.get('/meals')
@@ -34,16 +33,19 @@ export function Home() {
             });
     }, []);
 
+    
+    const refeicoesFiltradas = filterDishesByCategory(1);
+    const sobremesasFiltradas = filterDishesByCategory(2);
+    const bebidasFiltradas = filterDishesByCategory(3);
+  
+
     const handleOpenCart = () => {
         navigate('/editMeal'); 
-      };
-    
-    const filterDishesByCategory = (categoria) => meals.filter(meal => meal.category_name === categoria);
+    };
     
     const handleAddItemToOrder = () => {
-        setOrderCount(prevCount => prevCount + 1); // Atualiza a contagem
+        setOrderCount(prevCount => prevCount + 1); 
     };
-
     return (
         <Container>
              <Header orderCount={orderCount} />
@@ -63,18 +65,18 @@ export function Home() {
                     </div>
                 ) : (
                     <div className='contentWrapper'>
-                        <Section>
-                            <h2>Refeições</h2>
-                            <Carousel meals={filterDishesByCategory('refeicoes')} />
-                        </Section>
-                        <Section>
-                            <h2>Sobremesas</h2>
-                            <Carousel meals={filterDishesByCategory('sobremesas')} />
-                        </Section>
-                        <Section>
-                            <h2>Bebidas</h2>
-                            <Carousel meals={filterDishesByCategory('bebidas')} />
-                        </Section>
+                       <Section>
+                <h2>Refeições</h2>
+                <Carousel data={refeicoesFiltradas} />
+                </Section>
+                <Section>
+                <h2>Sobremesas</h2>
+                <Carousel data={sobremesasFiltradas} />
+                </Section>
+                <Section>
+                <h2>Bebidas</h2>
+                <Carousel data={bebidasFiltradas} />
+                </Section>
                     </div>
                 )}
             </main>

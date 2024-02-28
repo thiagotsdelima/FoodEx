@@ -177,10 +177,6 @@ export function MealOrder() {
                                     <AiOutlineCheckCircle/>
                                     <img src={PaymentAccept} alt="Pagamento Aprovado" />
                                     <p>Pagamento aprovado!</p>
-                                    <Button 
-                                    onClick={handleClickFoundMeal}
-                                    title="Fila de Entrega"
-                                    />
                                 </div>
                             )
                             }

@@ -1,24 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { api } from '../../services/api';
 import { Container } from './styles';
 import { Meals } from '../Meals';
 
-export function Carousel() {
-    const [data, setData] = useState([]);
+export function Carousel({ data }) {
+    
     const carouselRef = useRef(null);
     const autoScrollRef = useRef(null);
-
-    useEffect(() => {
-        api.get('/meals') 
-            .then(response => {
-                 
-                setData(response.data);
-            })
-            .catch(error => {
-                console.error("Erro ao carregar dados", error);
-            });
-    }, []);
     
 
     const scroll = (direction, scrollAmount = carouselRef.current.offsetWidth / 2) => {
@@ -42,7 +30,7 @@ export function Carousel() {
     return (
         <Container onMouseOver={stopAutoScroll} onMouseOut={startAutoScroll}>
             <div className="carouselContainer">
-            <div className="arrowContainer arrowLeft" onClick={() => scroll(-1, 100)}>
+                <div className="arrowContainer arrowLeft" onClick={() => scroll(-1, 100)}>
                     <FiChevronLeft />
                 </div>
                 <div className="carousel" ref={carouselRef}>

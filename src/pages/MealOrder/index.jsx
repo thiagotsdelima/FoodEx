@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container } from './styles';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -12,8 +13,12 @@ import PixSvg from '../../assets/Pix.svg';
 import CardSvg from '../../assets/CreditCard.svg';
 import ImageQrCodePng from '../../assets/Qrcode.svg';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import PaymentAccept from '../../assets/paymentAccept.svg';
+
+
 
 export function MealOrder() {
+  const [paymentCompleted, setPaymentCompleted] = useState(false);
   const [loading, setLoading] = useState(true);
   const [meals, setMeals] = useState([]);
   const { cart } = useCart();
@@ -22,7 +27,7 @@ export function MealOrder() {
   const [validity, setValidity] = useState('');
   const [cvcCode, setCvcCode] = useState('');
   const [isNotFinished, setIsNotFinished] = useState(true);
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     api.get('/meals')
@@ -43,14 +48,21 @@ export function MealOrder() {
   };
 
   const handleCompletePayment = () => {
-    setIsNotFinished(false);
+    setTimeout(() => {
+      console.log("Pagamento aprovado!");
+      setIsNotFinished(false);
+      setPaymentCompleted(true); 
+    }, 2000); 
+  };
+  const handleClickFoundMeal = () => {
+    navigate('/mealFound'); 
   };
 
   return (
     <Container>
       <Header />
       <main>
-        <div className="completePayment">
+        <div className="completedPayment">
         <div className="accountOrder">
         <Section title="Meu pedido" />
         {loading ? (
@@ -100,17 +112,6 @@ export function MealOrder() {
                               isNotFinished?
                               (
                                 <form className="cardDetails">
-                                <div className="divCardInputs">
-                                  <label htmlFor="cardName">
-                                  Nome no Cartão
-                                  </label>
-                                  <input
-                                    type="text"
-                                    id="cardName"
-                                    placeholder="Nome"
-                                  />
-                                </div>
-                                
                                 <div className="divCardInputs">
                                   <label htmlFor="cardNumber">
                                   Número do Cartão
@@ -166,6 +167,7 @@ export function MealOrder() {
                                   title="Finalizar pagamento"
                                   onClick={handleCompletePayment}
                                   >
+                                     <img src="/sheet.svg" alt="image of a torn sheet" />
                                   </Button>
                                 </div>
                               </form>
@@ -173,17 +175,18 @@ export function MealOrder() {
                               (
                                 <div className="paymentFinalized">
                                     <AiOutlineCheckCircle/>
+                                    <img src={PaymentAccept} alt="Pagamento Aprovado" />
                                     <p>Pagamento aprovado!</p>
-    
                                     <Button 
-                                    onClick={handleClickReturn}
-                                    title="Voltar"
+                                    onClick={handleClickFoundMeal}
+                                    title="Fila de Entrega"
                                     />
                                 </div>
                             )
                             }
                             </div>
                           )}
+                          
                       </td>
                     </tr>
                   </tbody>

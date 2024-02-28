@@ -9,12 +9,12 @@ export const Container = styled.div`
  
  
   
-  .completePayment { 
+  .completedPayment { 
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     grid-template-areas: "accountOrder columnByPayment";
-    width: 100%;
-    height: 557px;
+    
+   
     margin: -5rem auto 10rem 0;
     padding: 4.4rem;
     gap: 20px;
@@ -30,7 +30,7 @@ export const Container = styled.div`
   }
 
   .accountOrder { 
-    
+    margin-top: -4rem;
     grid-area: accountOrder; 
     img {
         width: 4.5rem;
@@ -56,37 +56,31 @@ export const Container = styled.div`
   }
   }
   .columnByPayment { 
-   
+  
     grid-area: columnByPayment;
      
+   
+
      > table {
       border-collapse: collapse;
-      margin-bottom: 2rem;
+     
      
         > thead {
           tr, th {
           border: 0.666px solid var(--light-light-600, #76797B);
           padding: 1.5rem;
           text-align: center;
+         
           }
 
           th {
-            width: 50%; 
-
-            &:hover {
-                background: ${({ theme }) => theme.COLORS.GRAY_700};
-              }
-
-            cursor: pointer;
+           
 
             .wrapperPaymentMethod {
               display: flex;
-              align-items: center;
-              justify-content: center;
-
-              &:hover {
-                background: ${({ theme }) => theme.COLORS.GRAY_700};
-              }
+            	justify-content: space-around;
+            
+              
 
              
 
@@ -101,9 +95,7 @@ export const Container = styled.div`
               color: ${({ theme }) => theme.COLORS.GRAY_100};
               background: transparent;            
 
-              &:hover {
-                background: ${({ theme }) => theme.COLORS.GRAY_700};
-              }
+             
 
               
               }   
@@ -118,20 +110,25 @@ export const Container = styled.div`
           tr {
             
             td {
-              padding: 2rem 3rem;
+              padding: 1.5rem 1.8rem;
               text-align: center;
               vertical-align: middle;
-
+              
             
               .cardDetails {
                 display: flex;
                 flex-direction: column;
-                gap: 1.5rem;
-
-                
+                gap: 2rem;
+                                
 
                 justify-content: start;
                 align-items: start;
+
+                .divCardInputs label,
+                .divExpirationAndCvc label {
+                  font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
+                  color: ${({ theme }) => theme.COLORS.GRAY_400};
+                }
 
                 input {
                   &::-webkit-inner-spin-button,
@@ -141,12 +138,9 @@ export const Container = styled.div`
                   }
                 }
 
-                @media (min-width: 768px) {
-                  width: 20rem;              
-                }
-
                 @media (min-width: 820px) {
-                  width: 28rem;               
+                  width: 23rem;        
+                         
                 }
                               
                 > .divCardInputs {
@@ -160,9 +154,9 @@ export const Container = styled.div`
                     border-radius: 5px;
                     border: 1px solid #808080;
                     
-                    width: 100%;
+                    width: 21.8rem;
                 
-                    height: 3.5rem;
+                    height: 3rem;
                     padding: 1.2rem 1.4rem;
                     
                     color: ${({ theme }) => theme.COLORS.GRAY_100};
@@ -201,12 +195,12 @@ export const Container = styled.div`
                       border-radius: 5px;
                       border: 1px solid #808080;
                       
-                      width: 100%;
+                      width: 10.4rem;
                   
-                      height: 3.5rem;
+                      height: 3rem;
                       padding: 1.2rem 1.4rem;
                       
-                      color: ${({ theme }) => theme.COLORS.WHITE_100};
+                      color: ${({ theme }) => theme.COLORS.GRAY_100};
                       background: transparent;
 
                       &::placeholder {
@@ -223,10 +217,31 @@ export const Container = styled.div`
                     }
               }
 
-              > .wrapperButtonCompletePayment{
-                  width: 100%;
-                  height: 4.6rem;
-                }             
+           
+              .wrapperButtonCompletePayment .buttonPayment {
+                margin-left: 55px;
+                display: flex;
+                justify-content: center; 
+                align-items: center; 
+                gap: 10px; 
+                margin-top: -1rem;
+                font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
+                        
+                color: ${({ theme }) => theme.COLORS.GRAY_100};
+              
+                
+                padding: .5rem 1.5rem; 
+                border: none; 
+                
+            
+               
+              }
+
+              
+              .wrapperButtonCompletePayment .buttonPayment img {
+                margin-top: 0; 
+              }
+         
            }
            > .cardPayment {
             > .paymentFinalized {

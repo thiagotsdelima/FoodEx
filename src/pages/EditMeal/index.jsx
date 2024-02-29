@@ -15,6 +15,7 @@ import { FiLogOut } from "react-icons/fi";
 
 export function EditMeal() {
   const [mealDescription, setMealDescription] = useState('Your meal description here.');
+  const [category, setCategory] = useState('');
 return (
 <Container>
   <Header />
@@ -24,14 +25,14 @@ return (
     <ButtonBack />
     <Section title='Editar prato' />
     <Form id="newDish" action="#" method="post" className="dishes">
-  <div className="formRow">
-    <div className="formImageUpload">
-    <p id="imageInput">Imagem do Prato</p>
-      <p className="upload">
-        <FiLogOut className="formIcon"/>
-        <span className="uploadText">Selecione imagem</span>
-        <Input type="file" id="image" name="image" accept="image/*" onChange={(event)=>setDishImage(event.target.files[0])} />
-      </p>
+    <div className="formRow">
+          <div className="formImageUpload">
+            <label id="imageInput">Imagem do Prato</label> 
+            <div className="upload"> 
+              <FiLogOut className="formIcon"/>
+              <span className="uploadText">Selecione imagem</span>
+              <Input type="file" id="image" name="image" accept="image/*" onChange={(event)=>setDishImage(event.target.files[0])} />
+            </div>
     </div>
 
     <div className="formInputs">
@@ -40,19 +41,24 @@ return (
     </div>
 
     <div className="formInputs">
-      <label htmlFor="category">Categoria</label>
-      <div className="customSelect">
-        <select id="DrinkEatCategory" name="DrinkEatCategory" required onChange={(event)=>setCategory(event.target.value)}>
-          <option value="" disabled selected hidden>Selecione uma categoria</option>
-          <option value="refeicao">Refeição</option>
-          <option value="sobremesa">Sobremesa</option>
-          <option value="bebida">Bebida</option>
-        </select>
-        <FaChevronDown className="selectIcon" />
-      </div>
-    </div>
+  <label htmlFor="category">Categoria</label>
+  <div className="customSelect">
+  <select
+      id="DrinkEatCategory"
+      name="DrinkEatCategory"
+      required
+      value={category} 
+      onChange={(event) => setCategory(event.target.value)} 
+    >
+      <option value="" disabled hidden>Selecione uma categoria</option>
+      <option value="refeicao">Refeição</option>
+      <option value="sobremesa">Sobremesa</option>
+      <option value="bebida">Bebida</option>
+    </select>
+    <FaChevronDown className="selectIcon" />
   </div>
-
+</div>
+</div>
         
         <div className="formRowTag">
     <div className="formInputs">
@@ -102,4 +108,3 @@ return (
 );
 }
 
-/* <TextArea $interactive={false} readOnly={true} value={mealDescription}>*/

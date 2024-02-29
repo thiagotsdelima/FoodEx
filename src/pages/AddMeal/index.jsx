@@ -16,67 +16,63 @@ import { FaChevronDown } from 'react-icons/fa';
 import { FiLogOut } from "react-icons/fi";
 
 export function AddMeal() {
- const { isLoading, setIsLoading } = useAuth();
- const [photo_food, setPhoto_food] = useState(null); 
- const [name, setName] = useState(""); 
- const [category, setCategory] = useState("Refeições"); 
- const [price, setPrice] = useState(0); 
- const [mealDescription, setMealDescription] = useState('Your meal description here.');
- const [ Seasoning, setSeasoning ] = useState([]); 
- const [ newSeasoning, setNewSeasoning ] = useState(""); 
-
+  const { setIsLoading } = useAuth();
+  const [photoFood, setPhotoFood] = useState(null);
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [seasonings, setSeasonings] = useState([]);
+  const [newSeasoning, setNewSeasoning] = useState("");
   const navigate = useNavigate();
-  
+
   const handleCreateDish = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const errorMessage = validateForm();
     if (errorMessage) {
-      return toast.error(errorMessage, {
-        position: toast.POSITION.TOP_RIGHT
-      });
+      console.error(errorMessage);
+      return;
     }
 
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("category", category); // Make sure the category is correctly mapped to your backend expectations
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("seasonings", seasonings.join(','));
+    if (photoFood) formData.append("photo", photoFood);
+
+    try {
+      setIsLoading(true);
+      const response = await api.post("/meals", formData);
+      console.log("Prato criado com sucesso.", response.data);
+      navigate(-1); // Assuming you want to navigate back to the previous page
+    } catch (error) {
+      console.error("Erro ao criar o prato:", error.response ? error.response.data : error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   function validateForm() {
-    if (!name) return "Precisa inserir um nome. Por favor, informe o nome do Prato.";
-    if (!category) return "Precisa inserir uma categoria. Por favor, informe a categoria do Prato.";
-    if (!price) return "Precisa inserir um valor de custo. Por favor, informe o preço do Prato.";
-    if (!mealDescription) return "Precisa inserir uma descrição. Por favor, informe a descrição do Prato.";
-    if (newSeasoning) return "Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.";
+    if (!name) return "Nome do prato é obrigatório.";
+    if (!category) return "Categoria do prato é obrigatória.";
+    if (!price) return "Preço do prato é obrigatório.";
+    if (!description) return "Descrição do prato é obrigatória.";
     return null;
-}
-
-const formData = new FormData();
-
-formData.append("name", name);
-formData.append("category", category);
-formData.append("price", price.toString());
-formData.append("seasoning", Seasoning.join(','));
-formData.append("mealDescription", mealDescription);
-formData.append("photo_food", photo_food);
-
-try {
-  setIsLoading(true);
-  await api.post("/meals", formData);
-  setIsLoading(false);
-  console.log("Prato criado com sucesso.");
-  navigate(-1); 
-} catch (error) {
-  setIsLoading(false);
-  console.error("Não foi possível criar o prato."); 
-}
-};
+  }
 
   function handleAddSeasoning() {
-    setSeasoning(prevState => [...prevState, newSeasoning]); 
-    setNewSeasoning("");
+    if (newSeasoning.trim() !== "") {
+      setSeasonings(prev => [...prev, newSeasoning]);
+      setNewSeasoning("");
+    }
   }
 
-  function handleRemoveSeasoning(deleted) { 
-    setSeasoning(prevState => prevState.filter(seasoning => seasoning !== deleted)); 
+  function handleRemoveSeasoning(toRemove) {
+    setSeasonings(prev => prev.filter(seasoning => seasoning !== toRemove));
   }
-
 
 return (
 <Container>
@@ -109,7 +105,7 @@ return (
           id="DrinkEatCategory"
           name="DrinkEatCategory"
           required
-          value={category} // Usa o estado aqui
+          value={category}
           onChange={(event) => setCategory(event.target.value)}
         >
           <option value="" disabled hidden>Selecione uma categoria</option>
@@ -158,7 +154,7 @@ return (
             
           /> 
          
-    </Main>
+         </Main>
   <Footer />
   </Content>
 </Container>

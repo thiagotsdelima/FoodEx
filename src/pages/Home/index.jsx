@@ -34,9 +34,9 @@ export function Home() {
     }, []);
 
     
-    const refeicoesFiltradas = filterDishesByCategory(1);
-    const sobremesasFiltradas = filterDishesByCategory(2);
-    const bebidasFiltradas = filterDishesByCategory(3);
+    const filteredMeals = filterDishesByCategory(1);
+    const filteredDesserts = filterDishesByCategory(2);
+    const filteredDrinks = filterDishesByCategory(3);
   
 
     const handleOpenCart = () => {
@@ -67,15 +67,15 @@ export function Home() {
                     <div className='contentWrapper'>
                        <Section>
                 <h2>Refeições</h2>
-                <Carousel data={refeicoesFiltradas} />
+                <Carousel data={filteredMeals} />
                 </Section>
                 <Section>
                 <h2>Sobremesas</h2>
-                <Carousel data={sobremesasFiltradas} />
+                <Carousel data={filteredDesserts} />
                 </Section>
                 <Section>
                 <h2>Bebidas</h2>
-                <Carousel data={bebidasFiltradas} />
+                <Carousel data={filteredDrinks} />
                 </Section>
                     </div>
                 )}

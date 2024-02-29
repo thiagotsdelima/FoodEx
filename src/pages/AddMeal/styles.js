@@ -115,9 +115,11 @@ export const Form = styled.form`
 
     
     #image{
-    display: none;
-    
-  }
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+      }
+      
     .formInputs {
       flex: 1;
       display: flex;
@@ -191,7 +193,7 @@ export const Form = styled.form`
   }
   }
  
-  .uploadText {
+  .uploadLabel  {
     font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};  
     color: ${({ theme }) => theme.COLORS.GRAY_100};  
     cursor: pointer;

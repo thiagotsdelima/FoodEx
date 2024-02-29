@@ -16,7 +16,7 @@ import { FaChevronDown } from 'react-icons/fa';
 import { FiLogOut } from "react-icons/fi";
 
 export function AddMeal() {
-  const { setIsLoading } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
   const [photoFood, setPhotoFood] = useState(null);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -37,17 +37,17 @@ export function AddMeal() {
 
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("category", category); // Make sure the category is correctly mapped to your backend expectations
+    formData.append("category_name", category); 
     formData.append("price", price);
     formData.append("description", description);
-    formData.append("seasonings", seasonings.join(','));
-    if (photoFood) formData.append("photo", photoFood);
+    formData.append("seasoning", seasonings.join(' ')); 
+    if (photoFood) formData.append("photo_food", photoFood);
 
     try {
       setIsLoading(true);
       const response = await api.post("/meals", formData);
       console.log("Prato criado com sucesso.", response.data);
-      navigate(-1); // Assuming you want to navigate back to the previous page
+      navigate(-1); 
     } catch (error) {
       console.error("Erro ao criar o prato:", error.response ? error.response.data : error.message);
     } finally {
@@ -88,8 +88,8 @@ return (
             <label id="imageInput">Imagem do Prato</label> 
             <div className="upload"> 
               <FiLogOut className="formIcon"/>
-              <span className="uploadText">Selecione imagem</span>
-              <Input type="file" id="image" name="image" accept="image/*" onChange={(event)=>setDishImage(event.target.files[0])} />
+              <label htmlFor="image" className="uploadLabel">Selecione imagem</label>
+              <Input type="file" id="image" name="image" accept="image/*" onChange={(event) => setPhotoFood(event.target.files[0])} />
             </div>
           </div>
 
@@ -148,7 +148,7 @@ return (
     <Button
             type="submit" 
             className="submitButton"
-            form="newDishForm"
+            form="newDish"
             onClick={handleCreateDish}
             title="Salvar Informações"
             

@@ -16,6 +16,7 @@ import { FaChevronDown } from 'react-icons/fa';
 import { FiLogOut } from "react-icons/fi";
 
 export function AddMeal() {
+  const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [photoFood, setPhotoFood] = useState(null);
   const [name, setName] = useState("");
@@ -28,32 +29,32 @@ export function AddMeal() {
 
   const handleCreateDish = async (event) => {
     event.preventDefault();
-
+    const formData = new FormData();
+    formData.append("category_name", category);
     const errorMessage = validateForm();
     if (errorMessage) {
       console.error(errorMessage);
       return;
     }
-
-    const formData = new FormData();
+  
     formData.append("name", name);
-    formData.append("category_name", category); 
     formData.append("price", price);
     formData.append("description", description);
-    formData.append("seasoning", seasonings.join(' ')); 
+    formData.append("seasoning", seasonings.join(','));
     if (photoFood) formData.append("photo_food", photoFood);
-
+  
     try {
       setIsLoading(true);
       const response = await api.post("/meals", formData);
-      console.log("Prato criado com sucesso.", response.data);
-      navigate(-1); 
+      alert("Prato criado com sucesso.", response.data);
+      navigate(-1);
     } catch (error) {
       console.error("Erro ao criar o prato:", error.response ? error.response.data : error.message);
     } finally {
       setIsLoading(false);
     }
   };
+  
 
   function validateForm() {
     if (!name) return "Nome do prato é obrigatório.";
@@ -99,34 +100,48 @@ return (
     </div>
 
     <div className="formInputs">
-      <label htmlFor="category">Categoria</label>
-      <div className="customSelect">
-        <select
-          id="DrinkEatCategory"
-          name="DrinkEatCategory"
-          required
-          value={category}
-          onChange={(event) => setCategory(event.target.value)}
-        >
-          <option value="" disabled hidden>Selecione uma categoria</option>
-          <option value="refeicao">Refeição</option>
-          <option value="sobremesa">Sobremesa</option>
-          <option value="bebida">Bebida</option>
-        </select>
-        <FaChevronDown className="selectIcon" />
-      </div>
-    </div>
+  <label htmlFor="category">Categoria</label>
+  <div className="customSelect">
+    <select
+      id="category"
+      name="category_name"
+      required
+      value={category}
+      onChange={(event) => setCategory(event.target.value)}
+    >
+      <option value="" disabled hidden>Selecione uma categoria</option>
+      <option value="refeicoes">Refeição</option>
+      <option value="sobremesas">Sobremesa</option>
+      <option value="bebidas">Bebida</option>
+    </select>
+    <FaChevronDown className="selectIcon" />
   </div>
+</div>
+</div>
 
         
-        <div className="formRowTag">
-    <div className="formInputs">
+  <div className="formRowTag">
+  <div className="formInputs">
     <label htmlFor="ingredients" id="seasoningLabel">Ingredientes</label>
-      <fieldset id="tagBackground">                
-        <Tag className="tag" />                
-        <Tag className="tag" $isNew placeholder="Adicionar" required />                
-      </fieldset>              
-    </div>
+    <fieldset id="tagBackground">
+      {seasonings.map((seasoning, index) => (
+        <Tag
+          key={index}
+          value={seasoning}
+          onClick={() => handleRemoveSeasoning(seasoning)}
+        />
+      ))}
+      <Tag
+        $isNew
+        placeholder="Adicionar"
+        value={newSeasoning}
+        onChange={(e) => setNewSeasoning(e.target.value)}
+        onClick={handleAddSeasoning}
+      />
+    </fieldset>
+  </div>
+
+
         
         
 
@@ -159,4 +174,4 @@ return (
   </Content>
 </Container>
 );
-}
+      }

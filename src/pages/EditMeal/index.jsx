@@ -63,11 +63,13 @@ export function EditMeal() {
       alert(errorMessage);
       return;
     }
+
+    const numericPrice = Number(price.replace(/[^\d.-]/g, ''));
   
     const formData = new FormData();
     formData.append("name", name);
     formData.append("category_name", category);
-    formData.append("price", price);
+    formData.append("price", numericPrice);
     formData.append("description", description);
     formData.append("seasonings", seasonings.join(','));
     if (photoFood) formData.append("photo_food", photoFood);
@@ -119,7 +121,7 @@ export function EditMeal() {
 
   function handleAddSeasoning() {
     if (newSeasoning.trim() !== "") {
-      setSeasonings(prev => [...prev, newSeasoning]);
+      setSeasonings(prev => [...prev, { name: newSeasoning }]);
       setNewSeasoning("");
     }
   }
@@ -145,7 +147,7 @@ return (
             <label id="imageInput">Imagem do Prato</label> 
             <div className="upload"> 
               <FiLogOut className="formIcon"/>
-              <span className="uploadText">Selecione imagem</span>
+              <label htmlFor="image" className="uploadLabel">Selecione imagem</label>
               <Input type="file" id="image" name="image" accept="image/*" onChange={(event) => setPhotoFood(event.target.files[0])} />
             </div>
     </div>
@@ -182,7 +184,7 @@ return (
       {seasonings.map((seasoning, index) => (
         <Tag
           key={index}
-          value={seasoning}
+          value={seasoning.name}
           onClick={() => handleRemoveSeasoning(seasoning)}
         />
       ))}

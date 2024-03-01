@@ -26,6 +26,7 @@ export function AddMeal() {
   const [seasonings, setSeasonings] = useState([]);
   const [newSeasoning, setNewSeasoning] = useState("");
   const navigate = useNavigate();
+  
 
   const handleCreateDish = async (event) => {
     event.preventDefault();
@@ -36,9 +37,11 @@ export function AddMeal() {
       console.error(errorMessage);
       return;
     }
+
+    const numericPrice = Number(price.replace(/[^\d.-]/g, ''));
   
     formData.append("name", name);
-    formData.append("price", price);
+    formData.append("price", numericPrice);
     formData.append("description", description);
     formData.append("seasoning", seasonings.join(','));
     if (photoFood) formData.append("photo_food", photoFood);
@@ -66,7 +69,7 @@ export function AddMeal() {
 
   function handleAddSeasoning() {
     if (newSeasoning.trim() !== "") {
-      setSeasonings(prev => [...prev, newSeasoning]);
+      setSeasonings(prev => [...prev, { name: newSeasoning }]);
       setNewSeasoning("");
     }
   }
@@ -127,7 +130,7 @@ return (
       {seasonings.map((seasoning, index) => (
         <Tag
           key={index}
-          value={seasoning}
+          value={seasoning.name}
           onClick={() => handleRemoveSeasoning(seasoning)}
         />
       ))}

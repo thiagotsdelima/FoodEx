@@ -116,7 +116,7 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
               </strong>
               <p onClick={handleDetails}>{data.description}</p>
               {!isInDetailsPage && (
-                <p className="price">R$ {data.price.toFixed(2)}</p>
+               <p className="price">R$ {Number(data.price).toFixed(2)}</p>
               )}
               <div className="seasoningWrapper">
                 {isInDetailsPage && data.seasonings && (

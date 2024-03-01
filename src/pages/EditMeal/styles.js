@@ -130,9 +130,16 @@ export const Form = styled.form`
 
     
     #image{
-    display: none;
-    
-  }
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+      }
+      .uploadLabel  {
+      font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};  
+      color: ${({ theme }) => theme.COLORS.GRAY_100};  
+      cursor: pointer;
+    }
+      
     .formInputs {
       flex: 1;
       display: flex;

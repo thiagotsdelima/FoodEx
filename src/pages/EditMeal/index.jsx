@@ -11,7 +11,7 @@ import { Button } from '../../components/Button';
 import { Tag } from '../../components/Tag';
 import { ButtonBack } from '../../components/ButtonBack';
 import { FaChevronDown } from 'react-icons/fa';
-
+import {api} from '../../services/api';
 import { FiLogOut } from "react-icons/fi";
 
 export function EditMeal() {
@@ -26,18 +26,24 @@ export function EditMeal() {
   
 
   const navigate = useNavigate();
-  const { id: mealId } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchMeal = async () => {
       try {
-        const response = await api.put(`/meals/${mealId}`);
+        const response = await api.get(`/meals/${id}`);
         const { name, category, price, description, seasonings, photo } = response.data;
         setName(name);
         setCategory(category);
         setPrice(price);
         setDescription(description);
-        setSeasonings(seasonings.split(','));
+        if (typeof seasonings === 'string') {
+          setSeasonings(seasonings.split(','));
+      } else if (Array.isArray(seasonings)) {
+          setSeasonings(seasonings);
+      } else {
+          console.error('Unexpected type for seasonings:', typeof seasonings);
+      }
         setPhotoFood(photo);
       } catch (error) {
         console.error("Erro ao carregar o prato:", error);
@@ -47,34 +53,39 @@ export function EditMeal() {
     };
 
     fetchMeal();
-  }, [mealId]);
+  }, [id]);
 
   const handleUpdateDish = async (event) => {
     event.preventDefault();
   
     const errorMessage = validateForm();
     if (errorMessage) {
-      alert(errorMessage); 
-      return; 
+      alert(errorMessage);
+      return;
     }
   
-    const formData = new FormData(); 
+    const formData = new FormData();
     formData.append("name", name);
-    formData.append("category", category);
+    formData.append("category_name", category);
     formData.append("price", price);
     formData.append("description", description);
     formData.append("seasonings", seasonings.join(','));
     if (photoFood) formData.append("photo_food", photoFood);
     
   
+ 
     try {
-      setIsLoading(true); 
-      const response = await api.delete(`/meals/${mealId}`);
-      alert("Prato excluído com sucesso: " + response.data.message); 
-      navigate('/'); 
+      setIsLoading(true);
+      const response = await api.put(`/meals/${id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      alert("Prato atualizado com sucesso: " + response.data.message);
+      navigate('/');
     } catch (error) {
-      console.error("Erro ao excluir o prato:", error);
-      alert("Erro ao excluir o prato: " + (error.response ? error.response.data.message : error.message));
+      console.error("Erro ao atualizar o prato:", error);
+      alert("Erro ao atualizar o prato: " + (error.response ? error.response.data.message : error.message));
     } finally {
       setIsLoading(false);
     }
@@ -89,30 +100,22 @@ export function EditMeal() {
   }
 
   const handleDeleteMeal = async () => {
-    setWaiting(false)
     const isConfirmed = window.confirm("Tem certeza que deseja excluir este prato?");
     if (!isConfirmed) {
       return;
     }
     try {
-      setRedirectToHome(true)
-
-      const response = await api.delete(`/meals/${mealId}`)
-      setColor(true)
-      setAlertMessage(response.data.message)
-      
+      setIsLoading(true);
+      const response = await api.delete(`/meals/${id}`);
+      alert("Prato excluído com sucesso: " + response.data.message);
+      navigate('/');
     } catch (error) {
-      setRedirectToHome(false)
-
-      if (error.response) {
-        setColor(false)
-        setAlertMessage(error.response.data.message)
-      } else {
-        setColor(false)
-        setAlertMessage("Não foi possível excluir o prato")
-      }
+      console.error("Erro ao excluir o prato:", error);
+      alert("Erro ao excluir o prato: " + (error.response ? error.response.data.message : error.message));
+    } finally {
+      setIsLoading(false);
     }
-  }
+  };  
 
   function handleAddSeasoning() {
     if (newSeasoning.trim() !== "") {
@@ -128,7 +131,10 @@ export function EditMeal() {
 return (
 <Container>
   <Header />
-  <Content>
+  {isLoading ? (
+      <p>Carregando...</p>
+    ) : (
+      <Content>
     <Main>
    
     <ButtonBack />
@@ -186,6 +192,7 @@ return (
         value={newSeasoning}
         onChange={(e) => setNewSeasoning(e.target.value)}
         onClick={handleAddSeasoning}
+        onKeyDown={(e) => e.key === 'Enter' ? handleAddSeasoning() : null}
       />
     </fieldset>
   </div>
@@ -212,6 +219,7 @@ return (
         className="submitButtonBlack"
         id="black-btn"
         onClick={handleDeleteMeal}
+        disabled={isLoading} 
         title="Excluir prato"
       />
       
@@ -220,6 +228,7 @@ return (
         className="submitButton"
         form="newDish" 
         onClick={handleUpdateDish}
+        disabled={isLoading}
         title="Salvar alterações"
       />
     </div>
@@ -227,6 +236,7 @@ return (
     </Main>
   <Footer />
   </Content>
+  )};
 </Container>
 );
 }

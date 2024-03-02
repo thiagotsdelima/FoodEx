@@ -2,44 +2,65 @@
   import { Link, useNavigate } from 'react-router-dom';
   import { Button } from '../Button';
   import { FaSearch, FaBars } from 'react-icons/fa';
+  import { api } from '../../services/api';
   import { USER_ROLE } from "../../utils/roles";
-  import { useState } from 'react'
-  import { api } from "../../services/api";
+  import { useState, useEffect  } from 'react'
+  import { debounce } from 'lodash';
   import { useAuth } from '../../hooks/auth';
   import { useCart } from '../../hooks/cart';
   
 
-  export function Header({ onChange }) {
+  export function Header({ onSearchChange, valueSearch }) {
     const { user, signOut } = useAuth();
     const navigate = useNavigate();
+    const [ifSearchChange, setIfSearchChange] = useState([]);
     const [toggleMenu, setToggleMenu] = useState(false);
-    const [searchValue, setSearchValue] = useState('');
     const { cart } = useCart();
+  
 
-    function handleSignOut() {
+    const uniqueItemsCount = cart.length; 
+  
+    const handleSignOut = () => {
       signOut();
-      navigate('/signIn'); 
-    }
-
-    function handleAddNewDish() {
-      navigate('/addMeal'); 
-    }
-    
-    function handleOrderHistory() {
+      navigate('/signIn');
+    };
+  
+    const handleAddNewDish = () => {
+      navigate('/addMeal');
+    };
+  
+    const handleOrderHistory = () => {
       if (cart.length === 0) {
         alert("Por favor, adicione itens antes de visualizar os pedidos.");
         return;
-      } 
-      if (user && user.id) {
-        navigate(`/mealOrder/${user.id}`);
-      } else {
-        console.log("Usuário não identificado");
       }
-    }
-    
-    
+      navigate(`/mealOrder/${user.id}`);
+    };
 
-    const uniqueItemsCount = cart.length;
+    const handleSearchChange = (value) => {
+      onSearchChange(value); 
+  };
+
+  useEffect(() => {
+    const debouncedFetch = debounce(() => {
+      if (valueSearch) { 
+        api.get('/meals', { params: { search: valueSearch } }) 
+          .then(response => {
+            console.log("API Response:", response.data);
+            setIfSearchChange(response.data); 
+          })
+          .catch(error => {
+            console.error("Erro ao buscar pratos", error);
+          });
+      } else {
+        setIfSearchChange([]); 
+      }
+    }, 500);
+  
+    debouncedFetch();
+    return () => debouncedFetch.cancel();
+  }, [valueSearch]); 
+  
 
     return (
       <Container>
@@ -82,13 +103,21 @@
         <InputContainer $isAdmin={USER_ROLE.ADMIN.includes(user?.role)}>
         <FaSearch className="inputIcon" />
         <input
-          type="text"
-          placeholder="Busque por pratos ou ingredientes"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && onChange(searchValue)}
+            type="text"
+            placeholder="Busque por pratos ou ingredientes"
+            value={valueSearch}
+            onChange={(e) => onSearchChange(e.target.value)}
         />
-      </InputContainer>
+        {ifSearchChange.length > 0 && (
+            <ul>
+                {ifSearchChange.map(ifSearchChange => (
+                    <li key={ifSearchChange.id} onClick={() => navigate(`/detail/${ifSearchChange.id}`)}>
+                        {ifSearchChange.name}
+                    </li>
+                ))}
+            </ul>
+        )}
+    </InputContainer>
 
         <Profile>
         {USER_ROLE.ADMIN.includes(user?.role) ?(

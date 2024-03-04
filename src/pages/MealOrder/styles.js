@@ -4,21 +4,26 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 export const Container = styled.div`
   width:100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column; 
+
  
- 
-  
+
   .completedPayment { 
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     grid-template-areas: "accountOrder columnByPayment";
+    gap: 20px;
+    align-items: start; 
     
    
     margin: -5rem auto 10rem 0;
     padding: 4.4rem;
     gap: 20px;
     place-items: center;
+
+   
+  .accountOrder, .columnByPayment {
+    position: relative; 
+    }
     
     
     @media (max-width: ${DEVICE_BREAKPOINTS.MD}px) {
@@ -29,9 +34,14 @@ export const Container = styled.div`
     }
   }
 
+  
+
+
   .accountOrder { 
-    margin-top: -4rem;
-    grid-area: accountOrder; 
+    margin-bottom: -110px;
+    grid-area: accountOrder;
+   
+    
     img {
         width: 4.5rem;
         height: 4.5rem;
@@ -45,6 +55,9 @@ export const Container = styled.div`
     ul {
     list-style-type: none; 
     padding: 0; 
+    height: 450px;
+    overflow: auto; 
+    max-height: 70vh;
 
     li {
       margin-bottom: 16px; 
@@ -54,6 +67,7 @@ export const Container = styled.div`
       }
     }
   }
+  
   }
   .columnByPayment { 
   

@@ -16,7 +16,6 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 import PaymentAccept from '../../assets/paymentAccept.svg';
 
 
-
 export function MealOrder() {
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   const [loading, setLoading] = useState(true);

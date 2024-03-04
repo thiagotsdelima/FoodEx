@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   .cart-item {
     display: flex;
-	  justify-content: space-evenly; // Alinha os itens verticalmente no centro
-    gap: 13px; 
+    justify-content: flex-start; 
+    align-items: center; 
+    gap: 13px;
     
     .wrapper {
       display: flex;
@@ -26,8 +27,11 @@ export const Container = styled.div`
       p {
         font-family: ${({ theme }) => theme.FONTS.RobotoSmallestRegular};
         color: ${({ theme }) => theme.COLORS.GRAY_400};
-        margin-top: 21px;
+       margin-top: -1.3rem;
       }
+      img {
+      margin-left: 0;
+    }
 
   }
 `;

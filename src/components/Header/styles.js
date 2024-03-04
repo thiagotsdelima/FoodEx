@@ -152,13 +152,49 @@ export const MobileStar = styled.div`
   `;
 
 export const InputContainer = styled.div`
- 
- width: 36.3rem;
+  position: relative;
+  width: 36.3rem;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   border-radius: 0.3125rem;
   color: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
+  margin-top: ${({ $isAdmin }) => $isAdmin ? '5px' : '0'};
+  z-index: 105;
+  
+
+  ul {
+  list-style-type: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 106;
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+  max-height: 0;
+  border-radius: 0 0 0.5rem 0.5rem;
+  pointer-events: none;
  
-  margin-top: ${({ $isAdmin }) => $isAdmin ? '5px' : '0'}; 
+}
+
+ul.visible {
+  max-height: 500px; 
+  opacity: 1;
+  pointer-events: auto;
+}
+
+  
+  li {
+    cursor: pointer;
+    text-decoration: none; 
+    
+    padding: 10px 20px;
+    &:hover {
+
+      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+    }
+  }
+
   input {
     width: 100%;
     padding: 0 6.5rem; 
@@ -167,6 +203,7 @@ export const InputContainer = styled.div`
     border: none;
     background-color: transparent;
     color: inherit;
+
     
     &::placeholder {
       font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
@@ -178,8 +215,8 @@ export const InputContainer = styled.div`
     position: absolute;
     font-size: 1.2rem;
     margin-top: 1.6rem;
-    left: ${({ $isAdmin }) => $isAdmin ? 'calc(50% - 14.5rem)' : '32%'};
-    transform: translate(-50%, -50%);
+    left: ${({ $isAdmin }) => $isAdmin ? 'calc(50% - 14.5rem)' : '10%'};
+    transform: translate(99%, -50%);
     color: ${({ theme }) => theme.COLORS.GRAY_400};
    
     @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
@@ -199,9 +236,10 @@ export const InputContainer = styled.div`
 `;
 
 export const AdminTag = styled.div`
- font-family: ${({ theme }) => theme.FONTS.RobotoSmallestRegular};
- color: ${({ theme }) => theme.COLORS.CAKE_200};
+
  p {
+  font-family: ${({ theme }) => theme.FONTS.RobotoSmallestRegular};
+ color: ${({ theme }) => theme.COLORS.CAKE_200};
   margin-top: 2.5rem;
   margin-left: -48px;
  }

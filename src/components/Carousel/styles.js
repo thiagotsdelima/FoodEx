@@ -7,7 +7,7 @@ export const Container = styled.div`
 
  .carouselContainer {
   max-width: 70rem;
-  max-height: 31rem;
+  max-height: 28.7rem;
   position: relative;
   overflow: hidden; 
   

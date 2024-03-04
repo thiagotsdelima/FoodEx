@@ -38,12 +38,12 @@ export function EditMeal() {
         setPrice(price);
         setDescription(description);
         if (typeof seasonings === 'string') {
-          setSeasonings(seasonings.split(','));
-      } else if (Array.isArray(seasonings)) {
-          setSeasonings(seasonings);
-      } else {
+          setSeasonings(seasonings.split(',').map(name => ({ name })));
+        } else if (Array.isArray(seasonings)) {
+          setSeasonings(seasonings.map(seasoning => ({ name: seasoning.name })));
+        } else {
           console.error('Unexpected type for seasonings:', typeof seasonings);
-      }
+        }
         setPhotoFood(photo);
       } catch (error) {
         console.error("Erro ao carregar o prato:", error);
@@ -54,6 +54,8 @@ export function EditMeal() {
 
     fetchMeal();
   }, [id]);
+
+
 
   const handleUpdateDish = async (event) => {
     event.preventDefault();
@@ -71,7 +73,8 @@ export function EditMeal() {
     formData.append("category_name", category);
     formData.append("price", numericPrice);
     formData.append("description", description);
-    formData.append("seasonings", seasonings.join(','));
+    const seasoningsString = seasonings.map(seasoning => seasoning.name).join(',');
+    formData.append("seasoning", seasoningsString);
     if (photoFood) formData.append("photo_food", photoFood);
     
   
@@ -144,7 +147,7 @@ return (
     <Form id="newDish" action="#" method="post" className="dishes">
     <div className="formRow">
           <div className="formImageUpload">
-            <label id="imageInput">Imagem do Prato</label> 
+          <label htmlFor="textLabel" id="imageInput">Imagem do Prato</label> 
             <div className="upload"> 
               <FiLogOut className="formIcon"/>
               <label htmlFor="image" className="uploadLabel">Selecione imagem</label>

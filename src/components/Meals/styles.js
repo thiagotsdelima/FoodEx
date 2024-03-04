@@ -3,7 +3,9 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
   
-
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 
  text-align: end;
  margin-right: 1.7rem; 
@@ -48,7 +50,7 @@ export const Container = styled.div`
         display: flex;
 	      justify-content: center;
         align-items: center;
-        margin-bottom: .9rem;
+        margin-bottom: .5rem;
         .arrowSymbol {
           margin-left: .5rem;
           color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -60,7 +62,7 @@ export const Container = styled.div`
       text-align: center;
       color: ${({ theme }) => theme.COLORS.GRAY_400};
       font-family: ${({ theme }) => theme.FONTS.RobotoSmallerRegular};
-      margin-bottom: .9rem;
+      margin-bottom: .5rem;
       }
       p.price {
       color: ${({ theme }) => theme.COLORS.CAKE_200};
@@ -78,8 +80,8 @@ export const Container = styled.div`
     width: 100%; 
     height: auto; 
     margin: auto; 
-   
-    margin-bottom: .9rem;
+    margin-top: -1rem;
+    margin-bottom: .5rem;
    
 }
 

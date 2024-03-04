@@ -22,6 +22,7 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
   const navigate = useNavigate();
   const isAdmin = USER_ROLE.ADMIN.includes(user?.role);
 
+
   const handleIncludeNewItem = () => {
     setCart(currentCart => {
       

@@ -8,12 +8,16 @@
   import { debounce } from 'lodash';
   import { useAuth } from '../../hooks/auth';
   import { useCart } from '../../hooks/cart';
-  
+  import { Rings } from 'react-loader-spinner';
+  import isEqual from 'lodash/isEqual';
 
   export function Header({ onSearchChange, valueSearch }) {
+    const [isListVisible, setIsListVisible] = useState(false);
+    const [lastSearchValue, setLastSearchValue] = useState(''); 
+    const [ifSearchChange, setIfSearchChange] = useState([]);
+    const [loading, setLoading] = useState(false);
     const { user, signOut } = useAuth();
     const navigate = useNavigate();
-    const [ifSearchChange, setIfSearchChange] = useState([]);
     const [toggleMenu, setToggleMenu] = useState(false);
     const { cart } = useCart();
   
@@ -28,6 +32,10 @@
     const handleAddNewDish = () => {
       navigate('/addMeal');
     };
+
+    const handleDetails = (id) => {
+      navigate(`/details/${id}`);
+    };
   
     const handleOrderHistory = () => {
       if (cart.length === 0) {
@@ -37,29 +45,36 @@
       navigate(`/mealOrder/${user.id}`);
     };
 
-    const handleSearchChange = (value) => {
-      onSearchChange(value); 
-  };
-
+ 
   useEffect(() => {
     const debouncedFetch = debounce(() => {
-      if (valueSearch) { 
-        api.get('/meals', { params: { search: valueSearch } }) 
+      setLoading(true);
+      if (valueSearch && !isEqual(valueSearch, lastSearchValue)) {
+        api.get('/meals', { params: { search: valueSearch } })
           .then(response => {
-            console.log("API Response:", response.data);
-            setIfSearchChange(response.data); 
+            
+            setIfSearchChange(response.data);
+            setLastSearchValue(valueSearch); 
+            setIsListVisible(response.data.length > 0);
           })
           .catch(error => {
             console.error("Erro ao buscar pratos", error);
+            setIsListVisible(false);
+          })
+          .finally(() => {
+            setLoading(false); 
           });
-      } else {
-        setIfSearchChange([]); 
+      } else if (!valueSearch) {
+        setIfSearchChange([]);
+        setIsListVisible(false);
+        setLoading(false); 
       }
     }, 500);
-  
+
     debouncedFetch();
     return () => debouncedFetch.cancel();
-  }, [valueSearch]); 
+  }, [valueSearch]);
+  
   
 
     return (
@@ -108,15 +123,21 @@
             value={valueSearch}
             onChange={(e) => onSearchChange(e.target.value)}
         />
-        {ifSearchChange.length > 0 && (
-            <ul>
-                {ifSearchChange.map(ifSearchChange => (
-                    <li key={ifSearchChange.id} onClick={() => navigate(`/detail/${ifSearchChange.id}`)}>
-                        {ifSearchChange.name}
-                    </li>
-                ))}
-            </ul>
-        )}
+            {loading && (
+        <div className="loader">
+          <Rings color="#065E7C" width="110" height="110" />
+        </div>
+      )}
+      {/* Renderização condicional da lista, apenas se não estiver carregando */}
+      {!loading && ifSearchChange.length > 0 && (
+        <ul className={`${isListVisible ? 'visible' : ''}`}>
+          {ifSearchChange.map(searchItem => (
+            <li key={searchItem.id} onClick={() => handleDetails(searchItem.id)}>
+              {searchItem.name}
+            </li>
+          ))}
+        </ul>
+      )}
     </InputContainer>
 
         <Profile>

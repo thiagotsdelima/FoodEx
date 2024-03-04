@@ -30,6 +30,7 @@ export function AddMeal() {
 
   const handleCreateDish = async (event) => {
     event.preventDefault();
+    const seasoningsString = seasonings.map(seasoning => seasoning.name).join(',');
     const formData = new FormData();
     formData.append("category_name", category);
     const errorMessage = validateForm();
@@ -43,7 +44,7 @@ export function AddMeal() {
     formData.append("name", name);
     formData.append("price", numericPrice);
     formData.append("description", description);
-    formData.append("seasoning", seasonings.join(','));
+    formData.append("seasoning", seasoningsString); 
     if (photoFood) formData.append("photo_food", photoFood);
   
     try {
@@ -75,8 +76,9 @@ export function AddMeal() {
   }
 
   function handleRemoveSeasoning(toRemove) {
-    setSeasonings(prev => prev.filter(seasoning => seasoning !== toRemove));
-  }
+    setSeasonings(prev => prev.filter(seasoning => seasoning.name !== toRemove.name));
+  }  
+  
 
 return (
 <Container>
@@ -89,7 +91,7 @@ return (
     <Form id="newDish" action="#" method="post" className="dishes">
     <div className="formRow">
           <div className="formImageUpload">
-            <label id="imageInput">Imagem do Prato</label> 
+            <label htmlFor="textLabel" id="imageInput">Imagem do Prato</label> 
             <div className="upload"> 
               <FiLogOut className="formIcon"/>
               <label htmlFor="image" className="uploadLabel">Selecione imagem</label>

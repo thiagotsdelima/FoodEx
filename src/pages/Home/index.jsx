@@ -42,6 +42,7 @@ export function Home() {
             <Header
         onSearchChange={setSearch}
         valueSearch={search}
+        loading={loading}
       />
             <main>
                 <div className="Header">

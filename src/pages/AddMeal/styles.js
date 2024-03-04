@@ -148,18 +148,28 @@ export const Form = styled.form`
         
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};    
       color: ${({ theme }) => theme.COLORS.GRAY_500};    
- 
+      appearance: none;
+      cursor: pointer;
     
     }  
+  
 
       &:not(:last-child) {
-      
+       
         
       }
     }
     .formImageUpload {
       width: 13.8rem;
-    
+
+      #imageInput {
+      
+   
+     
+      display: block;
+      
+    }
+
     & > *:first-child {
       margin-bottom: 1rem;
       height: 3rem;

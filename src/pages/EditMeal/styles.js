@@ -179,6 +179,13 @@ export const Form = styled.form`
     }
     .formImageUpload {
       width: 13.8rem;
+      #imageInput {
+      
+   
+     
+      display: block;
+      
+    }
     
     & > *:first-child {
       margin-bottom: 1rem;

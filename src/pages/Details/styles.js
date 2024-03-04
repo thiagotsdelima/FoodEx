@@ -12,35 +12,89 @@ grid-template-areas:
 "content"
 "footer"
 ;
+.request .seasoningWrapper {
+  margin-left: -23px;
+}
 
-.mealsCustomStyle .main .menuAdmin {
- 
-  width: auto; 
-  padding: 20px; 
+.main, #meal {
+gap: 2.95rem;
 
-  
-  strong {
-    margin-top: -40px;
-    
-    font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
-    color: ${({ theme }) => theme.COLORS.GRAY_300};
-    white-space: nowrap;
-  }
-
-
-  p {
-    text-align: left;
-    color: ${({ theme }) => theme.COLORS.GRAY_300};
-    font-family: ${({ theme }) => theme.FONTS.Poppins300Regular};
-  }
+}
+.mealsCustomStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha todos os itens filhos à esquerda */
+  width: 100%; /* Assume a largura total do viewport ou do container pai */
+  padding: 20px; /* Ajuste conforme necessário */
 
 }
 
-.mealsCustomStyle .main .menuAdmin .StyleClick {
-    display: grid;
-    margin-left: -555px;
+.mealsCustomStyle .main {
+  margin-top: 42px;
+  margin-bottom: 155px;
+  display: flex;
+  align-items: center;
+
+  border: none; 
+  background: transparent; 
+  .likeIcon {
+    display: none;
+  }
+  
+
+}
+
+.mealsCustomStyle .mealPhotoContainer img {
+  width: 24.4rem;
+  height: 24.3rem;
+  margin-left: 7rem;
+}
+
+.mealsCustomStyle .request .menuAdmin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  width: 687px;
+  gap: 1.5rem; 
+  margin-top: -80px;
+
+   p:first-of-type {
+    text-align: left;
+
+  color: ${({ theme }) => theme.COLORS.GRAY_300};
+  font-family: ${({ theme }) => theme.FONTS.Poppins300Regular};
+  
+}
+
+
+ p:nth-of-type(2) {
+ display: none;
+}
+
+.request strong,
+.request p,
+strong {  
+  margin: 0;
+  font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
+  color: ${({ theme }) => theme.COLORS.GRAY_300};
+  white-space: nowrap;
+  
+  margin-bottom: 1.5rem;
+  .arrowSymbol {
+    display: none;
+  }
+  
+}
+
+
+.StyleClick {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
     color: ${({ theme }) => theme.COLORS.GRAY_100};
     font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
+    margin-left: -283px;
     .adminActionButton {
       height: 3rem;
       width: 8rem;
@@ -52,99 +106,82 @@ grid-template-areas:
    
   }
 
-.mealsCustomStyle .main .menuAdmin .seasoningWrapper {
-  margin-left: -28px; 
-  margin-top: .5rem;
-  margin-bottom: 2rem;
-}
 
-.mealsCustomStyle .main .menuAdmin .wrapperAmountInclude {
-  gap: 2.1rem;
-  margin-top: 1.5rem;
- 
-}
-
-.mealsCustomStyle .mealPhotoContainer img {
-  width: 24.4rem;
-  height: 24.3rem;
-  margin-left: 110px; 
-}
-
-
-.mealsCustomStyle .mealContainer {
-
-  width: 100%;
-  margin-top: 1.3rem;
-  margin-bottom: 4.7rem;
- 
-  .likeIcon {
-    display: none;
-  }
- 
-}
-.mealsCustomStyle .main {
-  margin-top: 42px;
-  margin-bottom: 155px;
-  display: flex;
-  align-items: center;
-
-  border: none; 
-  background: transparent; 
- 
-}
-
-.mealsCustomStyle .request strong {
-  margin: 2rem 20.0rem auto 0;
-  font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
-  color: ${({ theme }) => theme.COLORS.GRAY_300};
-  white-space: nowrap;
-  
-  margin-bottom: 1.5rem;
-  
-  .arrowSymbol {
-    display: none;
-  }
-}
-
-.mealsCustomStyle .request p:first-of-type {
-  margin-top: 1.5rem;
-  text-align: left;
-  color: ${({ theme }) => theme.COLORS.GRAY_300};
-  font-family: ${({ theme }) => theme.FONTS.Poppins300Regular};
-  
-}
-
-
-.mealsCustomStyle .request p:nth-of-type(2) {
- display: none;
-}
-.mealsCustomStyle .request .seasoningWrapper {
-  margin-left: -22px;
-  margin-top: 1.5rem;
-}
-.mealsCustomStyle .request .wrapperAmountInclude {
-  margin-left: -51px;
-  gap: 2.1rem;
-  margin-top: 2.8rem;
-  .buttonInclude {
-   
-   margin-left: 0;
-   width: 10.4rem;
-    
-  
-  }
-}
-
-.mealsCustomStyle .mealPhotoContainer img {
-  width: 24.4rem;
-  height: 24.3rem;
-  margin-left: 110px;
 }
 
 
 @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
 
 }
+
+.mealsCustomStyle .content .request {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  width: 687px;
+  gap: 1.5rem; 
+ 
+
+  p:first-of-type {
+    text-align: left;
+
+  color: ${({ theme }) => theme.COLORS.GRAY_300};
+  font-family: ${({ theme }) => theme.FONTS.Poppins300Regular};
+  
+}
+
+
+ p:nth-of-type(2) {
+ display: none;
+}
+
+.request strong,
+.request p,
+strong {  
+  margin: 0;
+  font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
+  color: ${({ theme }) => theme.COLORS.GRAY_300};
+  white-space: nowrap;
+  
+  margin-bottom: 1.5rem;
+  .arrowSymbol {
+    display: none;
+  }
+  
+}
+
+
+.StyleClick {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
+    margin-left: -283px;
+    .adminActionButton {
+      height: 3rem;
+      width: 8rem;
+    }
+
+      .adminActionButton:active {
+        background-color:  ${({ theme }) => theme.COLORS.TOMATO_400};
+      }
+   
+  }
+  .wrapperAmountInclude {
+  margin-left: -51px;
+  gap: 2.1rem;
+  
+  .buttonInclude {
+   
+   margin-left: 0;
+   width: 10.4rem;
+    
+  
+  }}
+}
+
 `;
 
 export const ButtonBackWrapper = styled.div`

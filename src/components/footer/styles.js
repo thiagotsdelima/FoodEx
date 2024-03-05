@@ -42,24 +42,24 @@ export const Container = styled.footer`
   
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
   display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
   align-items: center;
   padding: 1.2rem 1rem;
-  
+  text-align: center;
   #logo {
     gap: 5px;
 
     img {
       margin-bottom: .4rem;
       margin-left: .7rem;
-      height: 1.5rem;
+      height: 1.2rem;
       
     }
 
     p {
       margin-bottom: 0.25rem;
       font-weight: 700;
-      font-size: 1rem; 
+      font-size: .8rem; 
       width: 7.125rem;
       color: ${({ theme }) => theme.COLORS.GRAY_700};
       font-family: ${({ theme }) => theme.FONTS.secondary};
@@ -69,9 +69,11 @@ export const Container = styled.footer`
   footer.container {
     
     p {
-      margin-left: 2.7rem;
+      white-space: nowrap;
+      margin-left: -15rem;
+      margin-top: -.2rem;
       font-weight: 400;
-      font-size: 1rem; 
+      font-size: .6rem; 
       color: ${({ theme }) => theme.COLORS.GRAY_200};
       font-family: ${({ theme }) => theme.FONTS.tertiary};
     }

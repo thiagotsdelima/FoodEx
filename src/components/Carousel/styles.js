@@ -101,8 +101,14 @@ right: 0.6rem;
   .carouselContainer {
     width: 27rem;
     height: 18rem;
+ 
   }
-
-  
+  .arrowContainer {
+    display: none; 
+  }
+  .carouselContainer::before,
+  .carouselContainer::after {
+    background: none;
+  }
 }
 `;

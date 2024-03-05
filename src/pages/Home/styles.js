@@ -37,6 +37,7 @@ main {
   .MaskGroup2Image {
     display: block;
   }
+
   }
  
 }
@@ -123,7 +124,9 @@ p {
 }
 
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+  
   .contentWrapper Section {
+    margin-top: .5rem;
     h2 {
       font-size: 1.125rem;
     }

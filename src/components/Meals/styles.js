@@ -20,6 +20,7 @@ export const Container = styled.div`
 	justify-content: flex-end;
   color: ${({ theme }) => theme.COLORS.GRAY_300};
   }
+  
   .editIcon {
     margin-top: 1rem
     
@@ -57,9 +58,11 @@ export const Container = styled.div`
           font-family: ${({ theme }) => theme.FONTS.Poppins300Bold};
         }
         @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-          font-size: 1rem;
+          font-size: 0.8rem;
+          margin-top: 1rem;
           }
       }
+
       p {
        
       text-align: center;
@@ -68,6 +71,7 @@ export const Container = styled.div`
       margin-bottom: .5rem;
       @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
           display: none;
+         
           }
       }
       p.price {
@@ -77,6 +81,8 @@ export const Container = styled.div`
       @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
           font-size: 1rem;
           display: block;
+          margin-bottom: -.6rem;
+          
           }
     }
 
@@ -86,6 +92,16 @@ export const Container = styled.div`
     @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
           height: 18rem;
           width: 13rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          
+        .likeIcon, .editIcon {
+         margin-right: 6rem;
+        
+        }
+
+
           }
   }
   
@@ -113,6 +129,9 @@ export const Container = styled.div`
     @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
       width: 5.5rem;
       height: 5.5rem;
+      display: flex;
+	    align-items: stretch;
+      margin-bottom: -1.2rem;
     }
 }
 
@@ -122,17 +141,19 @@ export const Container = styled.div`
     align-items: center;
     
     padding: .3rem 2rem;
-    
+  
     
     .amount {
       color: ${({ theme }) => theme.COLORS.GRAY_300};
       font-family: ${({ theme }) => theme.FONTS.RobotoBigBold};
       margin-left: 1rem;
       
-     
-    .AmountControls {
-     
-    }
+      @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+        font-size: 1rem;
+        margin-bottom: -1.2rem;
+        margin-right: .5rem;
+      }
+  
       button {
         background-color: transparent;
         border: none;
@@ -146,10 +167,16 @@ export const Container = styled.div`
     }
     .buttonInclude {
         height: 2.8rem;
-        width: 5.5rem;
+        width: auto;
         padding: .8rem auto;
         transition: background-color 0.3s;
         background-color:  ${({ theme }) => theme.COLORS.TOMATO_200};
+        @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+          width: 10rem;
+          height: 2.150rem;
+          overflow: hidden;
+          
+          }
       }
       .buttonInclude:hover {
         background-color:  ${({ theme }) => theme.COLORS.TOMATO_100};
@@ -160,7 +187,8 @@ export const Container = styled.div`
       }
       @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
         display: flex;
-  flex-direction: column; 
+        flex-direction: column; 
+        
      }
      
   }

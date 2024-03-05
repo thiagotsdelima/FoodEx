@@ -56,6 +56,9 @@ export const Container = styled.div`
           color: ${({ theme }) => theme.COLORS.GRAY_300};
           font-family: ${({ theme }) => theme.FONTS.Poppins300Bold};
         }
+        @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+          font-size: 1rem;
+          }
       }
       p {
        
@@ -63,14 +66,27 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.GRAY_400};
       font-family: ${({ theme }) => theme.FONTS.RobotoSmallerRegular};
       margin-bottom: .5rem;
+      @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+          display: none;
+          }
       }
       p.price {
       color: ${({ theme }) => theme.COLORS.CAKE_200};
       font-family: ${({ theme }) => theme.FONTS.RobotoBiggestRegular};
-     
+      
+      @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+          font-size: 1rem;
+          display: block;
+          }
     }
+
    
     }
+    
+    @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+          height: 18rem;
+          width: 13rem;
+          }
   }
   
   .mealPhotoContainer {
@@ -94,6 +110,10 @@ export const Container = styled.div`
     &:hover {
       transform: scale(1.03); 
     }
+    @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+      width: 5.5rem;
+      height: 5.5rem;
+    }
 }
 
   .wrapperAmountInclude {
@@ -103,10 +123,12 @@ export const Container = styled.div`
     
     padding: .3rem 2rem;
     
+    
     .amount {
       color: ${({ theme }) => theme.COLORS.GRAY_300};
       font-family: ${({ theme }) => theme.FONTS.RobotoBigBold};
       margin-left: 1rem;
+      
      
     .AmountControls {
      
@@ -136,20 +158,11 @@ export const Container = styled.div`
       .buttonInclude:active {
         background-color:  ${({ theme }) => theme.COLORS.TOMATO_400};
       }
-
+      @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+        display: flex;
+  flex-direction: column; 
+     }
      
   }
- 
- 
-
-  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    .meal {
-      width: 100%;
-      flex-direction: column;
-    }
-    .main {
-      width: clamp(21rem, 28vw, 30.4rem);
-      height: clamp(30.2rem, 46vw, 46.2rem);
-    }
-  }
+     
 `;

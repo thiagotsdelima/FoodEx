@@ -18,7 +18,13 @@ export const Container = styled.header`
   img {
     margin-right: 0.5rem;
   }
-  
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+  	display: flex;
+	  justify-content: space-between;
+    gap: 2rem;
+    width: 428px;
+    padding: 56px 20px 24px;
+  }
 
 
 `;
@@ -45,25 +51,20 @@ export const Found = styled.div`
   
   
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    margin: 0 auto;
-    padding: 0 1rem; 
+  
+
+    
     
     img {
-    height: 2.8rem;
-    width: 2.4rem;
-    position: fixed;
-    top: 6rem;
-    right: 0;
-    bottom: 0;
-    left: 8.7rem;
-    z-index: 1;
+    height: 1.8rem;
+    width: 1.4rem;
+    margin-left: .8rem;
     }
 
     h1 {
-      margin-top: 4rem;
-      margin-left: 5.9rem;
+     
       white-space: nowrap;
-      font-family: ${({ theme }) => theme.FONTS.RobotoBiggerBold};
+      font-size: 1.3rem;
       color: ${({ theme }) => theme.COLORS.GRAY_100};
       font-weight: 700;
     }
@@ -111,7 +112,10 @@ export const Profile = styled.div`
   `;
 
 export const MobileIcon = styled.div`
-  font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
    display: none; 
    
@@ -121,14 +125,8 @@ export const MobileIcon = styled.div`
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    height: 1.8rem;
-    width: 2.4rem;
-    position: fixed;
-    top: 6rem;
-    right: 0;
-    bottom: 0;
-    left: 1.6rem;
-    z-index: 1;
+    
+   
     a:hover, a:focus {
       
     }
@@ -136,11 +134,8 @@ export const MobileIcon = styled.div`
 `;
 
 export const MobileStar = styled.div`
-  display: flex;
-  justify-content: end;
-  margin-left: 2.4375rem;
-  font-size: 1.3rem;
-  margin-top: 2.5rem;
+  margin-left: 1rem;
+  font-size: .5rem;
   
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
    display: none; 
@@ -265,4 +260,8 @@ export const StyledButton = styled.div`
   &:active {
     background-color:  ${({ theme }) => theme.COLORS.TOMATO_400};
   }
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    display: none; 
+  }
+
 `;

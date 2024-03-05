@@ -5,6 +5,7 @@ import { Carousel } from '../../components/Carousel';
 import { Footer } from '../../components/Footer';
 import { Section } from '../../components/Section';
 import maskGroupImage from '../../assets/Maskgroup.png';
+import MaskGroup2Image from '../../assets/Maskgroup2.png';
 import { Rings } from 'react-loader-spinner';
 import { api } from '../../services/api'; 
 
@@ -47,7 +48,8 @@ export function Home() {
             <main>
                 <div className="Header">
                     <div className="image">
-                    <img src={maskGroupImage} alt="flying fruits" />
+                    <img className="maskGroupImage" src={maskGroupImage} alt="flying fruits" />
+                    <img className="MaskGroup2Image" src={MaskGroup2Image} alt="flying fruits" />
                     </div>
                     <div className="wrapper">
                         <h2>Sabores Inigualáveis</h2>
@@ -59,20 +61,20 @@ export function Home() {
                         <Rings color="#065E7C" width="110" height="110" />
                     </div>
                 ) : (
-                    <div className='contentWrapper'>
-                       <Section>
-                <h2>Refeições</h2>
-                <Carousel data={filteredMeals} />
-                </Section>
-                <Section>
-                <h2>Sobremesas</h2>
-                <Carousel data={filteredDesserts} />
-                </Section>
-                <Section>
-                <h2>Bebidas</h2>
-                <Carousel data={filteredDrinks} />
-                </Section>
-                    </div>
+                <div className='contentWrapper'>
+                  <Section>
+                    <h2>Refeições</h2>
+                      <Carousel data={filteredMeals} />
+                        </Section>
+                          <Section>
+                            <h2>Sobremesas</h2>
+                          <Carousel data={filteredDesserts} />
+                        </Section>
+                      <Section>
+                    <h2>Bebidas</h2>
+                    <Carousel data={filteredDrinks} />
+                  </Section>
+                  </div>
                 )}
             </main>
             <Footer />

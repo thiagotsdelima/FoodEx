@@ -21,6 +21,23 @@ main {
   height: 100%;
   margin: 0 auto;
   padding: 0 2rem;
+
+  .MaskGroup2Image {
+    display: none;
+  }
+  
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
+    margin-top: -80px;
+    padding: 0 1rem;
+    max-width: 27rem;
+
+    .maskGroupImage {
+    display: none;
+  }
+  .MaskGroup2Image {
+    display: block;
+  }
+  }
  
 }
 
@@ -34,17 +51,52 @@ main {
   height: clamp(9.5rem, 23vw, 26rem);
   margin-top: clamp(4.4rem, 14vw, 1.4rem);
   padding: 0 1rem;
- border-radius: .5rem;
+  border-radius: .5rem;
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center; 
+    width: 21.9rem;
+    height: 7.5rem; 
+  
+
+  .image img {
+    width: 11.9rem;
+    height: 9.31rem;
+    margin-left: -40px;
+    margin-top: -30px;
+  }
+
+  .wrapper {
+   
+    margin-left: -30px;
+
+        h2, p {
+          
+            
+        }
+
+    h2 {
+      white-space: nowrap;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    p {
+      font-size: .6rem;
+      font-weight: 400;
+    }
+  }
 }
 
-.image {
- 
-  
-}
+    }
+
 
 .image img {
-margin-left: -80px;
-margin-top: -70px;
+margin-left: -5rem;
+margin-top: -4.3rem;
 }
 
 .wrapper {
@@ -64,24 +116,19 @@ p {
   font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
 }
 
-   
-
-
-
-
 
 
 .contentWrapper {
   
-     
-    section {
-
-      
-    }
 }
 
-@media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-
+@media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+  .contentWrapper Section {
+    h2 {
+      font-size: 1.125rem;
+    }
+    
+  }
 }
 `;
 

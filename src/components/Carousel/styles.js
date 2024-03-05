@@ -98,16 +98,11 @@ right: 0.6rem;
 
 
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-  .carouselItem {
-    width: 90%;
+  .carouselContainer {
+    width: 27rem;
+    height: 18rem;
   }
 
-  .carousel {
-    justify-content: center;
-  }
-
-  button {
-    display: none; 
-  }
+  
 }
 `;

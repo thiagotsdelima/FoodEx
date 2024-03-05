@@ -91,7 +91,7 @@ return (
     <Form id="newDish" action="#" method="post" className="dishes">
     <div className="formRow">
           <div className="formImageUpload">
-          <label htmlFor="image" className="uploadLabel">Selecione imagem</label> 
+          <label htmlFor="textLabel" id="imageInput">Imagem do Prato</label>  
             <div className="upload"> 
               <FiLogOut className="formIcon"/>
               <label htmlFor="image" className="uploadLabel">Selecione imagem</label>

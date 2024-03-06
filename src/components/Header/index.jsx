@@ -1,7 +1,7 @@
   import { Container, Profile, MobileIcon, MobileStar, Found, InputContainer, AdminTag, StyledButton } from './styles';
   import { Link, useNavigate } from 'react-router-dom';
   import { Button } from '../Button';
-  import { FaSearch, FaBars } from 'react-icons/fa';
+  import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
   import { api } from '../../services/api';
   import { USER_ROLE } from "../../utils/roles";
   import { useState, useEffect  } from 'react'
@@ -94,8 +94,36 @@
                   </li>
                 </>
               ) : null}
-              <li>
-                <button onClick={handleSignOut}>Sair</button>
+                       <li>
+                        <div className="menuLink" onClick={() => setToggleMenu(false)}>
+                          <Link> X Menu</Link>
+                        </div>
+
+                      <div className="menuHamburguer">
+                        
+                          <FaSearch className="inputIcon" />
+                            <input
+                                type="text"
+                              placeholder="Busque por pratos ou ingredientes"
+                        value={valueSearch}
+                    onChange={(e) => onSearchChange(e.target.value)}
+                />
+                  {loading && (
+                    <div className="loader">
+                      <Rings color="#065E7C" width="110" height="110" />
+                    </div>
+                  )}
+                  {!loading && ifSearchChange.length > 0 && (
+                    <ul className={`${isListVisible ? 'visible' : ''}`}>
+                      {ifSearchChange.map(searchItem => (
+                        <li key={searchItem.id} onClick={() => handleDetails(searchItem.id)}>
+                          {searchItem.name}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <button onClick={handleSignOut}>Sair</button> 
+                </div>
               </li>
             </ul>
           </nav>
@@ -128,7 +156,6 @@
           <Rings color="#065E7C" width="110" height="110" />
         </div>
       )}
-      {/* Renderização condicional da lista, apenas se não estiver carregando */}
       {!loading && ifSearchChange.length > 0 && (
         <ul className={`${isListVisible ? 'visible' : ''}`}>
           {ifSearchChange.map(searchItem => (

@@ -1,7 +1,7 @@
-  import { Container, Profile, MobileIcon, MobileStar, Found, InputContainer, AdminTag, StyledButton } from './styles';
+  import { Container, Profile, MobileIcon, MobileStar, Found, InputContainer, AdminTag, StyledButton, Nav } from './styles';
   import { Link, useNavigate } from 'react-router-dom';
   import { Button } from '../Button';
-  import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
+  import { FaSearch, FaBars } from 'react-icons/fa';
   import { api } from '../../services/api';
   import { USER_ROLE } from "../../utils/roles";
   import { useState, useEffect  } from 'react'
@@ -85,8 +85,7 @@
 
 
         {toggleMenu && (
-          <nav>
-            <ul>
+          <Nav>
               {USER_ROLE.ADMIN.includes(user?.role) ? (
                 <>
                   <li>
@@ -94,13 +93,10 @@
                   </li>
                 </>
               ) : null}
-                       <li>
-                        <div className="menuLink" onClick={() => setToggleMenu(false)}>
-                          <Link> X Menu</Link>
-                        </div>
-
-                      <div className="menuHamburguer">
-                        
+                        <header>
+                        <Link onClick={() => setToggleMenu(false)}> X Menu</Link>
+                        </header>
+                        <div className="menuHamburguer">
                           <FaSearch className="inputIcon" />
                             <input
                                 type="text"
@@ -122,11 +118,12 @@
                       ))}
                     </ul>
                   )}
-                  <button onClick={handleSignOut}>Sair</button> 
-                </div>
-              </li>
-            </ul>
-          </nav>
+                  
+                  </div>
+                  <button type="button" onClick={handleSignOut}>
+                    Sair
+                  </button>
+          </Nav>
         )}
 
         <Found>

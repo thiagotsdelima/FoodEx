@@ -116,19 +116,12 @@ export const MobileIcon = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
    display: none; 
    
     &:hover, &:focus {
        
-    }
-  }
-
-  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    
-   
-    a:hover, a:focus {
-      
     }
   }
 `;
@@ -139,10 +132,6 @@ export const MobileStar = styled.div`
   
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
    display: none; 
-
-    &:hover, &:focus {
-       
-    }
   }
   `;
 
@@ -264,4 +253,73 @@ export const StyledButton = styled.div`
     display: none; 
   }
 
+`;
+
+export const Nav = styled.nav`
+  position: absolute;
+  z-index: 1;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
+  width: 100%; /* Ajusta a largura para ocupar a largura total */
+  top: 0; /* Posiciona o nav no topo do container relativo */
+  left: 0; /* Alinha o nav à esquerda do container relativo */
+  display: flex;
+  flex-direction: column; /* Organiza os elementos internos em coluna */
+  padding: 1rem; /* Adiciona um pouco de padding para espaçamento interno */
+  align-items: center; /* Centraliza os elementos horizontalmente */
+
+  header {
+    margin-top: -15px; 
+    margin-left: -40px;
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 24px;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+  }
+
+  .menuHamburguer {
+    width: 100%; /* Faz a div menuHamburguer ocupar a largura total do nav */
+    display: flex;
+    flex-direction: column; /* Organiza os elementos do menuHamburguer em coluna */
+    align-items: center; /* Centraliza os elementos do menuHamburguer horizontalmente */
+    margin-top: 20px; /* Adiciona margem no topo para espaçamento */
+  }
+  ul, li {
+      list-style-type: none; /* Remove os marcadores (bolinhas, números, etc.) */
+      margin: 0; /* Remove as margens padrões */
+      padding: 0; /* Remove os paddings padrões */
+    }
+
+    .inputIcon {
+    position: absolute;
+    font-size: 1.2rem;
+    margin-top: 2.8rem;
+    left: ${({ $isAdmin }) => $isAdmin ? 'calc(50% - 14.5rem)' : '10%'};
+    transform: translate(-100%, -50%);
+    color: ${({ theme }) => theme.COLORS.GRAY_400};
+    }
+
+  input {
+    width: 80%; /* Define uma largura para o input */
+    padding: 0.5rem 2.5rem; /* Ajusta o padding para não sobrescrever o ícone */
+    height: 3.125rem;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    color: inherit;
+    margin-top: 20px;
+
+    &::placeholder {
+      font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
+      color: ${({ theme }) => theme.COLORS.GRAY_500};
+    }
+    
+  }
+
+  button {
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    background-color: transparent;
+    border: none;
+    margin-top: 20px; /* Adiciona uma margem no topo para separá-lo do input */
+  }
 `;

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Container, Content, Main, Form } from './styles';
-import { useAuth } from "../../hooks/auth";
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -16,7 +15,6 @@ import { FaChevronDown } from 'react-icons/fa';
 import { FiLogOut } from "react-icons/fi";
 
 export function AddMeal() {
-  const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [photoFood, setPhotoFood] = useState(null);
   const [name, setName] = useState("");
@@ -90,14 +88,14 @@ return (
     <Section title='Adicionar prato' />
     <Form id="newDish" action="#" method="post" className="dishes">
     <div className="formRow">
-          <div className="formImageUpload">
-          <label htmlFor="textLabel" id="imageInput">Imagem do Prato</label>  
-            <div className="upload"> 
-              <FiLogOut className="formIcon"/>
-              <label htmlFor="image" className="uploadLabel">Selecione imagem</label>
-              <Input type="file" id="image" name="image" accept="image/*" onChange={(event) => setPhotoFood(event.target.files[0])} />
-            </div>
-          </div>
+  <div className="formImageUpload">
+    <div className="imageInputLabel">Imagem do Prato</div>
+    <div className="upload"> 
+      <FiLogOut className="formIcon"/>
+      <label htmlFor="image" className="uploadLabel">Selecione imagem</label>
+      <Input type="file" id="image" name="image" accept="image/*" onChange={(event) => setPhotoFood(event.target.files[0])} />
+    </div>
+  </div>
 
     <div className="formInputs">
       <label htmlFor="name">Nome</label>
@@ -127,7 +125,7 @@ return (
         
   <div className="formRowTag">
   <div className="formInputs">
-    <label htmlFor="ingredients" id="seasoningLabel">Ingredientes</label>
+  <div className="ingredientsLabel">Ingredientes</div>
     <fieldset id="tagBackground">
       {seasonings.map((seasoning, index) => (
         <Tag

@@ -135,12 +135,15 @@
           )}
         </Found>
 
-        <MobileStar onClick={handleOrderHistory}>
-          <img src="/sheet.svg" alt="image of a torn sheet" />
-          {uniqueItemsCount > 0 && (
-              <div className="counter">{uniqueItemsCount}</div>
-          )}
-        </MobileStar>
+        {!USER_ROLE.ADMIN.includes(user?.role) ? (
+                <MobileStar onClick={handleOrderHistory}>
+                  <img src="/sheet.svg" alt="image of a torn sheet" />
+                  {uniqueItemsCount > 0 && (
+                      <div className="counter">{uniqueItemsCount}</div>
+                  )}
+                </MobileStar>
+              ) : null}
+
 
 
         <InputContainer $isAdmin={USER_ROLE.ADMIN.includes(user?.role)}>

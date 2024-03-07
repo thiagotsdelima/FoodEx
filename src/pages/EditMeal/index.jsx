@@ -147,7 +147,7 @@ return (
     <Form id="newDish" action="#" method="post" className="dishes">
     <div className="formRow">
           <div className="formImageUpload">
-          <label htmlFor="textLabel" id="imageInput">Imagem do Prato</label> 
+          <div className="imageInputLabel">Imagem do Prato</div> 
             <div className="upload"> 
               <FiLogOut className="formIcon"/>
               <label htmlFor="image" className="uploadLabel">Selecione imagem</label>
@@ -161,7 +161,7 @@ return (
     </div>
 
     <div className="formInputs">
-  <label htmlFor="category">Categoria</label>
+  <label htmlFor="DrinkEatCategory">Categoria</label>
   <div className="customSelect">
   <select
       id="DrinkEatCategory"
@@ -182,7 +182,7 @@ return (
         
 <div className="formRowTag">
   <div className="formInputs">
-    <label htmlFor="ingredients" id="seasoningLabel">Ingredientes</label>
+  <div className="ingredientsLabel">Ingredientes</div>
     <fieldset id="tagBackground">
       {seasonings.map((seasoning, index) => (
         <Tag

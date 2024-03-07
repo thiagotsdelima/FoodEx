@@ -24,6 +24,8 @@ export const Container = styled.header`
     gap: 2rem;
     width: 428px;
     padding: 56px 20px 24px;
+
+    
   }
 
 
@@ -132,11 +134,11 @@ export const MobileStar = styled.div`
   font-size: .5rem;
   cursor: pointer;
   position: relative;
-
+ 
   .counter {
     position: absolute;
-    top: -8px; // Ajuste conforme necessário
-    right: 1px; // Ajuste conforme necessário
+    top: -8px; 
+    right: 1px; 
     background-color: red;
     color: white;
     font-size: 12px;
@@ -280,13 +282,13 @@ export const Nav = styled.nav`
   position: absolute;
   z-index: 100;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
-  width: 100%; /* Ajusta a largura para ocupar a largura total */
-  top: 0; /* Posiciona o nav no topo do container relativo */
-  left: 0; /* Alinha o nav à esquerda do container relativo */
+  width: 100%; 
+  top: 0; 
+  left: 0; 
   display: flex;
-  flex-direction: column; /* Organiza os elementos internos em coluna */
-  padding: 1rem; /* Adiciona um pouco de padding para espaçamento interno */
-  align-items: center; /* Centraliza os elementos horizontalmente */
+  flex-direction: column; 
+  padding: 1rem; 
+  align-items: center;
   min-height: 200vh;
   background-repeat: no-repeat;
   background-position: center;
@@ -304,11 +306,11 @@ export const Nav = styled.nav`
     font-size: 1.1rem;
   
   }
-  header a { /* Assumindo que o Link renderiza um elemento <a> */
+  header a { 
   margin-top: 10px;
   margin-left: 10px;
   font-size: 1.1rem;
-  color: ${({ theme }) => theme.COLORS.GRAY_100}; /* Exemplo de acesso à cor do tema */
+  color: ${({ theme }) => theme.COLORS.GRAY_100}; 
 }
 
   .menuHamburguer {
@@ -316,11 +318,11 @@ export const Nav = styled.nav`
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
-  position: relative; /* Essencial para z-index funcionar corretamente */
+  position: relative; 
 
   input {
-    width: 85%; /* Define uma largura para o input */
-    padding: 0.5rem 2.8rem; /* Ajusta o padding para não sobrescrever o ícone */
+    width: 85%; 
+    padding: 0.5rem 2.8rem; 
     height: 3.125rem;
     border-radius: 0.3rem;
     border: none;
@@ -337,13 +339,13 @@ export const Nav = styled.nav`
   }
   ul {
   list-style-type: none;
-  position: absolute; /* Posiciona a lista em relação ao seu container pai */
-  top: 100%; /* Posiciona a lista logo abaixo do input */
+  position: absolute; 
+  top: 100%; 
   left: 0;
   width: 100%;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 106; /* Certifique-se de que este valor é suficientemente alto para sobrepor outros elementos */
+  z-index: 106;
   border-radius: 0 0 0.5rem 0.5rem;
   max-height: 0;
   overflow: hidden; /* Esconde o conteúdo que excede o max-height */

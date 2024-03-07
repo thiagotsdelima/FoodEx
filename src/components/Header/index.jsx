@@ -123,6 +123,7 @@
                   <button type="button" onClick={handleSignOut}>
                     Sair
                   </button>
+                  
           </Nav>
         )}
 

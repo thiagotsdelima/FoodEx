@@ -257,7 +257,7 @@ export const StyledButton = styled.div`
 
 export const Nav = styled.nav`
   position: absolute;
-  z-index: 1;
+  z-index: 100;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
   width: 100%; /* Ajusta a largura para ocupar a largura total */
   top: 0; /* Posiciona o nav no topo do container relativo */
@@ -266,7 +266,12 @@ export const Nav = styled.nav`
   flex-direction: column; /* Organiza os elementos internos em coluna */
   padding: 1rem; /* Adiciona um pouco de padding para espaçamento interno */
   align-items: center; /* Centraliza os elementos horizontalmente */
-
+  min-height: 200vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  
   header {
     margin-top: -15px; 
     margin-left: -40px;
@@ -275,33 +280,68 @@ export const Nav = styled.nav`
     justify-content: space-between;
     padding: 32px 24px;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    font-size: 1.1rem;
+  
   }
+  header a { /* Assumindo que o Link renderiza um elemento <a> */
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 1.1rem;
+  color: ${({ theme }) => theme.COLORS.GRAY_100}; /* Exemplo de acesso à cor do tema */
+}
 
   .menuHamburguer {
-    width: 100%; /* Faz a div menuHamburguer ocupar a largura total do nav */
-    display: flex;
-    flex-direction: column; /* Organiza os elementos do menuHamburguer em coluna */
-    align-items: center; /* Centraliza os elementos do menuHamburguer horizontalmente */
-    margin-top: 20px; /* Adiciona margem no topo para espaçamento */
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  position: relative; /* Essencial para z-index funcionar corretamente */
+
+}
+
+ul {
+  list-style-type: none;
+  position: absolute; /* Posiciona a lista em relação ao seu container pai */
+  top: 100%; /* Posiciona a lista logo abaixo do input */
+  left: 0;
+  width: 100%;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 106; /* Certifique-se de que este valor é suficientemente alto para sobrepor outros elementos */
+  border-radius: 0 0 0.5rem 0.5rem;
+  max-height: 0;
+  overflow: hidden; /* Esconde o conteúdo que excede o max-height */
+  transition: max-height 0.5s ease-in-out;
+}
+
+ul.visible {
+  max-height: 500px; /* Ajuste conforme necessário */
+  opacity: 1; /* Garante que a lista seja visível quando expandida */
+  pointer-events: auto; /* Permite interação com os itens da lista */
+}
+
+/* Estilização dos itens da lista */
+li {
+  cursor: pointer;
+  padding: 10px 20px;
+  &:hover {
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
   }
-  ul, li {
-      list-style-type: none; /* Remove os marcadores (bolinhas, números, etc.) */
-      margin: 0; /* Remove as margens padrões */
-      padding: 0; /* Remove os paddings padrões */
-    }
+}
+
 
     .inputIcon {
     position: absolute;
     font-size: 1.2rem;
     margin-top: 2.8rem;
     left: ${({ $isAdmin }) => $isAdmin ? 'calc(50% - 14.5rem)' : '10%'};
-    transform: translate(-100%, -50%);
+    transform: translate(-130%, -50%);
     color: ${({ theme }) => theme.COLORS.GRAY_400};
     }
 
   input {
-    width: 80%; /* Define uma largura para o input */
-    padding: 0.5rem 2.5rem; /* Ajusta o padding para não sobrescrever o ícone */
+    width: 85%; /* Define uma largura para o input */
+    padding: 0.5rem 2.8rem; /* Ajusta o padding para não sobrescrever o ícone */
     height: 3.125rem;
     border-radius: 0.3rem;
     border: none;
@@ -312,14 +352,24 @@ export const Nav = styled.nav`
     &::placeholder {
       font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
       color: ${({ theme }) => theme.COLORS.GRAY_500};
+      font-size: 0.9rem;
     }
-    
+ 
   }
 
   button {
-    color: ${({ theme }) => theme.COLORS.GRAY_100};
-    background-color: transparent;
-    border: none;
-    margin-top: 20px; /* Adiciona uma margem no topo para separá-lo do input */
-  }
+  color: ${({ theme }) => theme.COLORS.GRAY_100};
+  background-color: transparent;
+  border: none; /* Remove a borda geral */
+  border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000}; /* Adiciona borda apenas embaixo */
+  padding: 8px 16px; /* Espaçamento interno */
+  margin-top: 20px;
+  align-self: flex-start; /* Alinha à esquerda */
+  width: 335px; /* Define um tamanho específico */
+  text-align: left;
+  margin-left: .1rem;
+}
+
+
+
 `;

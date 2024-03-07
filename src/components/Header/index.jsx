@@ -135,11 +135,13 @@
           )}
         </Found>
 
-        <MobileStar>
-        
-          <img src="/Frame.png" alt="image of a torn sheet" />
-          
+        <MobileStar onClick={handleOrderHistory}>
+          <img src="/sheet.svg" alt="image of a torn sheet" />
+          {uniqueItemsCount > 0 && (
+              <div className="counter">{uniqueItemsCount}</div>
+          )}
         </MobileStar>
+
 
         <InputContainer $isAdmin={USER_ROLE.ADMIN.includes(user?.role)}>
         <FaSearch className="inputIcon" />

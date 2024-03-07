@@ -127,8 +127,29 @@ export const MobileIcon = styled.div`
 `;
 
 export const MobileStar = styled.div`
+  margin-top: .4rem;
   margin-left: 1rem;
   font-size: .5rem;
+  cursor: pointer;
+  position: relative;
+
+  .counter {
+    position: absolute;
+    top: -8px; // Ajuste conforme necessário
+    right: 1px; // Ajuste conforme necessário
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
+  }
   
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
    display: none; 
@@ -297,9 +318,24 @@ export const Nav = styled.nav`
   margin-top: 20px;
   position: relative; /* Essencial para z-index funcionar corretamente */
 
-}
+  input {
+    width: 85%; /* Define uma largura para o input */
+    padding: 0.5rem 2.8rem; /* Ajusta o padding para não sobrescrever o ícone */
+    height: 3.125rem;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    color: inherit;
+    margin-top: 20px;
 
-ul {
+    &::placeholder {
+      font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
+      color: ${({ theme }) => theme.COLORS.GRAY_500};
+      font-size: 0.9rem;
+    }
+ 
+  }
+  ul {
   list-style-type: none;
   position: absolute; /* Posiciona a lista em relação ao seu container pai */
   top: 100%; /* Posiciona a lista logo abaixo do input */
@@ -338,24 +374,11 @@ li {
     transform: translate(-130%, -50%);
     color: ${({ theme }) => theme.COLORS.GRAY_400};
     }
+}
 
-  input {
-    width: 85%; /* Define uma largura para o input */
-    padding: 0.5rem 2.8rem; /* Ajusta o padding para não sobrescrever o ícone */
-    height: 3.125rem;
-    border-radius: 0.3rem;
-    border: none;
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-    color: inherit;
-    margin-top: 20px;
 
-    &::placeholder {
-      font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
-      color: ${({ theme }) => theme.COLORS.GRAY_500};
-      font-size: 0.9rem;
-    }
- 
-  }
+
+
 
   button {
   color: ${({ theme }) => theme.COLORS.GRAY_100};

@@ -10,7 +10,12 @@ export const Container = styled.div`
   
   padding: 0.4rem 0.8rem;
   border-radius: 0.5rem;
-  
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    
+   
+   
+  }
 
 `;
 
@@ -26,5 +31,13 @@ export const SeasoningTag = styled.div`
   font-size: 1rem;
   white-space: nowrap;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_1000};
-  border-radius: 0.5rem; // Bordas arredondadas
+  border-radius: 0.5rem; 
+ 
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+   
+    font-size: .7rem;
+    padding: 0.2rem 0.6rem; 
+    width: 5rem;
+    height: 1.5rem; 
+  }
 `;

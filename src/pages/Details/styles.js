@@ -12,6 +12,7 @@ grid-template-areas:
 "content"
 "footer"
 ;
+
 .request .seasoningWrapper {
   margin-left: -23px;
 }
@@ -48,6 +49,7 @@ gap: 2.95rem;
   width: 24.4rem;
   height: 24.3rem;
   margin-left: 7rem;
+  
 }
 
 .mealsCustomStyle .request .menuAdmin {
@@ -110,9 +112,7 @@ strong {
 }
 
 
-@media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
 
-}
 
 .mealsCustomStyle .content .request {
   display: flex;
@@ -121,8 +121,7 @@ strong {
   width: 687px;
   gap: 1.5rem; 
  
-
-  p:first-of-type {
+  p {
     text-align: left;
 
   color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -136,8 +135,7 @@ strong {
 }
 
 .request strong,
-.request p,
-strong {  
+.request p {  
   margin: 0;
   font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
   color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -149,6 +147,7 @@ strong {
   }
   
 }
+
 
 
 .StyleClick {
@@ -170,9 +169,12 @@ strong {
    
   }
   .wrapperAmountInclude {
-  margin-left: -51px;
-  gap: 2.1rem;
-  
+    display: flex;
+    justify-content: space-between; /* Ajustado para manter o espaço entre os elementos */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    flex-wrap: wrap; /* Permite que os itens se ajustem conforme a largura do contêiner */
+    gap: 2rem;
+    margin-left: -3.5rem;
   .buttonInclude {
    
    margin-left: 0;
@@ -180,8 +182,57 @@ strong {
     
   
   }}
+  
 }
 
+@media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+  
+  .mealsCustomStyle .content .request {
+    margin: 0 5rem;
+    width: 100%;
+    width: calc(100% - 10rem);
+    text-align: center;
+    margin-left: 60px;
+    width: 100%;
+  }
+
+  .mealsCustomStyle .mealPhotoContainer img {
+    margin-top: -2rem;
+    width: 14rem;
+    height: 14rem;
+    margin-right: -.2rem;
+  }
+
+  .mealsCustomStyle .content .request strong {
+    margin: -1rem 0; /* Ajuste conforme necessário */
+    align-self: center; 
+    font-size: 1.4rem;
+    white-space: nowrap;
+   
+  }
+
+  .mealsCustomStyle .content .request p {
+    margin-top: 1.5rem;
+    margin-bottom: -1rem;
+    display: block;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .mealsCustomStyle .seasoningWrapper {
+    margin-left: 1rem;
+  }
+
+  .mealsCustomStyle .amount {
+    margin: 0 3rem;
+   
+  }
+
+  .mealsCustomStyle .buttonInclude {
+    margin-top: -75px;
+    margin-right: -20rem;
+    
+  }
+}
 `;
 
 export const ButtonBackWrapper = styled.div`

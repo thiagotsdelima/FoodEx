@@ -38,7 +38,9 @@ export const Container = styled.div`
       .menuAdmin {
         width: 300px;
         height: 250px;
-
+        @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
+        
+        }
       }
    
     .content, .menuAdmin {
@@ -95,15 +97,20 @@ export const Container = styled.div`
           display: flex;
           flex-direction: column;
           align-items: center;
+          position: relative;
           
         .likeIcon, .editIcon {
          margin-right: 6rem;
         
         }
+        .editIcon {
+          position: absolute;
+          right: -40%; 
+          color: ${({ theme }) => theme.COLORS.GRAY_300}; 
+        }
 
-
-          }
-  }
+      }
+        }
   
   .mealPhotoContainer {
     display: flex; 
@@ -113,8 +120,7 @@ export const Container = styled.div`
     height: auto; 
     margin: auto; 
     margin-top: -1rem;
-    margin-bottom: .5rem;
-   
+    margin-bottom: .5rem;   
 }
 
 .mealPhotoContainer img {
@@ -126,6 +132,7 @@ export const Container = styled.div`
     &:hover {
       transform: scale(1.03); 
     }
+
     @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
       width: 5.5rem;
       height: 5.5rem;

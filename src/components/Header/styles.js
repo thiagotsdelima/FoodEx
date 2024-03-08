@@ -228,6 +228,7 @@ ul.visible {
    
     @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: none;
+    
     }
   }
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
@@ -235,7 +236,7 @@ ul.visible {
     .inputIcon {
       display: none;
     }
-    Input {
+    Input, ul, .loader {
     display: none;
   }
   
@@ -249,6 +250,11 @@ export const AdminTag = styled.div`
  color: ${({ theme }) => theme.COLORS.CAKE_200};
   margin-top: 2.5rem;
   margin-left: -48px;
+ }
+ @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+  margin-left: 48px;
+  margin-top: -35px;
+  
  }
 `;
 
@@ -294,6 +300,12 @@ export const Nav = styled.nav`
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    input, ul, .loader {
+      display: none;
+    }
+  }
   
   header {
     margin-top: -15px; 
@@ -335,7 +347,6 @@ export const Nav = styled.nav`
       color: ${({ theme }) => theme.COLORS.GRAY_500};
       font-size: 0.9rem;
     }
- 
   }
   ul {
   list-style-type: none;
@@ -348,14 +359,14 @@ export const Nav = styled.nav`
   z-index: 106;
   border-radius: 0 0 0.5rem 0.5rem;
   max-height: 0;
-  overflow: hidden; /* Esconde o conteúdo que excede o max-height */
+  overflow: hidden; 
   transition: max-height 0.5s ease-in-out;
 }
 
 ul.visible {
-  max-height: 500px; /* Ajuste conforme necessário */
-  opacity: 1; /* Garante que a lista seja visível quando expandida */
-  pointer-events: auto; /* Permite interação com os itens da lista */
+  max-height: 500px; 
+  opacity: 1; 
+  pointer-events: auto; 
 }
 
 /* Estilização dos itens da lista */
@@ -378,19 +389,23 @@ li {
     }
 }
 
-
+.buttonNewDishe {
+  margin-top: 2.2rem;
+  border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000}; 
+  
+}
 
 
 
   button {
   color: ${({ theme }) => theme.COLORS.GRAY_100};
   background-color: transparent;
-  border: none; /* Remove a borda geral */
-  border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000}; /* Adiciona borda apenas embaixo */
-  padding: 8px 16px; /* Espaçamento interno */
+  border: none; 
+  border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000}; 
+  padding: 8px 16px; 
   margin-top: 20px;
-  align-self: flex-start; /* Alinha à esquerda */
-  width: 335px; /* Define um tamanho específico */
+  align-self: flex-start; 
+  width: 335px; 
   text-align: left;
   margin-left: .1rem;
 }

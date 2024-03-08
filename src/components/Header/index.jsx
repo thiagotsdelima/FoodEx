@@ -86,13 +86,6 @@
 
         {toggleMenu && (
           <Nav>
-              {USER_ROLE.ADMIN.includes(user?.role) ? (
-                <>
-                  <li>
-                    <button onClick={handleAddNewDish}>Novo Prato</button>
-                  </li>
-                </>
-              ) : null}
                         <header>
                         <Link onClick={() => setToggleMenu(false)}> X Menu</Link>
                         </header>
@@ -120,10 +113,12 @@
                   )}
                   
                   </div>
+                  {USER_ROLE.ADMIN.includes(user?.role) && (
+                    <button className='buttonNewDishe' onClick={handleAddNewDish}>Novo Prato</button>
+                  )}
                   <button type="button" onClick={handleSignOut}>
                     Sair
-                  </button>
-                  
+                  </button>     
           </Nav>
         )}
 

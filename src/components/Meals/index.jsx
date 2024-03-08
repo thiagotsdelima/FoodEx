@@ -69,11 +69,11 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
       )}
 
       {USER_ROLE.ADMIN.includes(user?.role) && !isInDetailsPage && (
-        <PiPencilSimple size={30} className="editIcon" onClick={handleDetails}/>
+        <PiPencilSimple size={30} className="editIcon" onClick={handleEditMeal}/>
       )}
 
-        <span className="mealPhotoContainer"  onClick={handleDetails}>
-          {data.photo_food && <MealPhoto meal={data} />}
+        <span className="mealPhotoContainer" onClick={handleDetails}>
+          {data.photo_food && <MealPhoto meal={data} isAdmin={isAdmin} />}
         </span>
         {USER_ROLE.ADMIN.includes(user?.role) ?(
           <div className="request">

@@ -67,11 +67,13 @@ export function Home() {
                       <Carousel data={filteredMeals} />
                         </Section>
                           <Section>
-                            <h2>Sobremesas</h2>
+                          <h2 className="mainDesserts">Sobremesas</h2>
+                          <h2 className="mainDishe">Pratos principais</h2>
                           <Carousel data={filteredDesserts} />
                         </Section>
                       <Section>
-                    <h2>Bebidas</h2>
+                      <h2 className="mainDrinks">Bebidas</h2>
+                      <h2 className="mainDishe">Pratos principais</h2>
                     <Carousel data={filteredDrinks} />
                   </Section>
                   </div>

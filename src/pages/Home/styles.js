@@ -13,7 +13,24 @@ grid-template-areas:
 "footer"
 ;
 
+.mainDishe, .mainDesserts, .mainDrinks {
+    display: none;
+  }
 
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    .mainDesserts, .mainDrinks {
+      display: block;
+    }
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    .mainDishe {
+      display: block;
+    }
+    .mainDesserts, .mainDrinks {
+      display: none;
+    }
+  }
 
 main {
     
@@ -120,11 +137,11 @@ p {
 
 
 .contentWrapper {
-  
+
 }
 
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-  
+ 
   .contentWrapper Section {
     margin-top: .5rem;
     h2 {

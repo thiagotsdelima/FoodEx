@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
     width: 100%;
@@ -8,6 +9,81 @@ export const Container = styled.div`
     justify-content: space-between;
     position: relative;
 
+   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+  .formRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 364px;
+    margin: 0 auto;
+  }
+
+  .formInputs {
+    width: 100%; 
+  }
+
+  .formInputs label {
+    display: block; 
+    width: 100%; 
+    margin-bottom: 8px; 
+  }
+
+  .inputPrice, 
+  .formInputs textarea {
+    width: 100%; 
+  }
+  .formRowTag, .formInputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.formInputs {
+  margin-bottom: 20px;
+}
+
+.formInputs label, .ingredientsLabel {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.customSelect, #tagBackground, .inputPrice, textarea {
+  width: 100%;
+  margin-top: 8px;
+}
+
+
+#tagBackground {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #ccc; 
+  border-radius: 4px;
+}
+
+
+.wrapperButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+}
+
+
+`;
+
+export const ButtonBackWrapper = styled.div`
+@media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+  margin-top: -24px; 
+  margin-left: 122px;
+}
 `;
 
 export const Content = styled.div`
@@ -20,7 +96,7 @@ export const Main = styled.main`
   padding: 0 2rem; 
   margin: 3.2rem auto 7rem;
   max-width: 70rem;
-  
+
   
   Section {
     margin-top: .5rem;

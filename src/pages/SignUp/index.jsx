@@ -33,51 +33,52 @@ export function SignUp() {
 }
 
 return (
-<Container>
-      <div className="logo">
-        <img src="/Polygon1.svg" alt="Logo" /> 
-        <h1>food explorer</h1>
-      </div>
-<Form>
-  <h1 className='myTitle'>Crie sua conta</h1>
+  <Container>
+        <div className="logo">
+          <img src="/Polygon1.svg" alt="Logo" /> 
+          <h1>food explorer</h1>
+        </div>
+  <Form>
+    <h1 className='myTitle'>Crie sua conta</h1>
+    
+    <label htmlFor="userName"><span>Seu nome</span>
+    <Input 
+    placeholder="Exemplo: Maria da Silva"
+    type="text"
+    id="userName"
+    onChange={e => setName(e.target.value)}
+    />
+    </label>
   
-  <label htmlFor="userName"><span>Seu nome</span>
-  <Input 
-  placeholder="Exemplo: Maria da Silva"
-  type="text"
-  id="userName"
-  onChange={e => setName(e.target.value)}
-  />
-  </label>
-
-  <label for="userEmail"><span>Email</span>
-  <Input 
-  placeholder="Exemplo: exemplo@exemplo.com.br"
-  type="email" 
-  id="userEmail"
-  name="email"
-  onChange={e => setEmail(e.target.value)}
-  />
-  </label>
-
-  <label htmlFor="userPassword"><span>Senha</span>
-  <Input 
-  placeholder="No mínimo 6 caracteres"
-  type="Password"
-  id="userPassword"
-  onChange={e => setPassword(e.target.value)}
-  />
-  </label>
-
-  <Button title="Criar conta" onClick={handleSignUp} />
-  <Link to="/" className="myStylizedLink">
-  Já tenho uma conta
-  </Link>
-</Form>
-<PhoneFormContainer>
-<PhoneForm formType="signUp" onSubmit={handleSignUp} />
-</PhoneFormContainer>
-</Container>
-);
-}
+    <label htmlFor="userEmail"><span>Email</span> 
+    <Input 
+    placeholder="Exemplo: exemplo@exemplo.com.br"
+    type="email" 
+    id="userEmail"
+    name="email"
+    onChange={e => setEmail(e.target.value)}
+    />
+    </label>
+  
+    <label htmlFor="userPassword"><span>Senha</span>
+    <Input 
+    placeholder="No mínimo 6 caracteres"
+    type="Password"
+    id="userPassword"
+    onChange={e => setPassword(e.target.value)}
+    />
+    </label>
+  
+    <Button title="Criar conta" onClick={handleSignUp} />
+    <Link to="/" className="myStylizedLink">
+    Já tenho uma conta
+    </Link>
+  </Form>
+  <PhoneFormContainer>
+  <PhoneForm formType="signUp" onSubmit={handleSignUp} />
+  </PhoneFormContainer>
+  </Container>
+  );
+  }
+  
 

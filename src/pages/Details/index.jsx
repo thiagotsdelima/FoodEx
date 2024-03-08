@@ -1,7 +1,7 @@
+import { Container, ButtonBackWrapper } from './styles';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../../services/api';
-import { Container, ButtonBackWrapper } from './styles';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { ButtonBack } from '../../components/ButtonBack';

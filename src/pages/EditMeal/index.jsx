@@ -1,4 +1,4 @@
-import { Container, Content, Main, Form } from './styles';
+import { Container, Content, Main, Form, ButtonBackWrapper } from './styles';
 import { React } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -141,8 +141,9 @@ return (
     ) : (
       <Content>
     <Main>
-   
-    <ButtonBack />
+            <ButtonBackWrapper>
+                <ButtonBack />
+            </ButtonBackWrapper>
     <Section title='Editar prato' />
     <Form id="newDish" action="#" method="post" className="dishes">
     <div className="formRow">

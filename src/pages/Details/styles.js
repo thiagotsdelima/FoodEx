@@ -155,6 +155,7 @@ gap: 2.95rem;
     color: ${({ theme }) => theme.COLORS.GRAY_100};
     font-family: ${({ theme }) => theme.FONTS.Poppins100Medium};
     margin-left: -283px;
+    
     .adminActionButton {
       height: 3rem;
       width: 8rem;
@@ -163,7 +164,7 @@ gap: 2.95rem;
       .adminActionButton:active {
         background-color:  ${({ theme }) => theme.COLORS.TOMATO_400};
       }
-   
+
   }
   .wrapperAmountInclude {
     display: flex;
@@ -179,8 +180,10 @@ gap: 2.95rem;
     
   
   }}
-  
 }
+
+
+
 
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
  
@@ -234,8 +237,18 @@ gap: 2.95rem;
     margin-right: -20rem;
     
   }
-  
+  .mealsCustomStyle .request .menuAdmin .StyleClick {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
+.mealsCustomStyle .request .menuAdmin .StyleClick .adminActionButton {
+  margin-left: auto; 
+  margin-right: -268px; 
+ width: 300px;
+
+}
 }
 `;
 

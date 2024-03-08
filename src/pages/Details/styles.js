@@ -58,9 +58,8 @@ gap: 2.95rem;
   align-items: flex-start; 
   width: 687px;
   gap: 1.5rem; 
-  margin-top: -80px;
 
-   p:first-of-type {
+   p {
     text-align: left;
 
   color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -74,8 +73,7 @@ gap: 2.95rem;
 }
 
 .request strong,
-.request p,
-strong {  
+.request p {  
   margin: 0;
   font-family: ${({ theme }) => theme.FONTS.Poppins500Medium};
   color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -105,9 +103,8 @@ strong {
       .adminActionButton:active {
         background-color:  ${({ theme }) => theme.COLORS.TOMATO_400};
       }
-   
-  }
 
+}
 
 }
 
@@ -186,7 +183,8 @@ strong {
 }
 
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-  
+ 
+  .mealsCustomStyle .request .menuAdmin,
   .mealsCustomStyle .content .request {
     margin: 0 5rem;
     width: 100%;
@@ -195,14 +193,16 @@ strong {
     margin-left: 60px;
     width: 100%;
   }
-
+ 
   .mealsCustomStyle .mealPhotoContainer img {
+    
     margin-top: -2rem;
     width: 14rem;
     height: 14rem;
     margin-right: -.2rem;
   }
-
+ 
+  .mealsCustomStyle .request .menuAdmin strong,
   .mealsCustomStyle .content .request strong {
     margin: -1rem 0; /* Ajuste conforme necessário */
     align-self: center; 
@@ -211,6 +211,7 @@ strong {
    
   }
 
+  .mealsCustomStyle .request .menuAdmin p,
   .mealsCustomStyle .content .request p {
     margin-top: 1.5rem;
     margin-bottom: -1rem;
@@ -218,6 +219,7 @@ strong {
     font-size: 0.8rem;
     text-align: center;
   }
+
   .mealsCustomStyle .seasoningWrapper {
     margin-left: 1rem;
   }
@@ -232,10 +234,13 @@ strong {
     margin-right: -20rem;
     
   }
+  
+
 }
 `;
 
 export const ButtonBackWrapper = styled.div`
   margin-top: -24px; 
   margin-left: 122px;
+ 
 `;

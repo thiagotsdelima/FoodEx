@@ -73,7 +73,7 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
       )}
 
         <span className="mealPhotoContainer" onClick={handleDetails}>
-          {data.photo_food && <MealPhoto meal={data} isAdmin={isAdmin} />}
+          {data.photo_food && <MealPhoto meal={data} isAdmin={isAdmin} isInDetailsPage={isInDetailsPage} />}
         </span>
         {USER_ROLE.ADMIN.includes(user?.role) ?(
           <div className="request">

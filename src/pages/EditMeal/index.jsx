@@ -142,7 +142,7 @@ return (
       <Content>
     <Main>
             <ButtonBackWrapper>
-                <ButtonBack />
+                <ButtonBack  customStyle={{ fontSize: "1.1rem" }} />
             </ButtonBackWrapper>
     <Section title='Editar prato' />
     <Form id="newDish" action="#" method="post" className="dishes">
@@ -152,6 +152,7 @@ return (
             <div className="upload"> 
               <FiLogOut className="formIcon"/>
               <label htmlFor="image" className="uploadLabel">Selecione imagem</label>
+              <label htmlFor="image" className="uploadTextLabel">Selecione imagem para alterá-la</label>
               <Input type="file" id="image" name="image" accept="image/*" onChange={(event) => setPhotoFood(event.target.files[0])} />
             </div>
     </div>
@@ -207,13 +208,13 @@ return (
 
         
     <div className="formInputs">
-      <label htmlFor="price">Preço</label>
+      <label className="priceLabel" htmlFor="price">Preço</label>
       <Input className="inputPrice" type="text" id="price" name="price" placeholder="R$ 00,00" required onChange={(event)=>setPrice(event.target.value)}/>
     </div>
   </div>
               
   <div className="formInputs">
-                <label htmlFor="description">Descrição</label>
+                <label className="descriptionLabel" htmlFor="description">Descrição</label>
                 <TextArea id="description" name="description" readOnly={false} placeholder="A Salada César é uma opção refrescante para o verão." rows="8" required onChange={(event)=>setDescription(event.target.value)} ></TextArea>
               </div>
               
@@ -242,8 +243,8 @@ return (
     </Main>
   <Footer />
   </Content>
-  )};
+  )}
 </Container>
-);
-}
+)
+};
 

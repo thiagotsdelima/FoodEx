@@ -5,7 +5,7 @@ import { useAuth } from '../../hooks/auth';
 
 
 
-export function ButtonBack() {
+export function ButtonBack({ customStyle, ...rest}) {
   const navigate = useNavigate()
   const { back, setBack } = useAuth()
 
@@ -19,7 +19,7 @@ export function ButtonBack() {
   }
 
   return (
-    <Container onClick={handleBack}>
+    <Container onClick={handleBack} style={customStyle} {...rest}>
       <IoIosArrowBack />
       Voltar
     </Container>

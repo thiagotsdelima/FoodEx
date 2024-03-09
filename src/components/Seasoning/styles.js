@@ -39,5 +39,6 @@ export const SeasoningTag = styled.div`
     padding: 0.2rem 0.6rem; 
     width: 5rem;
     height: 1.5rem; 
+    
   }
 `;

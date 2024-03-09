@@ -9,80 +9,14 @@ export const Container = styled.div`
     justify-content: space-between;
     position: relative;
 
-   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-  .formRow {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 364px;
-    margin: 0 auto;
-  }
-
-  .formInputs {
-    width: 100%; 
-  }
-
-  .formInputs label {
-    display: block; 
-    width: 100%; 
-    margin-bottom: 8px; 
-  }
-
-  .inputPrice, 
-  .formInputs textarea {
-    width: 100%; 
-  }
-  .formRowTag, .formInputs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.formInputs {
-  margin-bottom: 20px;
-}
-
-.formInputs label, .ingredientsLabel {
-  width: 100%;
-  text-align: left;
-  margin-bottom: 8px;
-}
-
-.customSelect, #tagBackground, .inputPrice, textarea {
-  width: 100%;
-  margin-top: 8px;
-}
-
-
-#tagBackground {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  padding: 10px;
-  border: 1px solid #ccc; 
-  border-radius: 4px;
-}
-
-
-.wrapperButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin-top: 20px;
-}
-}
-
 
 `;
 
 export const ButtonBackWrapper = styled.div`
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
   margin-top: -24px; 
-  margin-left: 122px;
+  margin-left: 74px;
+ 
 }
 `;
 
@@ -162,6 +96,9 @@ export const Form = styled.form`
    .formRowTag {
     display: flex;
     justify-content: space-between;
+    .ingredientsLabel {
+      color: ${({ theme }) => theme.COLORS.GRAY_400};
+    }
   
     #tagBackground {
         width: 50rem; 
@@ -215,12 +152,12 @@ export const Form = styled.form`
       color: ${({ theme }) => theme.COLORS.GRAY_100};  
       cursor: pointer;
     }
+    
       
     .formInputs {
       flex: 1;
       display: flex;
       flex-direction: column;
-      
     
       label {
         height: 3rem;
@@ -229,9 +166,7 @@ export const Form = styled.form`
         border-radius: 0.5rem;   
         font-family: ${({ theme }) => theme.FONTS.RobotoSmallRegular};
         color: ${({ theme }) => theme.COLORS.GRAY_400};
-        
       }
-     
 
       select {
       width: 100%;
@@ -247,23 +182,15 @@ export const Form = styled.form`
  
     
     }  
-
-      &:not(:last-child) {
-      
-        
-      }
     }
+
     .formImageUpload {
-      width: 13.8rem;
+      
       #imageInput {
-      
-   
-     
-      display: block;
-      
+      display: block;  
     }
     
-    & > *:first-child {
+    .imageInputLabel {
       margin-bottom: 1rem;
       height: 3rem;
         padding: 0.75rem 0;
@@ -281,6 +208,7 @@ export const Form = styled.form`
     width: 14.3rem;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
     border-radius: 0.5rem;
+   
     
     svg{
       zoom:0.73; 
@@ -292,6 +220,20 @@ export const Form = styled.form`
       height: 2.4rem;
       transform: rotate(-90deg);
       cursor: pointer;
+    }
+  }
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+    .uploadTextLabel {
+      display: none;
+    }
+  }
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    .upload {
+      width: 354px;
+      height: 48px;
+      .uploadLabel {
+        display: none;
+      }
     }
   }
   }
@@ -312,10 +254,10 @@ export const Form = styled.form`
 }
 
 .customSelect select {
-  -webkit-appearance: none; /* Chrome, Safari */
-  -moz-appearance: none;    /* Firefox */
-  appearance: none;         /* Remove a seta padrão */
-  padding-right: 2rem; /* Espaço para o ícone da seta */
+  -webkit-appearance: none; 
+  -moz-appearance: none;    
+  appearance: none;         
+  padding-right: 2rem; 
   width: 100%;
   
 }
@@ -331,6 +273,84 @@ export const Form = styled.form`
 
   
   }
+  .priceLabel,
+  .descriptionLabel {
+    color: ${({ theme }) => theme.COLORS.GRAY_400};
+  }
+
+@media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+
+Section {
+h2 {
+  font-size: 2rem;
+}
+}
+
+.formRow {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+gap: 1.5rem;
+}
 
 
-`;
+
+.formInputs {
+  
+.inputName {
+  width: 354px;
+  height: 48px;
+}
+.customSelect {
+  width: 354px;
+  height: 48px;
+}
+#tagBackground {
+  margin-bottom: 1.5rem;
+}
+
+}
+.customSelect select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  
+  
+  &:focus {
+    outline: none; 
+    border-color: ${({ theme }) => theme.COLORS.PRIMARY}; 
+    box-shadow: none; 
+  }
+}
+
+.inputPrice, 
+.formInputs textarea {
+width: 100%; 
+}
+
+.formRowTag, .formInputs {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+
+}
+
+.formInputs {
+  
+}
+
+.formInputs label, .ingredientsLabel {
+width: 100%;
+
+margin-bottom: 8px;
+color: ${({ theme }) => theme.COLORS.GRAY_400};
+}
+
+.customSelect, #tagBackground, .inputPrice, textarea {
+
+}
+
+}`

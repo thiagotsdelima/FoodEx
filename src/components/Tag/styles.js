@@ -3,15 +3,15 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
   
-  padding: 7px 14px;
-  margin: 0.50px 8px;  
+  padding: .38rem .87rem;
+  margin: .40px .43rem;  
   width: 20%;
   display: flex;
   flex-direction: row;
   background-color: ${({theme, $isNew}) => $isNew ? 'transparent' : theme.COLORS.GRAY_600};  
   border: ${({theme, $isNew}) => $isNew ? `1px dashed ${theme.COLORS.GRAY_500}` : 'none'};
-  border-radius: 8px;
-  gap: 8px;
+  border-radius: 0.5rem;
+  gap: .5rem;
 
 
   input{
@@ -53,8 +53,9 @@ svg {
   }
   
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    
-   
+    width: 7.37rem;
+    padding: .38rem .87rem;
+    margin: .40px .43rem;  
    
   }
   `;

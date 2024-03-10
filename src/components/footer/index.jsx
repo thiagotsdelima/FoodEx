@@ -3,7 +3,7 @@ import { Container } from './styles';
 export function Footer() {
 return (
 <Container>
-<div id="logo">
+<div id="logoType">
         <img
             src="../../../Polygon2.png"
             alt="image Logo."

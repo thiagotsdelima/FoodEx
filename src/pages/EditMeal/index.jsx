@@ -15,6 +15,7 @@ import {api} from '../../services/api';
 import { FiLogOut } from "react-icons/fi";
 
 export function EditMeal() {
+  const [placeholderText, setPlaceholderText] = useState('Ex.: Salada Ceasar');
   const [isLoading, setIsLoading] = useState(true);
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
@@ -54,6 +55,19 @@ export function EditMeal() {
 
     fetchMeal();
   }, [id]);
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth <= 768) {
+        setPlaceholderText('Salada Ceasar');
+      } else {
+        setPlaceholderText('Ex.: Salada Ceasar');
+      }
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
 
 
@@ -159,7 +173,7 @@ return (
 
     <div className="formInputs">
       <label htmlFor="name">Nome</label>
-      <Input className="inputName" type="text" id="name" name="name" placeholder="Ex.: Salada Ceasar" required onChange={(event)=>setName(event.target.value)}/>
+      <Input className="inputName" type="text" id="name" name="name" placeholder={placeholderText} required onChange={(event)=>setName(event.target.value)}/>
     </div>
 
     <div className="formInputs">
@@ -241,7 +255,7 @@ return (
     </div>
 
     </Main>
-  <Footer />
+    <Footer />
   </Content>
   )}
 </Container>

@@ -14,8 +14,8 @@ export const Container = styled.div`
 
 export const ButtonBackWrapper = styled.div`
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-  margin-top: -24px; 
-  margin-left: 74px;
+  margin-top: -1.5rem; 
+  margin-left: 4.62rem;
  
 }
 `;
@@ -62,7 +62,19 @@ export const Main = styled.main`
   background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
 }
 
-
+@media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+ 
+ 
+  .wrapperButton {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -90px;
+  .submitButton {
+    padding: 5px 5px;
+    font-size: 1rem;
+  }
+}
+}
 
 
 
@@ -88,9 +100,7 @@ export const Form = styled.form`
    
     height: 3rem;
     margin-top: 1rem;
-    &::placeholder {
-     
-  }
+   
    }
 
    .formRowTag {
@@ -101,18 +111,19 @@ export const Form = styled.form`
     }
   
     #tagBackground {
-        width: 50rem; 
-        height: 3rem;
-        gap: 1rem;
-        display: flex;
-        align-items: center;
-        border-radius: 0.5rem;  
-        border: none;      
-        margin-top: 1rem;
-        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-        flex-wrap: wrap;
-        
-      }
+    display: flex;
+    flex-wrap: wrap; /* Permite que as tags se alinhem em múltiplas linhas conforme o espaço horizontal é preenchido */
+    justify-content: flex-start; /* Alinha tags ao início */
+    padding: 10px; /* Espaçamento interno */
+    gap: 1rem; /* Espaço entre as tags */
+    border-radius: 0.5rem; 
+    border: none;  
+    margin-top: 1rem;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    max-width: 50rem; 
+    min-height: 48px; 
+}
+
    }
 
   #description{
@@ -228,12 +239,23 @@ export const Form = styled.form`
     }
   }
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    
     .upload {
-      width: 354px;
+      width: 314px;
       height: 48px;
+      padding: 12px 0 12px 12px;
+      .formIcon {
+        height: 2rem;
+        width: 2rem;
+      }
       .uploadLabel {
         display: none;
       }
+      .uploadTextLabel {
+        font-size: .8rem;
+        
+      }
+     
     }
   }
   }
@@ -280,6 +302,7 @@ export const Form = styled.form`
 
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
 
+
 Section {
 h2 {
   font-size: 2rem;
@@ -297,13 +320,18 @@ gap: 1.5rem;
 
 
 .formInputs {
-  
+
+.customSelect
+ {
+    width: 100%; 
+    margin: 0 19.6rem; 
+}
 .inputName {
-  width: 354px;
+  width: 314px;
   height: 48px;
 }
-.customSelect {
-  width: 354px;
+.inputPrice {
+  width: 314px;
   height: 48px;
 }
 #tagBackground {
@@ -311,11 +339,12 @@ gap: 1.5rem;
 }
 
 }
+
 .customSelect select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  
+  border-radius: .5rem;
   
   
   &:focus {
@@ -325,10 +354,7 @@ gap: 1.5rem;
   }
 }
 
-.inputPrice, 
-.formInputs textarea {
-width: 100%; 
-}
+
 
 .formRowTag, .formInputs {
 display: flex;
@@ -338,19 +364,12 @@ width: 100%;
 
 }
 
-.formInputs {
-  
-}
 
 .formInputs label, .ingredientsLabel {
 width: 100%;
 
 margin-bottom: 8px;
 color: ${({ theme }) => theme.COLORS.GRAY_400};
-}
-
-.customSelect, #tagBackground, .inputPrice, textarea {
-
 }
 
 }`

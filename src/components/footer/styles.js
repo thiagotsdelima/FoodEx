@@ -13,17 +13,16 @@ export const Container = styled.footer`
   padding: 1.5rem 9.25rem;  
   
  
-  #logo {
+  #logoType {
     display: flex;
     align-items: center;
     gap: .6rem; 
 
-    #logo img  {
+    img {
       height: 1.9rem; 
     }
 
-    #logo p {
-      color: ${({ theme }) => theme.FONTS.RobotoBiggerBold};
+    p {
       color: ${({ theme }) => theme.COLORS.GRAY_700};
     }
   }
@@ -46,25 +45,23 @@ export const Container = styled.footer`
   align-items: center;
   padding: 1.2rem 1rem;
   text-align: center;
-  #logo {
-    gap: 5px;
 
-    img {
-      margin-bottom: .4rem;
-      margin-left: .7rem;
-      height: 1.2rem;
-      
-    }
+  #logoType {
+      gap: 5px;
 
-    p {
-      margin-bottom: 0.25rem;
-      font-weight: 700;
-      font-size: .8rem; 
-      width: 7.125rem;
-      color: ${({ theme }) => theme.COLORS.GRAY_700};
-      font-family: ${({ theme }) => theme.FONTS.secondary};
+      img {
+        margin-bottom: .4rem;
+        margin-left: .7rem;
+        height: 1.2rem;
+      }
+
+      p {
+        margin-bottom: 0.25rem;
+        font-weight: 700;
+        font-size: .8rem; 
+        color: ${({ theme }) => theme.COLORS.GRAY_700};
+      }
     }
-  }
 
   footer.container {
     

@@ -26,13 +26,20 @@ export const Container = styled.div`
     }
     
     
-    @media (max-width: ${DEVICE_BREAKPOINTS.MD}px) {
-      grid-template-columns: 1fr; 
-      grid-template-areas: 
-        "accountOrder"
-        "columnByPayment";
-    }
-  }
+    @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+  
+    min-height: 100vh;
+    max-width: 356px;
+    display: grid;
+    grid-template-rows: 1fr 1fr; 
+    grid-template-columns: auto;
+    grid-template-areas: 
+      "accountOrder"
+      "columnByPayment";
+    justify-content: center; /* Centraliza o grid horizontalmente */
+    margin: 0 auto; /* Adicional para garantir que o container esteja centralizado */
+  
+}
 
   
 
@@ -276,5 +283,5 @@ export const Container = styled.div`
         }
       }
     }
-    }
+  }}
 `;

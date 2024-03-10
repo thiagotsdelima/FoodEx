@@ -111,17 +111,23 @@ export const Form = styled.form`
     }
   
     #tagBackground {
-    display: flex;
-    flex-wrap: wrap; /* Permite que as tags se alinhem em múltiplas linhas conforme o espaço horizontal é preenchido */
-    justify-content: flex-start; /* Alinha tags ao início */
-    padding: 10px; /* Espaçamento interno */
-    gap: 1rem; /* Espaço entre as tags */
-    border-radius: 0.5rem; 
-    border: none;  
-    margin-top: 1rem;
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-    max-width: 50rem; 
-    min-height: 48px; 
+  display: flex;
+  flex-wrap: wrap; /* Permite que as tags se alinhem em múltiplas linhas conforme necessário */
+  justify-content: flex-start; /* Alinha tags ao início */
+  padding: 10px; /* Espaçamento interno */
+  gap: 10px; /* Espaço entre as tags */
+  border-radius: 8px; 
+  border: none;  
+  margin-top: 1rem;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+  max-width: 50rem; /* Limita o tamanho horizontal */
+  min-height: 48px; /* Altura mínima inicial */
+  width: auto; 
+}
+.tagStyle {
+  padding-left: .5rem;
+  
+  
 }
 
    }

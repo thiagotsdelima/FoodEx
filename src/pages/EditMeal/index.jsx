@@ -181,7 +181,7 @@ return (
   <div className="customSelect">
   <select
       id="DrinkEatCategory"
-      name="DrinkEatCategory"
+      name="category_name"
       required
       value={category} 
       onChange={(event) => setCategory(event.target.value)} 
@@ -202,6 +202,7 @@ return (
     <fieldset id="tagBackground">
       {seasonings.map((seasoning, index) => (
         <Tag
+          className="tagStyle"
           key={index}
           value={seasoning.name}
           onClick={() => handleRemoveSeasoning(seasoning)}

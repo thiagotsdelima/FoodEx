@@ -2,16 +2,16 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
-  
-  padding: .38rem .87rem;
-  margin: .40px .43rem;  
-  width: 20%;
+ 
+  padding: 5px 5px;
+  margin: 8px 8px;  
+  width: 140px;
   display: flex;
   flex-direction: row;
   background-color: ${({theme, $isNew}) => $isNew ? 'transparent' : theme.COLORS.GRAY_600};  
   border: ${({theme, $isNew}) => $isNew ? `1px dashed ${theme.COLORS.GRAY_500}` : 'none'};
-  border-radius: 0.5rem;
-  gap: .5rem;
+  border-radius: 8px;
+  gap: 8px;
 
 
   input{

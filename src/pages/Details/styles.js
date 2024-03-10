@@ -186,15 +186,29 @@ gap: 2.95rem;
 
 
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+
+  .mealsCustomStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  .mealsCustomStyle .request .menuAdmin strong,
+  .mealsCustomStyle .content .request strong,
+  .mealsCustomStyle .request .menuAdmin p,
+  .mealsCustomStyle .content .request p {
+    max-width: 300px; /* Ajuste a largura máxima conforme necessário */
+    word-wrap: break-word; /* Quebra o texto para se manter dentro do limite */
+    text-align: center; /* Garante que o texto esteja centralizado */
+  }
+  
  
   .mealsCustomStyle .request .menuAdmin,
   .mealsCustomStyle .content .request {
-    margin: 0 5rem;
-    width: 100%;
-    width: calc(100% - 10rem);
-    text-align: center;
-    margin-left: 60px;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 3rem;
+   
   }
  
   .mealsCustomStyle .mealPhotoContainer img {
@@ -202,15 +216,15 @@ gap: 2.95rem;
     margin-top: -2rem;
     width: 14rem;
     height: 14rem;
-    margin-right: -.2rem;
+    margin-right: 10rem;
   }
  
   .mealsCustomStyle .request .menuAdmin strong,
   .mealsCustomStyle .content .request strong {
-    margin: -1rem 0; /* Ajuste conforme necessário */
+    margin: -1rem 0; 
     align-self: center; 
     font-size: 1.4rem;
-    white-space: nowrap;
+  
    
   }
 
@@ -222,32 +236,31 @@ gap: 2.95rem;
     font-size: 0.8rem;
     text-align: center;
   }
-
   .mealsCustomStyle .seasoningWrapper {
-    margin-left: 1rem;
-  }
+ margin-left: .5rem;
+}
 
   .mealsCustomStyle .amount {
     margin: 0 3rem;
-   
+    margin-left: -5.5rem;
+    font-size: 1.5rem;
   }
 
   .mealsCustomStyle .buttonInclude {
-    margin-top: -75px;
-    margin-right: -20rem;
+    margin-top: -82px;
+    margin-right: -12rem;
     
   }
   .mealsCustomStyle .request .menuAdmin .StyleClick {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+    
+    margin-right: 40rem;
 }
 
 .mealsCustomStyle .request .menuAdmin .StyleClick .adminActionButton {
   margin-left: auto; 
   margin-right: -268px; 
- width: 300px;
-
+  width: 300px;
+  margin-top: 10px;
 }
 }
 `;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../Button';
 import { useCart } from '../../hooks/cart'; 
@@ -21,7 +21,18 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
   const [amount, setAmount] = useState(1);
   const navigate = useNavigate();
   const isAdmin = USER_ROLE.ADMIN.includes(user?.role);
+  const [isScreenSmall, setIsScreenSmall] = useState(false);
 
+  useEffect(() => {
+    const updateScreenSize = () => {
+      setIsScreenSmall(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', updateScreenSize);
+    updateScreenSize(); // Para verificar o tamanho da tela na montagem do componente
+
+    return () => window.removeEventListener('resize', updateScreenSize);
+  }, []);
 
   const handleIncludeNewItem = () => {
     setCart(currentCart => {
@@ -129,14 +140,27 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
                   <AmountControls amount={amount} setAmount={setAmount} />
                 </div>
                 <Button className="buttonInclude" onClick={handleIncludeNewItem}>
-                  {isInDetailsPage ? (
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
-                      Incluir 
-                      <TbPointFilled size={10} style={{ marginLeft: '4px', marginRight: '4px' }} />
-                      R$ {(data.price * amount).toFixed(2)}
-                    </div>
-                  ) : "Incluir"}
-                </Button>
+                    {isInDetailsPage ? (
+                      isScreenSmall ? (
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <img src="/sheet.svg" alt="Ícone de pedido" style={{ marginRight: '4px', width: '15px', height: '14px' }} />
+                          <span style={{ fontWeight: '400', marginRight: '.1px', marginLeft: '.1px', fontSize: '12px' }}>Pedido</span>
+                          <TbPointFilled size={10} style={{ marginLeft: '1px', marginRight: '1px' }} />
+                          <span style={{ fontSize: '12px' }}>
+                            R$ {(data.price * amount).toFixed(2)}
+                          </span>
+                        </div>
+                      ) : (
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
+                          Incluir
+                          <TbPointFilled size={10} style={{ marginLeft: '4px', marginRight: '4px' }} />
+                          R$ {(data.price * amount).toFixed(2)}
+                        </div>
+                      )
+                    ) : (
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Incluir</div>
+                    )}
+                  </Button>
               </div>
                 
         </div>

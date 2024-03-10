@@ -38,6 +38,7 @@ export const Container = styled.div`
       .menuAdmin {
         width: 300px;
         height: 250px;
+       
         @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
         
         }

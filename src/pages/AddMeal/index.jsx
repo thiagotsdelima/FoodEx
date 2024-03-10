@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Container, Content, Main, Form } from './styles';
+import React, { useState, useEffect } from 'react';
+import { Container, Content, Main, Form, ButtonBackWrapper } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -15,15 +15,27 @@ import { FaChevronDown } from 'react-icons/fa';
 import { FiLogOut } from "react-icons/fi";
 
 export function AddMeal() {
+  const [isScreenSmall, setIsScreenSmall] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [photoFood, setPhotoFood] = useState(null);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [seasonings, setSeasonings] = useState([]);
+  const [seasonings, setSeasonings] = useState([{ name: "", isNew: true }]);
   const [newSeasoning, setNewSeasoning] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsScreenSmall(window.innerWidth < 768); 
+    };
+
+    checkScreenSize(); 
+    window.addEventListener('resize', checkScreenSize); 
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
   
 
   const handleCreateDish = async (event) => {
@@ -33,6 +45,7 @@ export function AddMeal() {
     formData.append("category_name", category);
     const errorMessage = validateForm();
     if (errorMessage) {
+      alert('Nome do prato é obrigatório')
       console.error(errorMessage);
       return;
     }
@@ -68,14 +81,20 @@ export function AddMeal() {
 
   function handleAddSeasoning() {
     if (newSeasoning.trim() !== "") {
-      setSeasonings(prev => [...prev, { name: newSeasoning }]);
-      setNewSeasoning("");
+      // Adiciona a nova tag e remove a tag vazia anterior
+      setSeasonings(prev => prev.filter(tag => tag.name.trim() !== "").concat({ name: newSeasoning, isNew: false }));
+      setNewSeasoning(""); // Limpa o campo de input
     }
   }
-
+  
   function handleRemoveSeasoning(toRemove) {
-    setSeasonings(prev => prev.filter(seasoning => seasoning.name !== toRemove.name));
-  }  
+    setSeasonings(prev => prev.filter(tag => tag !== toRemove));
+    // Se todas as tags forem removidas, mantém uma tag vazia
+    if (seasonings.length <= 1) {
+      setSeasonings([{ name: "", isNew: true }]);
+    }
+  }
+  
   
 
 return (
@@ -83,9 +102,16 @@ return (
   <Header />
   <Content>
     <Main>
-   
-    <ButtonBack />
-    <Section title='Adicionar prato' />
+            <ButtonBackWrapper>
+                <ButtonBack  customStyle={{ fontSize: "1.1rem" }} />
+            </ButtonBackWrapper>
+            <>
+      {isScreenSmall ? (
+        <Section title='Novo prato' customStyle={{ display: "none", }} />
+      ) : (
+        <Section title='Adicionar prato' />
+      )}
+    </>
     <Form id="newDish" action="#" method="post" className="dishes">
     <div className="formRow">
   <div className="formImageUpload">
@@ -103,10 +129,10 @@ return (
     </div>
 
     <div className="formInputs">
-  <label htmlFor="category">Categoria</label>
+  <label htmlFor="category_name">Categoria</label>
   <div className="customSelect">
     <select
-      id="category"
+      id="category_name"
       name="category_name"
       required
       value={category}
@@ -129,6 +155,7 @@ return (
     <fieldset id="tagBackground">
       {seasonings.map((seasoning, index) => (
         <Tag
+          className="tagStyle"
           key={index}
           value={seasoning.name}
           onClick={() => handleRemoveSeasoning(seasoning)}
@@ -140,6 +167,7 @@ return (
         value={newSeasoning}
         onChange={(e) => setNewSeasoning(e.target.value)}
         onClick={handleAddSeasoning}
+        onKeyDown={(e) => e.key === 'Enter' ? handleAddSeasoning() : null}
       />
     </fieldset>
   </div>
@@ -150,13 +178,13 @@ return (
 
         
     <div className="formInputs">
-      <label htmlFor="price">Preço</label>
+      <label className="priceLabel" htmlFor="price">Preço</label>
       <Input className="inputPrice" type="text" id="price" name="price" placeholder="R$ 00,00" required onChange={(event)=>setPrice(event.target.value)}/>
     </div>
   </div>
               
   <div className="formInputs">
-                <label htmlFor="description">Descrição</label>
+                <label className="descriptionLabel" htmlFor="description">Descrição</label>
                 <TextArea id="description" name="description" readOnly={false} placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" rows="8" required onChange={(event)=>setDescription(event.target.value)} ></TextArea>
               </div>
               

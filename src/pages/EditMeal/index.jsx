@@ -3,7 +3,7 @@ import { React } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import { Footer } from '../../components/footer';
 import { Input } from '../../components/Input';
 import { Section } from '../../components/Section';
 import { TextArea } from '../../components/TextArea';

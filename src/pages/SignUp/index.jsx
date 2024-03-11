@@ -1,7 +1,7 @@
 import { api } from '../../services/api';
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import { Input } from '../../components/Input';
+import { Input } from '../../components/input';
 import { Button } from '../../components/Button';
 import { PhoneForm } from "../../components/PhoneForm";
 import { Container, Form, PhoneFormContainer } from './styles';

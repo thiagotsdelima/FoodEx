@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Input } from '../Input'; 
+import { Input } from '../input'; 
 import { Button } from '../Button'; 
 import { useAuth } from "../../hooks/auth"; 
 import { Container } from './styles';

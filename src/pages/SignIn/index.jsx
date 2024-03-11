@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Input } from '../../components/Input';
+import { Input } from '../../components/input';
 import { Button } from '../../components/Button';
 import { useAuth } from "../../hooks/auth";
 import { PhoneForm } from "../../components/PhoneForm";

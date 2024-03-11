@@ -29,7 +29,7 @@ export function Meals({ data, customStyle, isInDetailsPage = false }) {
     };
 
     window.addEventListener('resize', updateScreenSize);
-    updateScreenSize(); // Para verificar o tamanho da tela na montagem do componente
+    updateScreenSize();
 
     return () => window.removeEventListener('resize', updateScreenSize);
   }, []);

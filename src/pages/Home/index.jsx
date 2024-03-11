@@ -19,7 +19,8 @@ export function Home() {
     const fetchMeals = async () => {
       setLoading(true);
       try {
-        const response = await api.get('/meals', { params: { search } });
+        const response = await api.get('/meals', { params: { search }, withCredentials: true });
+        
         setMeals(response.data);
       } catch (error) {
         console.error("Erro ao buscar pratos", error);
@@ -27,7 +28,7 @@ export function Home() {
         setLoading(false);
       }
     };
-
+  
     fetchMeals();
   }, [search]);
 

@@ -42,7 +42,9 @@
         alert("Por favor, adicione itens antes de visualizar os pedidos.");
         return;
       }
-      navigate(`/mealOrder/${user.id}`);
+      navigate(`/mealOrder/${user.id}`, {
+        withCredentials: true,
+      });
     };
 
  
@@ -50,7 +52,7 @@
     const debouncedFetch = debounce(() => {
       setLoading(true);
       if (valueSearch && !isEqual(valueSearch, lastSearchValue)) {
-        api.get('/meals', { params: { search: valueSearch } })
+        api.get('/meals', { withCredentials: true }, { params: { search: valueSearch } })
           .then(response => {
             
             setIfSearchChange(response.data);

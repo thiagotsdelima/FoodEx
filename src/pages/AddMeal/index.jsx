@@ -15,8 +15,10 @@ import { FaChevronDown } from 'react-icons/fa';
 import { FiLogOut } from "react-icons/fi";
 
 export function AddMeal() {
+  const [isNotBlankFields, setIsNotBlankFields] = useState(false)
   const [isScreenSmall, setIsScreenSmall] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [photoFoodFile, setPhotoFoodFile] = useState(null);
   const [photoFood, setPhotoFood] = useState(null);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -36,6 +38,18 @@ export function AddMeal() {
 
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
+
+  
+  function handleAddPhotoFood(event) {
+    const file = event.target.files[0]
+
+    if (file && file.type.startsWith('image/')) {
+      setPhotoFoodFile(file)
+     
+      const photoFoodPreview = URL.createObjectURL(file)
+      setPhotoFood(photoFoodPreview)
+    }
+  }
   
 
   const handleCreateDish = async (event) => {
@@ -56,11 +70,13 @@ export function AddMeal() {
     formData.append("price", numericPrice);
     formData.append("description", description);
     formData.append("seasoning", seasoningsString); 
-    if (photoFood) formData.append("photo_food", photoFood);
+    if (photoFoodFile) {
+      formData.append('photo_food', photoFoodFile)
+    }
   
     try {
       setIsLoading(true);
-      const response = await api.post("/meals", formData);
+      const response = await api.post("/meals", formData, { withCredentials: true });
       alert("Prato criado com sucesso.", response.data);
       navigate(-1);
     } catch (error) {
@@ -79,17 +95,32 @@ export function AddMeal() {
     return null;
   }
 
+  function checkBlankFields() {
+    if (
+      name &&
+      category &&
+      seasonings.length > 0 &&
+      price &&
+      description
+    ) {
+      setIsNotBlankFields(true)
+    } else {
+      setIsNotBlankFields(false)
+    }
+  }
+  useEffect(() => {
+    checkBlankFields()
+  }, [photoFood, name, category, price, description, seasonings])
+
   function handleAddSeasoning() {
     if (newSeasoning.trim() !== "") {
-      // Adiciona a nova tag e remove a tag vazia anterior
       setSeasonings(prev => prev.filter(tag => tag.name.trim() !== "").concat({ name: newSeasoning, isNew: false }));
-      setNewSeasoning(""); // Limpa o campo de input
+      setNewSeasoning("");
     }
   }
   
   function handleRemoveSeasoning(toRemove) {
     setSeasonings(prev => prev.filter(tag => tag !== toRemove));
-    // Se todas as tags forem removidas, mantém uma tag vazia
     if (seasonings.length <= 1) {
       setSeasonings([{ name: "", isNew: true }]);
     }
@@ -119,7 +150,14 @@ return (
     <div className="upload"> 
       <FiLogOut className="formIcon"/>
       <label htmlFor="image" className="uploadLabel">Selecione imagem</label>
-      <Input type="file" id="image" name="image" accept="image/*" onChange={(event) => setPhotoFood(event.target.files[0])} />
+      <Input 
+  type="file" 
+  id="image" 
+  name="image" 
+  accept="image/*" 
+  onChange={handleAddPhotoFood} // Chama a função modificada
+/>
+
     </div>
   </div>
 
@@ -197,7 +235,7 @@ return (
             form="newDish"
             onClick={handleCreateDish}
             title="Salvar Informações"
-            
+            disabled={!isNotBlankFields}
           /> 
          
          </Main>

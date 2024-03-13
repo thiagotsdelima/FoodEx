@@ -11,7 +11,7 @@ export function AuthProvider({ children }) {
       const response = await api.post(
         "sessions",
         { email, password },
-        { withCredentials: true }
+        { withCredentials: true },
         );
       
       const { user } = response.data;

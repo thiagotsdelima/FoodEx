@@ -29,7 +29,9 @@ export function MealOrder() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.get('/meals')
+    api.get('/meals', {
+      withCredentials: true,
+    })
       .then(response => {
         setMeals(response.data);
         setLoading(false);

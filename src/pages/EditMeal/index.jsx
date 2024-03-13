@@ -23,16 +23,28 @@ export function EditMeal() {
   const [description, setDescription] = useState('');
   const [seasonings, setSeasonings] = useState([]);
   const [newSeasoning, setNewSeasoning] = useState('');
+  const [photoFoodFile, setPhotoFoodFile] = useState(null);
   const [photoFood, setPhotoFood] = useState(null);
   
 
   const navigate = useNavigate();
   const { id } = useParams();
 
+  function handleAddPhotoFood(event) {
+    const file = event.target.files[0]
+
+    if (file && file.type.startsWith('image/')) {
+      setPhotoFoodFile(file)
+     
+      const photoFoodPreview = URL.createObjectURL(file)
+      setPhotoFood(photoFoodPreview)
+    }
+  }
+
   useEffect(() => {
     const fetchMeal = async () => {
       try {
-        const response = await api.get(`/meals/${id}`);
+        const response = await api.get(`/meals/${id}`, { withCredentials: true });
         const { name, category, price, description, seasonings, photo } = response.data;
         setName(name);
         setCategory(category);
@@ -89,13 +101,16 @@ export function EditMeal() {
     formData.append("description", description);
     const seasoningsString = seasonings.map(seasoning => seasoning.name).join(',');
     formData.append("seasoning", seasoningsString);
-    if (photoFood) formData.append("photo_food", photoFood);
+    if (photoFoodFile) {
+      formData.append('photo_food', photoFoodFile)
+    }
     
   
  
     try {
       setIsLoading(true);
       const response = await api.put(`/meals/${id}`, formData, {
+        withCredentials: true,
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -125,7 +140,7 @@ export function EditMeal() {
     }
     try {
       setIsLoading(true);
-      const response = await api.delete(`/meals/${id}`);
+      const response = await api.delete(`/meals/${id}`, { withCredentials: true });
       alert("Prato excluído com sucesso: " + response.data.message);
       navigate('/');
     } catch (error) {
@@ -167,7 +182,13 @@ return (
               <FiLogOut className="formIcon"/>
               <label htmlFor="image" className="uploadLabel">Selecione imagem</label>
               <label htmlFor="image" className="uploadTextLabel">Selecione imagem para alterá-la</label>
-              <Input type="file" id="image" name="image" accept="image/*" onChange={(event) => setPhotoFood(event.target.files[0])} />
+              <Input 
+              type="file" 
+              id="image" 
+              name="image" 
+              accept="image/*" 
+              onChange={handleAddPhotoFood} 
+            />
             </div>
     </div>
 

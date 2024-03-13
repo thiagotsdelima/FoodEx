@@ -20,7 +20,7 @@ export function Home() {
       setLoading(true);
       try {
         const response = await api.get('/meals', { params: { search }, withCredentials: true });
-        
+      
         setMeals(response.data);
       } catch (error) {
         console.error("Erro ao buscar pratos", error);

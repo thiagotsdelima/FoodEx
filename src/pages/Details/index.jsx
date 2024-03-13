@@ -14,7 +14,7 @@ export function Details() {
     const [meal, setMeal] = useState(null);
 
     useEffect(() => {
-        api.get(`/meals/${id}`)
+        api.get(`/meals/${id}`, { withCredentials: true })
             .then(response => {
                 setMeal(response.data);
                 setLoading(false);

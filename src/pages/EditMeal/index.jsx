@@ -202,15 +202,15 @@ return (
   <div className="customSelect">
   <select
       id="DrinkEatCategory"
-      name="category_name"
+      name="category_id"
       required
-      value={category} 
-      onChange={(event) => setCategory(event.target.value)} 
-    >
+      value={category}
+      onChange={(event) => setCategory(event.target.value)}
+  >
       <option value="" disabled hidden>Selecione uma categoria</option>
-      <option value="refeicao">Refeição</option>
-      <option value="sobremesa">Sobremesa</option>
-      <option value="bebida">Bebida</option>
+      <option value="Refeição">Refeição</option>
+      <option value="Sobremesa">Sobremesa</option>
+      <option value="Bebida">Bebida</option>
     </select>
     <FaChevronDown className="selectIcon" />
   </div>

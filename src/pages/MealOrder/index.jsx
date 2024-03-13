@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Container } from './styles';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/footer';
-import { Section } from '../../components/Section';
+import { Section } from '../../components/section';
 import { Button } from '../../components/Button';
 import { useCart } from '../../hooks/cart';
 import { CartItem } from '../../components/CartItem';

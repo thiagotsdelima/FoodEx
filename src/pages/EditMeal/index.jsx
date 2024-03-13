@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/footer';
 import { Input } from '../../components/input';
-import { Section } from '../../components/Section';
+import { Section } from '../../components/section';
 import { TextArea } from '../../components/TextArea';
 import { Button } from '../../components/Button';
 import { Tag } from '../../components/Tag';

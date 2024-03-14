@@ -78,6 +78,7 @@ main {
     justify-content: center; 
     width: 21.9rem;
     height: 7.5rem; 
+    margin-left: 2rem;
   
 
   .image img {

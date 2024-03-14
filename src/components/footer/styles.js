@@ -51,7 +51,7 @@ export const Container = styled.footer`
 
       img {
         margin-bottom: .4rem;
-        margin-left: .7rem;
+        margin-left: 1rem;
         height: 1.2rem;
       }
 
@@ -68,7 +68,7 @@ export const Container = styled.footer`
     p {
       white-space: nowrap;
       margin-left: -13rem;
-      margin-top: -.2rem;
+      margin-top: -.1rem;
       font-weight: 400;
       font-size: .6rem; 
       color: ${({ theme }) => theme.COLORS.GRAY_200};

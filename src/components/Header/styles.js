@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
 
 export const Container = styled.header`
-  position: sticky;
+ 
   grid-area: header;
   
   height: 6.5rem;
@@ -289,7 +289,7 @@ export const StyledButton = styled.div`
 
 export const Nav = styled.nav`
   position: absolute;
-  z-index: 100;
+  z-index: 1001;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
   width: 100%; 
   top: 0; 
@@ -350,6 +350,7 @@ export const Nav = styled.nav`
       color: ${({ theme }) => theme.COLORS.GRAY_500};
       font-size: 0.9rem;
     }
+    
   }
   ul {
   list-style-type: none;

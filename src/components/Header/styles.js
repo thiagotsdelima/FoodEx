@@ -22,9 +22,9 @@ export const Container = styled.header`
   	display: flex;
 	  justify-content: space-between;
     gap: 2rem;
-    width: 428px;
-    padding: 56px 20px 24px;
-
+    width: 26rem;
+    padding: 3.5rem 1.25rem 1.5rem;
+  
     
   }
 
@@ -36,6 +36,8 @@ export const Found = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 1rem;
+
   
   gap: 0.625rem;
   img {
@@ -118,6 +120,7 @@ export const MobileIcon = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+    margin-left: 1rem;
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
    display: none; 

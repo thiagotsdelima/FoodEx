@@ -12,14 +12,20 @@ Currently, two official plugins are available:
 This project is a robust web application designed to offer an interactive and intuitive experience to users. Built with a focus on usability and efficiency, the application encompasses a wide range of essential and advanced functionalities.
 This project is a complete application for management and ordering in a restaurant, implementing functionalities for both administrators and end users
 
+Tag Management: Facilitates the organization and categorization of content through a tag system, improving the navigability and relevance of search results.
+
+Integration with External APIs: Leverages the power of external APIs to enrich the application with additional data and functionality, expanding capabilities beyond internal content.
+
+Good Development Practices: Built following software development industry best practices and standards, including clean code, detailed documentation, and comprehensive testing.
+
 ## object
 
 This React project uses Vite as its build tool and local development server, offering a fast and efficient development experience with Hot Module Replacement (HMR). The application incorporates several third-party libraries for additional functionality, including managing routes, HTTP requests, and component styling.
 
-![Image Home](/frontFoodEx/FoodExplore/src/assets/Home.png)
-![Image Home Admin](/frontFoodEx/FoodExplore/src/assets/HomeAdmin.png)
-![Image SignIn](/frontFoodEx/FoodExplore/src/assets/SignIn.png)
-![Image Dishe](/frontFoodEx/FoodExplore/src/assets/Dishe.png)
+![Image Home](./src/assets/Home.png)
+![Image Home Admin](./src/assets/HomeAdmin.png)
+![Image SignIn](./src/assets/SignIn.png)
+![Image Dishe](./src/assets/Dishe.png)
 
 
 ## Functionalities

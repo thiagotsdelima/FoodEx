@@ -67,7 +67,7 @@ export const Container = styled.footer`
     
     p {
       white-space: nowrap;
-      margin-left: -15rem;
+      margin-left: -13rem;
       margin-top: -.2rem;
       font-weight: 400;
       font-size: .6rem; 

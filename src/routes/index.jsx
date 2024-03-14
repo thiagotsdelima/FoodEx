@@ -12,7 +12,7 @@ export function Routes() {
   const {user, signOut} = useAuth();
 
 useEffect(() => {
-  api.get('/users/validated')
+  api.get('/users/validated', { withCredentials: true })
     .then((response) => {
       alert('Usuário validado com sucesso.');
     })

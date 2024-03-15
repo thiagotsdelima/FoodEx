@@ -166,7 +166,7 @@ return (
 <Container>
   <Header />
   {isLoading ? (
-      <p>Carregando...</p>
+      <p>Loading...</p>
     ) : (
       <Content>
     <Main>

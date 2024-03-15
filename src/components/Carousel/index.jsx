@@ -25,7 +25,7 @@ export function Carousel({ data }) {
         clearInterval(autoScrollRef.current);
     };
 
-    if (!data.length) return <p>Carregando...</p>;
+    if (!data.length) return <p>Loading...</p>;
 
     return (
         <Container onMouseOver={stopAutoScroll} onMouseOut={startAutoScroll}>

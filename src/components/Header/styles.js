@@ -289,7 +289,7 @@ export const StyledButton = styled.div`
 
 export const Nav = styled.nav`
   position: absolute;
-  z-index: 1001;
+  z-index: 1;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
   width: 100%; 
   top: 0; 
@@ -311,9 +311,8 @@ export const Nav = styled.nav`
   }
   
   header {
-    margin-top: -15px; 
-    margin-left: -40px;
-    width: 100%; 
+    margin-top: -16px;
+    width: 108%; 
     display: flex;
     justify-content: space-between;
     padding: 32px 24px;
@@ -336,7 +335,7 @@ export const Nav = styled.nav`
   position: relative; 
 
   input {
-    width: 85%; 
+    width: 92%; 
     padding: 0.5rem 2.8rem; 
     height: 3.125rem;
     border-radius: 0.3rem;
@@ -357,7 +356,7 @@ export const Nav = styled.nav`
   position: absolute; 
   top: 100%; 
   left: 0;
-  width: 100%;
+  width: 92%;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 106;
@@ -402,7 +401,8 @@ li {
 
 
   button {
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
+  font-size: 24px;
+  color: ${({ theme }) => theme.COLORS.GRAY_300};
   background-color: transparent;
   border: none; 
   border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000}; 

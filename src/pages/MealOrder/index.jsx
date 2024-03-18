@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; 
 import { Container } from './styles';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/footer';
@@ -20,13 +20,92 @@ export function MealOrder() {
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   const [loading, setLoading] = useState(true);
   const [meals, setMeals] = useState([]);
-  const { cart } = useCart();
+  const { cart, setCart } = useCart();
   const [showQrCode, setShowQrCode] = useState(false);
   const [cardNumber, setCardNumber] = useState('');
   const [validity, setValidity] = useState('');
   const [cvcCode, setCvcCode] = useState('');
   const [isNotFinished, setIsNotFinished] = useState(true);
   const navigate = useNavigate();
+  
+
+  const fetchDishDetailsId = async () => {
+    try {
+        const response = await api.get(`/dishDetails/`, { withCredentials: true });
+        if (response.status === 200 && response.data.length > 0) {
+            const dishDetailsId = response.data[response.data.length - 1].id;
+          
+            return dishDetailsId;
+        } else {
+            return newDishDetailsResponse.data.id;
+        }
+    } catch (error) {
+        console.error('Erro ao obter ou criar o dishDetailsId:', error);
+        throw error;
+    }
+};
+  
+const handleConfirmPayment = async () => {
+  const paymentMethod = prompt("Por favor, escolha um método de pagamento: dinheiro, cartão, pix");
+
+  if (!paymentMethod || !['dinheiro', 'cartao', 'pix'].includes(paymentMethod.toLowerCase())) {
+      alert("Método de pagamento inválido.");
+      return;
+  }
+ 
+  try {
+    const dishDetailsId = await fetchDishDetailsId();
+
+    await Promise.all(cart.map(async (item) => {
+        const response = await api.put(`/dishDetails/${dishDetailsId}`, {
+            status: "Preparing",
+        }, { withCredentials: true });
+    }));
+
+     
+        const itemsToSend = cart.map(item => ({
+            dishDetails_id: dishDetailsId,
+            meal_id: item.id,
+            amount: item.amount,
+            unit_price: item.price,
+        }));
+        const response = await api.post('/selected', {
+          items: itemsToSend
+      }, { withCredentials: true });
+      if (paymentMethod === 'Dinheiro') {
+          alert("Aguarde o troco e o pedido.");
+      } else { 
+          alert("Aguarde enquanto processamos seu pagamento.");
+      }
+
+      setPaymentCompleted(true);
+  } catch (error) {
+      console.error("Erro ao confirmar pedido:", error);
+      alert("Erro ao confirmar pedido. Por favor, tente novamente.");
+  }
+};
+ 
+const handleConfirmSelected = async () => {
+  try {
+   
+    const dishDetailsId = await fetchDishDetailsId(); 
+    const response = await api.put(`/dishDetails/${dishDetailsId}`, {
+      status: "completed",
+    }, { withCredentials: true });
+    setTimeout(() => {
+      alert("Pedido finalizado com sucesso.");
+      setIsNotFinished(false);
+      setPaymentCompleted(true);
+      setCart([]);
+    }, 2000); 
+  } catch (error) {
+    console.error("Erro na ação final do pedido:", error);
+    alert("Erro na ação final do pedido.");
+  }
+};
+
+  
+
 
   useEffect(() => {
     api.get('/meals', {
@@ -48,16 +127,6 @@ export function MealOrder() {
     setShowQrCode(show);
   };
 
-  const handleCompletePayment = () => {
-    setTimeout(() => {
-      console.log("Pagamento aprovado!");
-      setIsNotFinished(false);
-      setPaymentCompleted(true); 
-    }, 2000); 
-  };
-  const handleClickFoundMeal = () => {
-    navigate('/mealFound'); 
-  };
 
   return (
     <Container>
@@ -82,6 +151,7 @@ export function MealOrder() {
             <div className='priceTotal'>Total: R$ {totalPrice.toFixed(2)}</div>
           </>
         )}
+         <Button title="confere" onClick={handleConfirmPayment} />
         </div>
         <div className="columnByPayment">
         <Section title="Pagamento" />
@@ -166,7 +236,7 @@ export function MealOrder() {
                                   type="button"
                                   className="buttonPayment"
                                   title="Finalizar pagamento"
-                                  onClick={handleCompletePayment}
+                                  onClick={handleConfirmSelected}
                                   >
                                      <img src="/sheet.svg" alt="image of a torn sheet" />
                                   </Button>
@@ -174,7 +244,9 @@ export function MealOrder() {
                               </form>
                               ) : 
                               (
-                                <div className="paymentFinalized">
+                                <div 
+                                
+                                className="paymentFinalized">
                                     <AiOutlineCheckCircle/>
                                     <img src={PaymentAccept} alt="Pagamento Aprovado" />
                                     <p>Pagamento aprovado!</p>

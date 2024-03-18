@@ -20,7 +20,42 @@
     const navigate = useNavigate();
     const [toggleMenu, setToggleMenu] = useState(false);
     const { cart } = useCart();
-  
+
+    const handleCreateMixture = async () => {
+    
+      if (cart.length === 0) {
+        alert("Por favor, selecione um item.");
+        return;
+      }
+    
+      try {
+        const mixturePromises = cart.map((item, index) => {
+          return api.post("/mixture", {
+            user_id: user.id,
+            meal_id: item.id, 
+          }, { withCredentials: true });
+        });
+    
+        const mixtureResponses = await Promise.all(mixturePromises);
+    
+        if (mixtureResponses.every(response => response.status === 200)) {
+    
+          const dishDetailsPromises = cart.map((item, index) => {
+            return api.post("/dishDetails", {
+              user_id: user.id,
+            }, { withCredentials: true });
+          });
+    
+          await Promise.all(dishDetailsPromises);
+    
+          alert("Todos os pedidos realizados com sucesso.");
+          navigate(`/mealOrder/${user.id}`);
+        }
+      } catch (error) {
+        console.error("Erro ao realizar pedidos:", error);
+        alert("Erro ao realizar pedidos.");
+      }
+    };
 
     const uniqueItemsCount = cart.length; 
   
@@ -35,16 +70,6 @@
 
     const handleDetails = (id) => {
       navigate(`/details/${id}`);
-    };
-  
-    const handleOrderHistory = () => {
-      if (cart.length === 0) {
-        alert("Por favor, adicione itens antes de visualizar os pedidos.");
-        return;
-      }
-      navigate(`/mealOrder/${user.id}`, {
-        withCredentials: true,
-      });
     };
 
  
@@ -133,7 +158,7 @@
         </Found>
 
         {!USER_ROLE.ADMIN.includes(user?.role) ? (
-                <MobileStar onClick={handleOrderHistory}>
+                <MobileStar onClick={handleCreateMixture}>
                   <img src="/sheet.svg" alt="image of a torn sheet" />
                   {uniqueItemsCount > 0 && (
                       <div className="counter">{uniqueItemsCount}</div>
@@ -175,7 +200,7 @@
             </StyledButton >
           ) : (
             
-            <Button title={`Pedidos (${uniqueItemsCount})`} onClick={handleOrderHistory}>
+            <Button title={`Pedidos (${uniqueItemsCount})`} onClick={handleCreateMixture}>
             <img src="/sheet.svg" alt="image of a torn sheet" />
             </Button>
           )}

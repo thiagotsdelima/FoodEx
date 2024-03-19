@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -8,10 +8,6 @@ export const Container = styled.div`
   width: 100%; 
   max-width: 400px; 
   margin: -1rem auto; 
-
-  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-
-  }
 
   label {
     margin-bottom: 15px;

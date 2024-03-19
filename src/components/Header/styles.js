@@ -271,8 +271,8 @@ export const StyledButton = styled.div`
       width: 13.3rem;
       background-color:  ${({ theme }) => theme.COLORS.TOMATO_200};
       color: ${({ theme }) => theme.FONTS.Poppins100Medium};
-  cursor: pointer;
-  transition: background-color 0.3s;
+      cursor: pointer;
+      transition: background-color 0.3s;
  
 
   &:hover {
@@ -283,6 +283,7 @@ export const StyledButton = styled.div`
   }
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: none; 
+    
   }
 
 `;

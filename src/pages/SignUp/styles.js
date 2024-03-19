@@ -34,7 +34,7 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.GRAY_100};
       }
 @media(max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    
+    margin-top: 3.125rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between; 

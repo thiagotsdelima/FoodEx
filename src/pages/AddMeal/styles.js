@@ -247,7 +247,7 @@ export const Form = styled.form`
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     
     .upload {
-      width: 314px;
+      width: 355px;
       height: 48px;
       padding: 12px 0 12px 12px;
       .formIcon {
@@ -301,6 +301,7 @@ export const Form = styled.form`
 
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
 
+
 Section {
 h2 {
   font-size: 2rem;
@@ -312,30 +313,29 @@ h2 {
 display: flex;
 flex-direction: column;
 align-items: center;
-width: 100%;
+
 gap: 1.5rem;
 }
 
 
 
 .formInputs {
-
 .customSelect
  {
-    width: 100%; 
+  width: 355px;
     margin: 0 19.6rem; 
 }
 .inputName {
-  width: 314px;
+  width: 355px;
   height: 48px;
 }
 .inputPrice {
-  width: 314px;
+  width: 355px;
   height: 48px;
 }
 #tagBackground {
   margin-bottom: 1.5rem;
-  width: 314px;
+  width: 355px;
 }
 
 }

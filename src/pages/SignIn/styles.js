@@ -40,6 +40,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between; 
     padding: 2rem;
+    margin-top: 3.125rem;
     .logo {
      margin-top: 1.875rem;
      gap: 0.625rem;

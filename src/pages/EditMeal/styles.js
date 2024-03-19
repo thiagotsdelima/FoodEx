@@ -247,7 +247,7 @@ export const Form = styled.form`
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     
     .upload {
-      width: 314px;
+      width: 355px;
       height: 48px;
       padding: 12px 0 12px 12px;
       .formIcon {
@@ -329,15 +329,15 @@ gap: 1.5rem;
 
 .customSelect
  {
-    width: 100%; 
+    width: 355px;
     margin: 0 19.6rem; 
 }
 .inputName {
-  width: 314px;
+  width: 355px;
   height: 48px;
 }
 .inputPrice {
-  width: 314px;
+  width: 355px;
   height: 48px;
 }
 #tagBackground {

@@ -60,8 +60,14 @@ gap: 2.95rem;
   gap: 1.5rem; 
 
    p {
+    max-width: 687px; /* Largura máxima */
+    min-height: 68px; /* Altura mínima */
+    overflow-wrap: break-word; /* Quebra de palavras para evitar overflow horizontal */
+    margin-left: -10px;
+    padding: 10px; /* Espaçamento interno para não tocar nas bordas do contêiner */
+    box-sizing: border-box; 
     text-align: left;
-
+   
   color: ${({ theme }) => theme.COLORS.GRAY_300};
   font-family: ${({ theme }) => theme.FONTS.Poppins300Regular};
   
@@ -119,6 +125,12 @@ gap: 2.95rem;
   gap: 1.5rem; 
  
   p {
+    max-width: 687px; /* Largura máxima */
+    min-height: 68px; /* Altura mínima */
+    overflow-wrap: break-word; /* Quebra de palavras para evitar overflow horizontal */
+    margin-left: -10px;
+    padding: 10px; /* Espaçamento interno para não tocar nas bordas do contêiner */
+    box-sizing: border-box; 
     text-align: left;
 
   color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -188,9 +200,12 @@ gap: 2.95rem;
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
 
   .mealsCustomStyle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    margin: auto 85px auto 85px;
+    max-width: 300px;
+    word-wrap: break-word;
+    text-align: center;
+    place-items: center;
+    height: 110vh;
 }
   .mealsCustomStyle .request .menuAdmin strong,
   .mealsCustomStyle .content .request strong,
@@ -237,8 +252,11 @@ gap: 2.95rem;
     text-align: center;
   }
   .mealsCustomStyle .seasoningWrapper {
- margin-left: .5rem;
-}
+    margin-left: .5rem;
+    width: 23rem;
+    margin-left: 3rem;
+    
+    }
 
   .mealsCustomStyle .amount {
     margin: 0 3rem;
@@ -254,14 +272,14 @@ gap: 2.95rem;
   .mealsCustomStyle .request .menuAdmin .StyleClick {
     
     margin-right: 40rem;
-}
+    }
 
 .mealsCustomStyle .request .menuAdmin .StyleClick .adminActionButton {
   margin-left: auto; 
   margin-right: -268px; 
   width: 300px;
   margin-top: 10px;
-}
+    }
 }
 `;
 

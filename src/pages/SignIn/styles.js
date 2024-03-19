@@ -133,6 +133,9 @@ export const Form = styled.div`
 `;
 
 export const PhoneFormContainer = styled.div`
+
+    margin-top: -13px;
+  
  input::-ms-reveal {
     display: none;
     }

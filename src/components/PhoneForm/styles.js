@@ -7,7 +7,7 @@ export const Container = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%; 
   max-width: 400px; 
-  margin: 0 auto; 
+  margin: -1rem auto; 
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
 

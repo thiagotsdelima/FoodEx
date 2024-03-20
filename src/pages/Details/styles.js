@@ -265,8 +265,7 @@ gap: 2.95rem;
   }
 
   .mealsCustomStyle .buttonInclude {
-    
-    margin-right: -12rem;
+   
     
   }
   .mealsCustomStyle .request .menuAdmin .StyleClick {

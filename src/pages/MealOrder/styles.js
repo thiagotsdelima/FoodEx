@@ -37,7 +37,9 @@ export const Container = styled.div`
       "columnByPayment";
     justify-content: center; /* Centraliza o grid horizontalmente */
     margin: 0 auto; /* Adicional para garantir que o container esteja centralizado */
-    
+    .columnByPayment {
+      margin-top: 50px;
+    }
 }
 
   

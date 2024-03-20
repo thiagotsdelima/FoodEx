@@ -200,7 +200,7 @@ gap: 2.95rem;
 @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
 
   .mealsCustomStyle {
-    margin: auto 85px auto 85px;
+    margin: 1rem 85px 1rem 85px;
     max-width: 300px;
     word-wrap: break-word;
     text-align: center;

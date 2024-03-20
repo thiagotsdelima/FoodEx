@@ -46,6 +46,11 @@ React Icons: Provides popular icons as React components, allowing easy integrati
 
 React Loader Spinner: Offers loading spinner components to improve user experience while loading data or while waiting for asynchronous tasks to execute.
 
+## Deploy
+
+The API is hosted at [netlify](https://app.netlify.com/) and can be accessed through the following link:
+[https://rocketfoodex.netlify.app] 
+
 ## technologies
 
 🧠 React Icons
@@ -54,18 +59,33 @@ React Loader Spinner: Offers loading spinner components to improve user experien
 
 😄 Styled-components
 
-⚡️ moment-timezone
-
 👩‍💻 Lodash
-
-🧠 Axios
 
 👯‍♀️ Vite
 
 🤔 React Router DOM
 
+🧠 JavaScript
+
+🤔 Axios
+
+😄 ESLint
+
 ## Responsiveness and Animations
 The application is fully responsive, adapting to different screen sizes and devices, and includes transitions and transformations for a fluid user experience.
+
+## Configuring the Backend URL
+
+The frontend application needs to communicate with the backend server for data fetching and other operations. The connection to the backend is configured in `services/api.js`:
+
+```javascript
+import axios from 'axios';
+
+export const api = axios.create({
+  baseURL: 'https://backfoodexplorer.onrender.com' // Default backend URL
+});
+```
+
 
 ## Installing
 
@@ -75,7 +95,7 @@ To start working with the "FoogExplorer" project, follow these installation step
    
 ### Installing Project Dependencies
 
-After the project is created, go to the newly created directory and install the necessary dependencies:
+After cloning the "FoodEx" project, navigate to the project directory and install the necessary dependencies:
 
 Install my-project com npm
 
@@ -92,6 +112,10 @@ Install my-project com npm
   * git config --list
   * git status
   * git diff
+
+   analyze your code :
+  * npm run lint
+
     execução: 
   * npm run dev
 ```

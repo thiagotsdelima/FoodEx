@@ -12,17 +12,16 @@ export const Container = styled.div`
     grid-template-columns: repeat(2, 1fr); 
     grid-template-areas: "accountOrder columnByPayment";
     gap: 20px;
-    align-items: start; 
+    align-items: flex-start;
     
    
     margin: -5rem auto 10rem 0;
     padding: 4.4rem;
     gap: 20px;
     place-items: center;
-
    
   .accountOrder, .columnByPayment {
-    position: relative; 
+   
     }
     
     
@@ -38,7 +37,9 @@ export const Container = styled.div`
       "columnByPayment";
     justify-content: center; /* Centraliza o grid horizontalmente */
     margin: 0 auto; /* Adicional para garantir que o container esteja centralizado */
-  
+    .columnByPayment { 
+     margin-top: 50px;
+    }
 }
 
   
@@ -77,7 +78,7 @@ export const Container = styled.div`
   
   }
   .columnByPayment { 
-  
+   
     grid-area: columnByPayment;
      
    
@@ -127,7 +128,7 @@ export const Container = styled.div`
         > tbody {
           border: 1px solid var(--light-light-600, #76797B);
           text-align: center;
-
+         
           tr {
             
             td {

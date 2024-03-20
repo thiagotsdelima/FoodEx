@@ -205,7 +205,7 @@ gap: 2.95rem;
     word-wrap: break-word;
     text-align: center;
     place-items: center;
-    height: 110vh;
+    height: 100vh;
 }
   .mealsCustomStyle .request .menuAdmin strong,
   .mealsCustomStyle .content .request strong,

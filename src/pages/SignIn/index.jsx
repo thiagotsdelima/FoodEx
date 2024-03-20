@@ -13,7 +13,9 @@ export function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signIn } = useAuth();
-  function handleSignIn() {
+
+  function handleSignIn(e) {
+    e.preventDefault();
      signIn({ email, password}) 
     }
 
@@ -23,7 +25,7 @@ return (
         <img src="/Polygon1.svg" alt="Logo" /> 
         <h1>food explorer</h1>
       </div>
-<Form>
+<Form onSubmit={handleSignIn}>
   <h1 className='myTitle'>Faça login</h1>
 
   <label htmlFor="userEmail"><span>Email</span>
@@ -45,14 +47,21 @@ return (
   />
   </label>
 
-  <Button title="Entrar" onClick={handleSignIn} />
+  <Button type="submit" title="Entrar" onClick={handleSignIn} />
   
   <Link to="/register" className="myStylizedLink">
   Criar uma conta
   </Link>
 </Form>
 <PhoneFormContainer>
-<PhoneForm formType="signIn" />
+<PhoneForm 
+          formType="signIn" 
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          onSubmit={handleSignIn}
+        />
 </PhoneFormContainer>
 </Container>
 );

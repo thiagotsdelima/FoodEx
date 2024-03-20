@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { api } from '../../services/api';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Input } from '../../components/input';
 import { Button } from '../../components/Button';
@@ -6,66 +7,86 @@ import { PhoneForm } from "../../components/PhoneForm";
 import { Container, Form, PhoneFormContainer } from './styles';
 
 export function SignUp() {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
+ 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+ 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkScreenSize = () => setIsSmallScreen(window.innerWidth < 768);
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
-
-  const handleSignUp = async (e) => {
-    e.preventDefault();
-
-    if (isSmallScreen) {
-      if (!email || !password) {
-        return alert("Preencha todos os campos visíveis");
-      }
-    } else {
-      if (!name || !email || !password) {
-        return alert("Preencha todos os campos");
-      }
+  
+  
+  function handleSignUp() {
+    if(!name || !email || !password) {
+      return alert("fill in all fields")
     }
-
-    try {
-      await api.post("/users", {name, email, password});
-      alert("Usuário registrado com sucesso");
+    api.post("/users", {name, email, password})
+    .then(() => {
+      alert("user successfully registered")
       navigate("/");
-    } catch (error) {
-      const errorMessage = error.response ? error.response.data.message : "O registro do usuário falhou";
-      alert(errorMessage);
+    })
+    .catch(error => {
+     if(error.response) {
+     alert(error.response.data.message); 
+    }else {
+      alert("user has not been registered")
     }
-  };
-
-  return (
-    <Container>
-      <div className="logo">
-        <img src="/Polygon1.svg" alt="Logo" />
-        <h1>food explorer</h1>
-      </div>
-      <Form onSubmit={handleSignUp}>
-        <h1 className='myTitle'>Crie sua conta</h1>
-        {!isSmallScreen && (
-          <label htmlFor="userName">Seu nome
-            <Input placeholder="Exemplo: Maria da Silva" type="text" id="userName" onChange={e => setName(e.target.value)} />
-          </label>
-        )}
-        <label htmlFor="userEmail">Email
-          <Input placeholder="Exemplo: exemplo@exemplo.com.br" type="email" id="userEmail" onChange={e => setEmail(e.target.value)} />
-        </label>
-        <label htmlFor="userPassword">Senha
-          <Input placeholder="No mínimo 6 caracteres" type="Password" id="userPassword" onChange={e => setPassword(e.target.value)} />
-        </label>
-        <Button type="submit" title="Criar conta" />
-        <Link to="/" className="myStylizedLink">Já tenho uma conta</Link>
-      </Form>
-      <PhoneFormContainer>
-        <PhoneForm formType="signUp" onSubmit={handleSignUp} />
-      </PhoneFormContainer>
-    </Container>
-  );
+ })
 }
+
+return (
+  <Container>
+        <div className="logo">
+          <img src="/Polygon1.svg" alt="Logo" /> 
+          <h1>food explorer</h1>
+        </div>
+  <Form>
+    <h1 className='myTitle'>Crie sua conta</h1>
+    
+    <label htmlFor="userName"><span>Seu nome</span>
+    <Input 
+    placeholder="Exemplo: Maria da Silva"
+    type="text"
+    id="userName"
+    onChange={e => setName(e.target.value)}
+    />
+    </label>
+  
+    <label htmlFor="userEmail"><span>Email</span> 
+    <Input 
+    placeholder="Exemplo: exemplo@exemplo.com.br"
+    type="email" 
+    id="userEmail"
+    name="email"
+    onChange={e => setEmail(e.target.value)}
+    />
+    </label>
+  
+    <label htmlFor="userPassword"><span>Senha</span>
+    <Input 
+    placeholder="No mínimo 6 caracteres"
+    type="Password"
+    id="userPassword"
+    onChange={e => setPassword(e.target.value)}
+    />
+    </label>
+  
+    <Button title="Criar conta" onClick={handleSignUp} />
+    <Link to="/" className="myStylizedLink">
+    Já tenho uma conta
+    </Link>
+  </Form>
+  <PhoneFormContainer>
+  <PhoneForm
+  formType="signUp"
+  onSubmit={handleSignUp}
+  name={name}
+  setName={setName}
+  email={email}
+  setEmail={setEmail}
+  password={password}
+  setPassword={setPassword}
+/>
+  </PhoneFormContainer>
+  </Container>
+  );
+  }

@@ -5,18 +5,14 @@ import { Button } from '../Button';
 import { useAuth } from "../../hooks/auth"; 
 import { Container } from './styles';
 
-export function PhoneForm({ formType, onSubmit }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export function PhoneForm({ formType, onSubmit, name, setName, email, setEmail, password, setPassword }) {
   const { signIn } = useAuth();
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 770);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 770);
     };
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -30,9 +26,7 @@ export function PhoneForm({ formType, onSubmit }) {
     }
   };
 
-  if (!isMobile) return null; 
-
-  return (
+  return isMobile ? (
     <Container>
       {formType === 'signUp' && (
         <label>Seu nome
@@ -65,5 +59,5 @@ export function PhoneForm({ formType, onSubmit }) {
         {formType === 'signUp' ? "Já tenho uma conta" : "Criar uma conta"}
       </Link>
     </Container>
-  );
+) : null;
 }
